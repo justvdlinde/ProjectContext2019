@@ -9,12 +9,20 @@ ModelImporter:
     100006: mini_torentjes
     100008: muren
     100010: witte_toren
+    100012: kasteel_culemborg_v5
+    100014: witteToren_Top
+    100016: Floor
+    100018: Trims
     400000: bruggen
     400002: //RootNode
     400004: daken
     400006: mini_torentjes
     400008: muren
     400010: witte_toren
+    400012: kasteel_culemborg_v5
+    400014: witteToren_Top
+    400016: Floor
+    400018: Trims
     2100000: BlockoutRoof_mat
     2100002: Blockoutbruggen_mat
     2100004: lambert1
@@ -23,16 +31,25 @@ ModelImporter:
     2300004: mini_torentjes
     2300006: muren
     2300008: witte_toren
+    2300010: witteToren_Top
+    2300012: Floor
+    2300014: Trims
     3300000: bruggen
     3300002: daken
     3300004: mini_torentjes
     3300006: muren
     3300008: witte_toren
+    3300010: witteToren_Top
+    3300012: Floor
+    3300014: Trims
     4300000: daken
     4300002: bruggen
     4300004: mini_torentjes
     4300006: witte_toren
     4300008: muren
+    4300010: witteToren_Top
+    4300012: Trims
+    4300014: Floor
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -72,7 +89,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    swapUVChannels: 0
+    swapUVChannels: 1
     generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
