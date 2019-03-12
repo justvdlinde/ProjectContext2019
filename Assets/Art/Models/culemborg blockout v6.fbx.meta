@@ -1,0 +1,943 @@
+fileFormatVersion: 2
+guid: 1e3e365f5d6265448830303a8cb002d5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ander_stukje
+    100002: bij_toren
+    100004: bij_toren1
+    100006: bijding
+    100008: bijding 1
+    100010: bijding 10
+    100012: bijding 2
+    100014: bijding 3
+    100016: bijding 4
+    100018: bijding 5
+    100020: bijding 6
+    100022: bijding 7
+    100024: bijding 8
+    100026: bijding 9
+    100028: bijding_dak
+    100030: bijding_dak 1
+    100032: bijding_dak 2
+    100034: bijding_dak 3
+    100036: bijding_dak 4
+    100038: bijding_dak 5
+    100040: bijding_dak 6
+    100042: bijding_dak 7
+    100044: bijding_dak 8
+    100046: bijding_dak 9
+    100048: bijding_klein
+    100050: bijding_klein1
+    100052: bijding_klein10
+    100054: bijding_klein11
+    100056: bijding_klein12
+    100058: bijding_klein13
+    100060: bijding_klein14
+    100062: bijding_klein15
+    100064: bijding_klein9
+    100066: brug3
+    100068: brug4
+    100070: brug5
+    100072: brug_4
+    100074: brug_5
+    100076: ca_1370_1372
+    100078: ca_1390_1426
+    100080: ca_1525_1566
+    100082: ca_1526
+    100084: //RootNode
+    100086: dak
+    100088: dak 1
+    100090: dak10
+    100092: dak11
+    100094: dak12
+    100096: dak13
+    100098: dak14
+    100100: dak2
+    100102: dak3
+    100104: dak4
+    100106: dak6
+    100108: dak7
+    100110: dak8
+    100112: dak9
+    100114: dakgevel
+    100116: dakgevel1
+    100118: dakgevel2
+    100120: dakgevel3
+    100122: dakgevel4
+    100124: dakgevel5
+    100126: dakgevel6
+    100128: dakgevel7
+    100130: dakgevel8
+    100132: dakgevel9
+    100134: dakgevels1
+    100136: dakkapel
+    100138: dakrand
+    100140: dakrand1
+    100142: dakrand10
+    100144: dakrand11
+    100146: dakrand12
+    100148: dakrand13
+    100150: dakrand14
+    100152: dakrand15
+    100154: dakrand2
+    100156: dakrand3
+    100158: dakrand4
+    100160: dakrand5
+    100162: dakrand6
+    100164: dakrand7
+    100166: dakrand8
+    100168: dakrand9
+    100170: dakranden1
+    100172: E_muur
+    100174: E_muur 1
+    100176: E_muur 2
+    100178: E_muur1
+    100180: E_muur2
+    100182: E_muur3
+    100184: gebouw
+    100186: gebouw1
+    100188: gebouw2
+    100190: gebouw4
+    100192: gebouw5
+    100194: gebouw6
+    100196: hoekstukje
+    100198: N_muur
+    100200: N_muur 1
+    100202: NE_blokje
+    100204: NE_blokje_extra_ding
+    100206: NE_muur
+    100208: NE_muur 1
+    100210: NE_muur1
+    100212: NE_muur_dak
+    100214: NE_muur_dakrand
+    100216: nederhof1
+    100218: NW_muur
+    100220: NW_muur1
+    100222: pCone1
+    100224: pCone2
+    100226: pCone2 1
+    100228: pCone2 2
+    100230: pCone2 3
+    100232: pCone2 4
+    100234: pCone2 5
+    100236: pCone2 6
+    100238: pCone2 7
+    100240: pCube1
+    100242: pCube2
+    100244: pCube3
+    100246: pCube4
+    100248: pCube6
+    100250: pCube7
+    100252: pCube8
+    100254: pCube9
+    100256: pCylinder1
+    100258: plein
+    100260: plein2
+    100262: polySurface1
+    100264: polySurface2
+    100266: polySurface3
+    100268: polySurface4
+    100270: polySurface5
+    100272: polySurface7
+    100274: polySurface8
+    100276: put
+    100278: rafelrandje
+    100280: rand
+    100282: rand1
+    100284: rand2
+    100286: rand3
+    100288: rand4
+    100290: rand5
+    100292: rand6
+    100294: rand7
+    100296: rand8
+    100298: randje
+    100300: randje1
+    100302: randje2
+    100304: ronde_toren
+    100306: ronde_toren1
+    100308: ronde_toren_dak
+    100310: ronde_toren_dakrand
+    100312: S_muur
+    100314: S_muur 1
+    100316: S_muur1
+    100318: SE_muur
+    100320: stukje
+    100322: stukje_muur1
+    100324: SW_muur
+    100326: SW_muur1
+    100328: torentje_ding
+    100330: torentje_ding1
+    100332: torentje_ding2
+    100334: torentje_ding3
+    100336: torentje_ding4
+    100338: torentje_ding5
+    100340: torentje_ding6
+    100342: torentje_ding7
+    100344: vierkantetoren_dakrand
+    100346: voor_1327
+    100348: voor_1328
+    100350: W_muur
+    100352: W_muur 1
+    100354: W_muur1
+    100356: water_rand
+    100358: water_rand1
+    100360: witte_toren
+    100362: witte_toren1
+    100364: witte_toren_dingen
+    100366: witte_toren_dingen 1
+    100368: witte_toren_rand
+    400000: ander_stukje
+    400002: bij_toren
+    400004: bij_toren1
+    400006: bijding
+    400008: bijding 1
+    400010: bijding 10
+    400012: bijding 2
+    400014: bijding 3
+    400016: bijding 4
+    400018: bijding 5
+    400020: bijding 6
+    400022: bijding 7
+    400024: bijding 8
+    400026: bijding 9
+    400028: bijding_dak
+    400030: bijding_dak 1
+    400032: bijding_dak 2
+    400034: bijding_dak 3
+    400036: bijding_dak 4
+    400038: bijding_dak 5
+    400040: bijding_dak 6
+    400042: bijding_dak 7
+    400044: bijding_dak 8
+    400046: bijding_dak 9
+    400048: bijding_klein
+    400050: bijding_klein1
+    400052: bijding_klein10
+    400054: bijding_klein11
+    400056: bijding_klein12
+    400058: bijding_klein13
+    400060: bijding_klein14
+    400062: bijding_klein15
+    400064: bijding_klein9
+    400066: brug3
+    400068: brug4
+    400070: brug5
+    400072: brug_4
+    400074: brug_5
+    400076: ca_1370_1372
+    400078: ca_1390_1426
+    400080: ca_1525_1566
+    400082: ca_1526
+    400084: //RootNode
+    400086: dak
+    400088: dak 1
+    400090: dak10
+    400092: dak11
+    400094: dak12
+    400096: dak13
+    400098: dak14
+    400100: dak2
+    400102: dak3
+    400104: dak4
+    400106: dak6
+    400108: dak7
+    400110: dak8
+    400112: dak9
+    400114: dakgevel
+    400116: dakgevel1
+    400118: dakgevel2
+    400120: dakgevel3
+    400122: dakgevel4
+    400124: dakgevel5
+    400126: dakgevel6
+    400128: dakgevel7
+    400130: dakgevel8
+    400132: dakgevel9
+    400134: dakgevels1
+    400136: dakkapel
+    400138: dakrand
+    400140: dakrand1
+    400142: dakrand10
+    400144: dakrand11
+    400146: dakrand12
+    400148: dakrand13
+    400150: dakrand14
+    400152: dakrand15
+    400154: dakrand2
+    400156: dakrand3
+    400158: dakrand4
+    400160: dakrand5
+    400162: dakrand6
+    400164: dakrand7
+    400166: dakrand8
+    400168: dakrand9
+    400170: dakranden1
+    400172: E_muur
+    400174: E_muur 1
+    400176: E_muur 2
+    400178: E_muur1
+    400180: E_muur2
+    400182: E_muur3
+    400184: gebouw
+    400186: gebouw1
+    400188: gebouw2
+    400190: gebouw4
+    400192: gebouw5
+    400194: gebouw6
+    400196: hoekstukje
+    400198: N_muur
+    400200: N_muur 1
+    400202: NE_blokje
+    400204: NE_blokje_extra_ding
+    400206: NE_muur
+    400208: NE_muur 1
+    400210: NE_muur1
+    400212: NE_muur_dak
+    400214: NE_muur_dakrand
+    400216: nederhof1
+    400218: NW_muur
+    400220: NW_muur1
+    400222: pCone1
+    400224: pCone2
+    400226: pCone2 1
+    400228: pCone2 2
+    400230: pCone2 3
+    400232: pCone2 4
+    400234: pCone2 5
+    400236: pCone2 6
+    400238: pCone2 7
+    400240: pCube1
+    400242: pCube2
+    400244: pCube3
+    400246: pCube4
+    400248: pCube6
+    400250: pCube7
+    400252: pCube8
+    400254: pCube9
+    400256: pCylinder1
+    400258: plein
+    400260: plein2
+    400262: polySurface1
+    400264: polySurface2
+    400266: polySurface3
+    400268: polySurface4
+    400270: polySurface5
+    400272: polySurface7
+    400274: polySurface8
+    400276: put
+    400278: rafelrandje
+    400280: rand
+    400282: rand1
+    400284: rand2
+    400286: rand3
+    400288: rand4
+    400290: rand5
+    400292: rand6
+    400294: rand7
+    400296: rand8
+    400298: randje
+    400300: randje1
+    400302: randje2
+    400304: ronde_toren
+    400306: ronde_toren1
+    400308: ronde_toren_dak
+    400310: ronde_toren_dakrand
+    400312: S_muur
+    400314: S_muur 1
+    400316: S_muur1
+    400318: SE_muur
+    400320: stukje
+    400322: stukje_muur1
+    400324: SW_muur
+    400326: SW_muur1
+    400328: torentje_ding
+    400330: torentje_ding1
+    400332: torentje_ding2
+    400334: torentje_ding3
+    400336: torentje_ding4
+    400338: torentje_ding5
+    400340: torentje_ding6
+    400342: torentje_ding7
+    400344: vierkantetoren_dakrand
+    400346: voor_1327
+    400348: voor_1328
+    400350: W_muur
+    400352: W_muur 1
+    400354: W_muur1
+    400356: water_rand
+    400358: water_rand1
+    400360: witte_toren
+    400362: witte_toren1
+    400364: witte_toren_dingen
+    400366: witte_toren_dingen 1
+    400368: witte_toren_rand
+    2100000: Blockoutbruggen_mat
+    2100002: lambert1
+    2100004: Blockoutwalls_mat
+    2100006: BlockoutRoof_mat
+    2100008: Default_Material
+    2300000: ander_stukje
+    2300002: bij_toren
+    2300004: bij_toren1
+    2300006: bijding
+    2300008: bijding 1
+    2300010: bijding 10
+    2300012: bijding 2
+    2300014: bijding 3
+    2300016: bijding 4
+    2300018: bijding 5
+    2300020: bijding 6
+    2300022: bijding 8
+    2300024: bijding 9
+    2300026: bijding_dak
+    2300028: bijding_dak 1
+    2300030: bijding_dak 2
+    2300032: bijding_dak 3
+    2300034: bijding_dak 4
+    2300036: bijding_dak 5
+    2300038: bijding_dak 6
+    2300040: bijding_dak 7
+    2300042: bijding_dak 8
+    2300044: bijding_dak 9
+    2300046: brug3
+    2300048: brug4
+    2300050: brug5
+    2300052: dak
+    2300054: dak 1
+    2300056: dak10
+    2300058: dak11
+    2300060: dak12
+    2300062: dak13
+    2300064: dak14
+    2300066: dak2
+    2300068: dak3
+    2300070: dak4
+    2300072: dak6
+    2300074: dak7
+    2300076: dak8
+    2300078: dak9
+    2300080: dakgevel
+    2300082: dakgevel1
+    2300084: dakgevel2
+    2300086: dakgevel3
+    2300088: dakgevel4
+    2300090: dakgevel5
+    2300092: dakgevel6
+    2300094: dakgevel7
+    2300096: dakgevel8
+    2300098: dakgevel9
+    2300100: dakkapel
+    2300102: dakrand
+    2300104: dakrand1
+    2300106: dakrand10
+    2300108: dakrand11
+    2300110: dakrand12
+    2300112: dakrand13
+    2300114: dakrand14
+    2300116: dakrand15
+    2300118: dakrand2
+    2300120: dakrand3
+    2300122: dakrand4
+    2300124: dakrand5
+    2300126: dakrand6
+    2300128: dakrand7
+    2300130: dakrand8
+    2300132: dakrand9
+    2300134: E_muur
+    2300136: E_muur 1
+    2300138: E_muur 2
+    2300140: E_muur1
+    2300142: E_muur2
+    2300144: E_muur3
+    2300146: gebouw
+    2300148: gebouw1
+    2300150: gebouw2
+    2300152: gebouw4
+    2300154: gebouw5
+    2300156: gebouw6
+    2300158: hoekstukje
+    2300160: N_muur
+    2300162: N_muur 1
+    2300164: NE_blokje
+    2300166: NE_blokje_extra_ding
+    2300168: NE_muur
+    2300170: NE_muur 1
+    2300172: NE_muur1
+    2300174: NE_muur_dak
+    2300176: NE_muur_dakrand
+    2300178: NW_muur
+    2300180: NW_muur1
+    2300182: pCone1
+    2300184: pCone2
+    2300186: pCone2 1
+    2300188: pCone2 2
+    2300190: pCone2 3
+    2300192: pCone2 4
+    2300194: pCone2 5
+    2300196: pCone2 6
+    2300198: pCone2 7
+    2300200: pCube1
+    2300202: pCube2
+    2300204: pCube3
+    2300206: pCube4
+    2300208: pCube6
+    2300210: pCube7
+    2300212: pCube8
+    2300214: pCube9
+    2300216: pCylinder1
+    2300218: plein
+    2300220: plein2
+    2300222: polySurface1
+    2300224: polySurface2
+    2300226: polySurface3
+    2300228: polySurface4
+    2300230: polySurface5
+    2300232: polySurface7
+    2300234: polySurface8
+    2300236: put
+    2300238: rafelrandje
+    2300240: rand
+    2300242: rand1
+    2300244: rand2
+    2300246: rand3
+    2300248: rand4
+    2300250: rand5
+    2300252: rand6
+    2300254: rand7
+    2300256: rand8
+    2300258: randje
+    2300260: randje1
+    2300262: randje2
+    2300264: ronde_toren
+    2300266: ronde_toren1
+    2300268: ronde_toren_dak
+    2300270: ronde_toren_dakrand
+    2300272: S_muur
+    2300274: S_muur 1
+    2300276: S_muur1
+    2300278: SE_muur
+    2300280: stukje
+    2300282: stukje_muur1
+    2300284: SW_muur
+    2300286: SW_muur1
+    2300288: torentje_ding
+    2300290: torentje_ding1
+    2300292: torentje_ding2
+    2300294: torentje_ding3
+    2300296: torentje_ding4
+    2300298: torentje_ding5
+    2300300: torentje_ding6
+    2300302: torentje_ding7
+    2300304: vierkantetoren_dakrand
+    2300306: W_muur
+    2300308: W_muur 1
+    2300310: W_muur1
+    2300312: witte_toren
+    2300314: witte_toren1
+    2300316: witte_toren_rand
+    3300000: ander_stukje
+    3300002: bij_toren
+    3300004: bij_toren1
+    3300006: bijding
+    3300008: bijding 1
+    3300010: bijding 10
+    3300012: bijding 2
+    3300014: bijding 3
+    3300016: bijding 4
+    3300018: bijding 5
+    3300020: bijding 6
+    3300022: bijding 8
+    3300024: bijding 9
+    3300026: bijding_dak
+    3300028: bijding_dak 1
+    3300030: bijding_dak 2
+    3300032: bijding_dak 3
+    3300034: bijding_dak 4
+    3300036: bijding_dak 5
+    3300038: bijding_dak 6
+    3300040: bijding_dak 7
+    3300042: bijding_dak 8
+    3300044: bijding_dak 9
+    3300046: brug3
+    3300048: brug4
+    3300050: brug5
+    3300052: dak
+    3300054: dak 1
+    3300056: dak10
+    3300058: dak11
+    3300060: dak12
+    3300062: dak13
+    3300064: dak14
+    3300066: dak2
+    3300068: dak3
+    3300070: dak4
+    3300072: dak6
+    3300074: dak7
+    3300076: dak8
+    3300078: dak9
+    3300080: dakgevel
+    3300082: dakgevel1
+    3300084: dakgevel2
+    3300086: dakgevel3
+    3300088: dakgevel4
+    3300090: dakgevel5
+    3300092: dakgevel6
+    3300094: dakgevel7
+    3300096: dakgevel8
+    3300098: dakgevel9
+    3300100: dakkapel
+    3300102: dakrand
+    3300104: dakrand1
+    3300106: dakrand10
+    3300108: dakrand11
+    3300110: dakrand12
+    3300112: dakrand13
+    3300114: dakrand14
+    3300116: dakrand15
+    3300118: dakrand2
+    3300120: dakrand3
+    3300122: dakrand4
+    3300124: dakrand5
+    3300126: dakrand6
+    3300128: dakrand7
+    3300130: dakrand8
+    3300132: dakrand9
+    3300134: E_muur
+    3300136: E_muur 1
+    3300138: E_muur 2
+    3300140: E_muur1
+    3300142: E_muur2
+    3300144: E_muur3
+    3300146: gebouw
+    3300148: gebouw1
+    3300150: gebouw2
+    3300152: gebouw4
+    3300154: gebouw5
+    3300156: gebouw6
+    3300158: hoekstukje
+    3300160: N_muur
+    3300162: N_muur 1
+    3300164: NE_blokje
+    3300166: NE_blokje_extra_ding
+    3300168: NE_muur
+    3300170: NE_muur 1
+    3300172: NE_muur1
+    3300174: NE_muur_dak
+    3300176: NE_muur_dakrand
+    3300178: NW_muur
+    3300180: NW_muur1
+    3300182: pCone1
+    3300184: pCone2
+    3300186: pCone2 1
+    3300188: pCone2 2
+    3300190: pCone2 3
+    3300192: pCone2 4
+    3300194: pCone2 5
+    3300196: pCone2 6
+    3300198: pCone2 7
+    3300200: pCube1
+    3300202: pCube2
+    3300204: pCube3
+    3300206: pCube4
+    3300208: pCube6
+    3300210: pCube7
+    3300212: pCube8
+    3300214: pCube9
+    3300216: pCylinder1
+    3300218: plein
+    3300220: plein2
+    3300222: polySurface1
+    3300224: polySurface2
+    3300226: polySurface3
+    3300228: polySurface4
+    3300230: polySurface5
+    3300232: polySurface7
+    3300234: polySurface8
+    3300236: put
+    3300238: rafelrandje
+    3300240: rand
+    3300242: rand1
+    3300244: rand2
+    3300246: rand3
+    3300248: rand4
+    3300250: rand5
+    3300252: rand6
+    3300254: rand7
+    3300256: rand8
+    3300258: randje
+    3300260: randje1
+    3300262: randje2
+    3300264: ronde_toren
+    3300266: ronde_toren1
+    3300268: ronde_toren_dak
+    3300270: ronde_toren_dakrand
+    3300272: S_muur
+    3300274: S_muur 1
+    3300276: S_muur1
+    3300278: SE_muur
+    3300280: stukje
+    3300282: stukje_muur1
+    3300284: SW_muur
+    3300286: SW_muur1
+    3300288: torentje_ding
+    3300290: torentje_ding1
+    3300292: torentje_ding2
+    3300294: torentje_ding3
+    3300296: torentje_ding4
+    3300298: torentje_ding5
+    3300300: torentje_ding6
+    3300302: torentje_ding7
+    3300304: vierkantetoren_dakrand
+    3300306: W_muur
+    3300308: W_muur 1
+    3300310: W_muur1
+    3300312: witte_toren
+    3300314: witte_toren1
+    3300316: witte_toren_rand
+    4300000: polySurface8
+    4300002: polySurface7
+    4300004: polySurface1
+    4300006: polySurface2
+    4300008: polySurface3
+    4300010: polySurface4
+    4300012: polySurface5
+    4300014: dakgevel
+    4300016: dakgevel1
+    4300018: dakgevel2
+    4300020: dakgevel3
+    4300022: dakgevel4
+    4300024: dakgevel5
+    4300026: dakgevel6
+    4300028: dakgevel8
+    4300030: dakgevel9
+    4300032: bijding
+    4300034: bijding_dak
+    4300036: bijding
+    4300038: bijding_dak
+    4300040: bijding
+    4300042: bijding_dak
+    4300044: bijding
+    4300046: bijding_dak
+    4300048: bijding
+    4300050: bijding_dak
+    4300052: bijding
+    4300054: bijding_dak
+    4300056: bijding
+    4300058: bijding_dak
+    4300060: dakrand
+    4300062: dakrand1
+    4300064: dakrand2
+    4300066: ronde_toren_dakrand
+    4300068: dakrand3
+    4300070: dakrand4
+    4300072: dakrand5
+    4300074: dakrand6
+    4300076: dakrand7
+    4300078: dakrand8
+    4300080: dakrand9
+    4300082: vierkantetoren_dakrand
+    4300084: NE_muur_dakrand
+    4300086: dakrand10
+    4300088: dakrand11
+    4300090: dakrand12
+    4300092: dakrand13
+    4300094: dakrand14
+    4300096: dakrand15
+    4300098: bij_toren1
+    4300100: S_muur1
+    4300102: SW_muur1
+    4300104: pCube7
+    4300106: pCube8
+    4300108: pCube9
+    4300110: stukje_muur1
+    4300112: witte_toren1
+    4300114: W_muur1
+    4300116: NW_muur1
+    4300118: ronde_toren1
+    4300120: NE_muur1
+    4300122: E_muur1
+    4300124: E_muur2
+    4300126: E_muur3
+    4300128: brug5
+    4300130: brug3
+    4300132: brug4
+    4300134: plein2
+    4300136: gebouw
+    4300138: gebouw2
+    4300140: dak12
+    4300142: gebouw4
+    4300144: dak10
+    4300146: dak
+    4300148: gebouw1
+    4300150: dak9
+    4300152: dak11
+    4300154: gebouw5
+    4300156: dak13
+    4300158: gebouw6
+    4300160: pCube4
+    4300162: dak14
+    4300164: torentje_ding2
+    4300166: pCone2
+    4300168: torentje_ding1
+    4300170: pCone2
+    4300172: torentje_ding
+    4300174: pCone2
+    4300176: plein
+    4300178: put
+    4300180: pCube6
+    4300182: randje
+    4300184: randje1
+    4300186: randje2
+    4300188: rand
+    4300190: rand1
+    4300192: rand2
+    4300194: rand3
+    4300196: rand4
+    4300198: rand5
+    4300200: rand6
+    4300202: rand7
+    4300204: rand8
+    4300206: rafelrandje
+    4300208: dakgevel7
+    4300210: torentje_ding6
+    4300212: pCone2
+    4300214: dakkapel
+    4300216: bijding
+    4300218: bijding_dak
+    4300220: bijding
+    4300222: bijding_dak
+    4300224: torentje_ding7
+    4300226: pCone2
+    4300228: bijding
+    4300230: bijding_dak
+    4300232: bij_toren
+    4300234: dak3
+    4300236: dak4
+    4300238: pCube1
+    4300240: pCube2
+    4300242: pCube3
+    4300244: dak6
+    4300246: dak7
+    4300248: dak8
+    4300250: pCone1
+    4300252: pCylinder1
+    4300254: E_muur
+    4300256: N_muur
+    4300258: dak2
+    4300260: W_muur
+    4300262: S_muur
+    4300264: E_muur
+    4300266: N_muur
+    4300268: dak
+    4300270: hoekstukje
+    4300272: SE_muur
+    4300274: stukje
+    4300276: NE_muur
+    4300278: W_muur
+    4300280: NW_muur
+    4300282: ronde_toren
+    4300284: ronde_toren_dak
+    4300286: NE_muur_dak
+    4300288: E_muur
+    4300290: SW_muur
+    4300292: witte_toren
+    4300294: NE_blokje_extra_ding
+    4300296: NE_blokje
+    4300298: NE_muur
+    4300300: S_muur
+    4300302: ander_stukje
+    4300304: witte_toren_rand
+    4300306: torentje_ding3
+    4300308: pCone2
+    4300310: torentje_ding4
+    4300312: pCone2
+    4300314: torentje_ding5
+    4300316: pCone2
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
