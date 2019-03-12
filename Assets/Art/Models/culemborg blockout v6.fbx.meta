@@ -855,7 +855,17 @@ ModelImporter:
     4300312: pCone2
     4300314: torentje_ding5
     4300316: pCone2
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlockoutRoof_mat
+    second: {fileID: 2100000, guid: c6f0f06a5e8021049830c0fec0f9764e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blockoutwalls_mat
+    second: {fileID: 2100000, guid: ece7b90c979479944ae8da5587e3afb9, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
