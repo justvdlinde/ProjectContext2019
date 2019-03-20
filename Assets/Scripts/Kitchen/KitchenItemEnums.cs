@@ -1,6 +1,6 @@
 ﻿public enum KitchenItem
 {
-    Apple,
-    Wine,
+    Appel,
+    Wijn,
     Hertenvlees
 }
