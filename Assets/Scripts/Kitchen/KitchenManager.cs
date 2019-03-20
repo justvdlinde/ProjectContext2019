@@ -1,31 +1,41 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class KitchenManager : MonoBehaviour
 {
-    [SerializeField] private ScreenInput input;
+    public Action<KitchenItemObject> NewItemAddedEvent;
+    public Action AcquiredAllNeededItemsEvent;
 
     [SerializeField] private KitchenItemAmount[] neededItems;
-    public KitchenItemAmount[] NeededItems => neededItems;
+    [SerializeField] private Trigger trigger;
 
-    public Dictionary<KitchenItemObject, int> collectedItemsAmountPair = new Dictionary<KitchenItemObject, int>();
+    public Dictionary<KitchenItemObject, int> collectedItemsDict = new Dictionary<KitchenItemObject, int>();
+    public Dictionary<KitchenItemObject, int> NeededItemsDict { get; private set; }
 
-    private void OnEnable()
+    private void Start()
     {
-        input.InteractedWithObjectEvent += OnInteractedWithObjectEvent;
-    }
-
-    private void OnDisable()
-    {
-        input.InteractedWithObjectEvent -= OnInteractedWithObjectEvent;
-    }
-
-    private void OnInteractedWithObjectEvent(IInteractable interactable)
-    {
-        if(interactable is KitchenItemPickup)
+        NeededItemsDict = new Dictionary<KitchenItemObject, int>();
+        foreach(KitchenItemAmount item in neededItems)
         {
-            AddItem(interactable as KitchenItemPickup);
+            NeededItemsDict.Add(item.item, item.amount);
+        }
+
+        trigger.TriggerEnterEvent += OnTriggerEnterEvent; 
+    }
+
+    private void OnDestroy()
+    {
+        trigger.TriggerEnterEvent -= OnTriggerEnterEvent;
+    }
+
+    private void OnTriggerEnterEvent(Collider other)
+    {
+        KitchenItemPickup kitchenItem = other.GetComponent<KitchenItemPickup>();
+
+        if (kitchenItem != null)
+        {
+            AddItem(kitchenItem);
         }
     }
 
@@ -33,23 +43,46 @@ public class KitchenManager : MonoBehaviour
     {
         KitchenItemObject obj = item.InventoryObject;
 
-        if (collectedItemsAmountPair.ContainsKey(obj))
+        if (collectedItemsDict.ContainsKey(obj))
         {
-            collectedItemsAmountPair[obj]++;
+            collectedItemsDict[obj]++;
         }
         else
         {
-            collectedItemsAmountPair.Add(obj, 1);
+            collectedItemsDict.Add(obj, 1);
         }
 
-        foreach (KeyValuePair<KitchenItemObject, int> kvp in collectedItemsAmountPair)
+        NewItemAddedEvent?.Invoke(obj);
+
+        Destroy(item.gameObject);
+
+        if(AcquiredAllNeededItems())
         {
-            Debug.Log(kvp.Key.item + " amount " + kvp.Value);
+            AcquiredAllNeededItemsEvent?.Invoke();
+            Debug.Log("Acquired all needed items");
         }
+    }
+
+    private bool AcquiredAllNeededItems()
+    {
+        foreach(KeyValuePair<KitchenItemObject, int> item in NeededItemsDict)
+        {
+            if(!collectedItemsDict.ContainsKey(item.Key))
+            {
+                return false;
+            }
+
+            if(collectedItemsDict[item.Key] < item.Value)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
 
-[System.Serializable]
+[Serializable]
 public class KitchenItemAmount
 {
     public KitchenItemObject item;
