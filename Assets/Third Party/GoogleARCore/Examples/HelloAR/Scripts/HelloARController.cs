@@ -78,6 +78,8 @@ namespace GoogleARCore.Examples.HelloAR
         /// </summary>
         private bool m_IsQuitting = false;
 
+        private GameObject portalInstance;
+
         /// <summary>
         /// The Unity Update() method.
         /// </summary>
@@ -116,11 +118,18 @@ namespace GoogleARCore.Examples.HelloAR
                     Debug.Log("Hit at back of the current DetectedPlane");
                 } else {
                     // Choose the Andy model for the Trackable that got hit.
-                    GameObject prefab;
-                    if(hit.Trackable is FeaturePoint) {
+                    GameObject prefab = null;
+                    if(hit.Trackable is FeaturePoint )
+                    {
                         prefab = AndyPointPrefab;
-                    } else {
+                    }
+                    else if(portalInstance == null)
+                    {
                         prefab = AndyPlanePrefab;
+                    }
+                    else
+                    {
+                        return;
                     }
 
                     // Instantiate Andy model at the hit pose.
@@ -136,6 +145,8 @@ namespace GoogleARCore.Examples.HelloAR
                     prefab.transform.LookAt(cameraposition, prefab.transform.up);
 
                     prefab.transform.parent = anchor.transform;
+
+                    portalInstance = prefab;
                 }
             }
         }
