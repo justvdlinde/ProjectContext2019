@@ -12,8 +12,8 @@ public class LevitationManager : MonoBehaviour
     private bool isCarrying;
     private ILevitatable carriedObject;
     private Vector2 touchOrigin;
-    private RaycastHit hit;
-    private Ray ray;
+    private RaycastHit pickupHit;
+    private Ray pickupRay;
 
     private void Update()
     {
@@ -30,11 +30,11 @@ public class LevitationManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                pickupRay = Camera.main.ScreenPointToRay(Input.mousePosition);
                 
-                if (Physics.Raycast(ray, out hit, rayDistance))
+                if (Physics.Raycast(pickupRay, out pickupHit, rayDistance))
                 {
-                    ILevitatable obj = hit.transform.gameObject.GetInterface<ILevitatable>();
+                    ILevitatable obj = pickupHit.transform.gameObject.GetInterface<ILevitatable>();
                     if (obj != null)
                     {
                         Pickup(obj);
@@ -61,11 +61,22 @@ public class LevitationManager : MonoBehaviour
 
         //gObject.Rigidbody.transform.position = Vector3.Lerp(gObject.Rigidbody.transform.position, carryTarget.position, Time.deltaTime * followSpeed);
         gObject.Rigidbody.transform.rotation = Quaternion.Slerp(gObject.Rigidbody.transform.rotation, carryTarget.rotation, Time.deltaTime * followSpeed);
+
+        //if(CarriedObjectIsHindered())
+        //{
+        //    Drop();
+        //}
+    }
+
+    private bool CarriedObjectIsHindered()
+    {
+        RaycastHit hit;
+        return !Physics.Raycast(carryTarget.position, carryTarget.position - carriedObject.Rigidbody.position, out hit);
     }
 
     private void Drop()
     {
-        carriedObject.DestroyEvent += OnCarriedObjectDestroyEvent;
+        carriedObject.DestroyEvent -= OnCarriedObjectDestroyEvent;
         carriedObject.OnLevitateStop(this);
 
         isCarrying = false;

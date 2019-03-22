@@ -1,15 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class KitchenItemPickup : LevitationObject
+[RequireComponent(typeof(Collider))]
+public class KitchenItemPickup : MonoBehaviour, IInteractable
 {
     [SerializeField] private KitchenItemObject inventoryObject;
     public KitchenItemObject InventoryObject => inventoryObject;
 
-    protected override void OnValidate()
+    private void OnValidate()
     {
-        base.OnValidate();
-    
         name = "Item: " + inventoryObject.item.ToString();
+    }
+
+    public void Interact()
+    {
+        Destroy(gameObject);
     }
 }
