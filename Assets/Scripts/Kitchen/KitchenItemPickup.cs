@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider))]
 public class KitchenItemPickup : LevitationObject
 {
     [SerializeField] private KitchenItemObject inventoryObject;
