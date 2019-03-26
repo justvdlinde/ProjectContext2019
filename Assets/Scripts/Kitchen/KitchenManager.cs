@@ -9,13 +9,8 @@ public class KitchenManager : MonoBehaviour
 
     public Dictionary<KitchenItemObject, int> collectedItemsAmountPair = new Dictionary<KitchenItemObject, int>();
 
-    private Trigger trigger;
-
-    private void OnValidate()
-    {
-        trigger = GetComponentInChildren<Trigger>();
-    }
-
+    [SerializeField] private Trigger trigger;
+    
     private void OnEnable()
     {
         trigger.TriggerEnterEvent += OnTriggerEnterEvent;

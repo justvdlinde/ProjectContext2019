@@ -19,6 +19,8 @@ public class LevitationManager : MonoBehaviour
     {
         if (isCarrying)
         {
+            // TODO: if object is hindered, Drop();
+
             Carry(carriedObject);
 
             if (Input.GetMouseButtonDown(0))
@@ -47,11 +49,12 @@ public class LevitationManager : MonoBehaviour
     private void Pickup(ILevitatable gObject)
     {
         carriedObject = gObject;
+        isCarrying = true;
         gObject.DestroyEvent += OnCarriedObjectDestroyEvent;
         gObject.OnLevitateStart(this);
 
-        isCarrying = true;
         carriedObject.Rigidbody.useGravity = false;
+        carriedObject.Rigidbody.isKinematic = true;
     }
 
     private void Carry(ILevitatable gObject)
@@ -59,13 +62,8 @@ public class LevitationManager : MonoBehaviour
         Vector3 pos = Vector3.Lerp(gObject.Rigidbody.transform.position, carryTarget.position, Time.deltaTime * followSpeed);
         gObject.Rigidbody.MovePosition(pos);
 
-        //gObject.Rigidbody.transform.position = Vector3.Lerp(gObject.Rigidbody.transform.position, carryTarget.position, Time.deltaTime * followSpeed);
+        gObject.Rigidbody.transform.position = Vector3.Lerp(gObject.Rigidbody.transform.position, carryTarget.position, Time.deltaTime * followSpeed);
         gObject.Rigidbody.transform.rotation = Quaternion.Slerp(gObject.Rigidbody.transform.rotation, carryTarget.rotation, Time.deltaTime * followSpeed);
-
-        //if(CarriedObjectIsHindered())
-        //{
-        //    Drop();
-        //}
     }
 
     private bool CarriedObjectIsHindered()
@@ -79,8 +77,10 @@ public class LevitationManager : MonoBehaviour
         carriedObject.DestroyEvent -= OnCarriedObjectDestroyEvent;
         carriedObject.OnLevitateStop(this);
 
-        isCarrying = false;
         carriedObject.Rigidbody.useGravity = true;
+        carriedObject.Rigidbody.isKinematic = false;
+
+        isCarrying = false;
         carriedObject = null;
     }
 
