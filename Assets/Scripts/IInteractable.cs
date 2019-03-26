@@ -1,4 +1,4 @@
-﻿public interface IInteractable
+﻿public interface ICollectable
 {
-    void Interact();
+    void Collect();
 }

@@ -4,28 +4,35 @@ using UnityEngine;
 
 public class KitchenManager : MonoBehaviour
 {
-    [SerializeField] private ScreenInput input;
-
     [SerializeField] private KitchenItemAmount[] neededItems;
     public KitchenItemAmount[] NeededItems => neededItems;
 
     public Dictionary<KitchenItemObject, int> collectedItemsAmountPair = new Dictionary<KitchenItemObject, int>();
 
+    private Trigger trigger;
+
+    private void OnValidate()
+    {
+        trigger = GetComponentInChildren<Trigger>();
+    }
+
     private void OnEnable()
     {
-        input.InteractedWithObjectEvent += OnInteractedWithObjectEvent;
+        trigger.TriggerEnterEvent += OnTriggerEnterEvent;
     }
 
     private void OnDisable()
     {
-        input.InteractedWithObjectEvent -= OnInteractedWithObjectEvent;
+        trigger.TriggerEnterEvent -= OnTriggerEnterEvent;
     }
 
-    private void OnInteractedWithObjectEvent(IInteractable interactable)
+    private void OnTriggerEnterEvent(Collider collider)
     {
-        if(interactable is KitchenItemPickup)
+        KitchenItemPickup pickup = collider.GetComponent<KitchenItemPickup>();
+        if(pickup != null)
         {
-            AddItem(interactable as KitchenItemPickup);
+            AddItem(pickup);
+            pickup.Collect();
         }
     }
 
@@ -42,10 +49,10 @@ public class KitchenManager : MonoBehaviour
             collectedItemsAmountPair.Add(obj, 1);
         }
 
-        foreach (KeyValuePair<KitchenItemObject, int> kvp in collectedItemsAmountPair)
-        {
-            Debug.Log(kvp.Key.item + " amount " + kvp.Value);
-        }
+        //foreach (KeyValuePair<KitchenItemObject, int> kvp in collectedItemsAmountPair)
+        //{
+        //    Debug.Log(kvp.Key.item + " amount " + kvp.Value);
+        //}
     }
 }
 

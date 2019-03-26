@@ -8,7 +8,7 @@ public class ScreenInput : MonoBehaviour
     private Vector2 touchOrigin;
     private RaycastHit hit;
 
-    public Action<IInteractable> InteractedWithObjectEvent;
+    public Action<ICollectable> InteractedWithObjectEvent;
 
     private void Update()
     {
@@ -18,7 +18,7 @@ public class ScreenInput : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, touchLength))
             {
-                IInteractable interactable = hit.transform.gameObject.GetInterface<IInteractable>();
+                ICollectable interactable = hit.transform.gameObject.GetInterface<ICollectable>();
                 if (interactable != null)
                 {
                     InteractableObjectHit(interactable);
@@ -27,9 +27,8 @@ public class ScreenInput : MonoBehaviour
         }
     }
 
-    private void InteractableObjectHit(IInteractable interactable)
+    private void InteractableObjectHit(ICollectable interactable)
     {
-        interactable.Interact();
         InteractedWithObjectEvent?.Invoke(interactable);
     }
 }

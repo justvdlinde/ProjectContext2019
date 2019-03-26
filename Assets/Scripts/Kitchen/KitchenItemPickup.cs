@@ -4,17 +4,19 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
-public class KitchenItemPickup : MonoBehaviour, IInteractable
+public class KitchenItemPickup : LevitationObject, ICollectable
 {
     [SerializeField] private KitchenItemObject inventoryObject;
     public KitchenItemObject InventoryObject => inventoryObject;
 
-    private void OnValidate()
+    protected override void OnValidate()
     {
+        base.OnValidate();
+
         name = "Item: " + inventoryObject.item.ToString();
     }
 
-    public void Interact()
+    public void Collect()
     {
         Destroy(gameObject);
     }
