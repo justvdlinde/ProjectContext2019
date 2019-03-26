@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public class PortalManager : MonoBehaviour
 {
-    [SerializeField] private GameObject portal;
-    [SerializeField] private GameObject environment;
+    [SerializeField] private GameObject sceneToLoad;
 
     private void OnTriggerEnter(Collider collider) {
-        environment.SetActive(true);
+        Debug.Log(sceneToLoad);
+        if(sceneToLoad != null) {
+            sceneToLoad.SetActive(true);
+        }
     }
 }
