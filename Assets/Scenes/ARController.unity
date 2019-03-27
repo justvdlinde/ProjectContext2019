@@ -310,6 +310,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 3, z: 1}
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!4 &329381533 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9043152929871840837, guid: b4da643a8ffc7a44e8d3e29d6327de08,
+    type: 3}
+  m_PrefabInstance: {fileID: 9043152929580298463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &336948332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1637996540812124, guid: c10877f7cd5764de18d46d7b777d1faa,
@@ -806,7 +812,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 329381533}
     m_Modifications:
     - target: {fileID: 7287293695733695312, guid: 336b5be97db974d4eb008d14342c43af,
         type: 3}
@@ -826,7 +832,7 @@ PrefabInstance:
     - target: {fileID: 7629940344361808667, guid: 336b5be97db974d4eb008d14342c43af,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: 7629940344361808667, guid: 336b5be97db974d4eb008d14342c43af,
         type: 3}
@@ -836,17 +842,17 @@ PrefabInstance:
     - target: {fileID: 7629940344361808667, guid: 336b5be97db974d4eb008d14342c43af,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7629940344361808667, guid: 336b5be97db974d4eb008d14342c43af,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7629940344361808667, guid: 336b5be97db974d4eb008d14342c43af,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7629940344361808667, guid: 336b5be97db974d4eb008d14342c43af,
         type: 3}
@@ -856,7 +862,7 @@ PrefabInstance:
     - target: {fileID: 7629940344361808667, guid: 336b5be97db974d4eb008d14342c43af,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7629940344361808667, guid: 336b5be97db974d4eb008d14342c43af,
         type: 3}
@@ -872,6 +878,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629940344361808667, guid: 336b5be97db974d4eb008d14342c43af,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629940344361808667, guid: 336b5be97db974d4eb008d14342c43af,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629940344361808667, guid: 336b5be97db974d4eb008d14342c43af,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 336b5be97db974d4eb008d14342c43af, type: 3}
@@ -1245,12 +1266,12 @@ PrefabInstance:
     - target: {fileID: 9043152929871840838, guid: b4da643a8ffc7a44e8d3e29d6327de08,
         type: 3}
       propertyPath: m_Name
-      value: Portal
+      value: Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 9043152929871840838, guid: b4da643a8ffc7a44e8d3e29d6327de08,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9043152929871840837, guid: b4da643a8ffc7a44e8d3e29d6327de08,
         type: 3}
@@ -1317,6 +1338,31 @@ PrefabInstance:
       propertyPath: sceneToLoad
       value: 
       objectReference: {fileID: 1351598032}
+    - target: {fileID: 9043152929716273354, guid: b4da643a8ffc7a44e8d3e29d6327de08,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043152929716273354, guid: b4da643a8ffc7a44e8d3e29d6327de08,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043152929716273354, guid: b4da643a8ffc7a44e8d3e29d6327de08,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043152929716273354, guid: b4da643a8ffc7a44e8d3e29d6327de08,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.463
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043152929716051178, guid: b4da643a8ffc7a44e8d3e29d6327de08,
+        type: 3}
+      propertyPath: m_Name
+      value: Portal
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2357385526408069283, guid: b4da643a8ffc7a44e8d3e29d6327de08, type: 3}
     - {fileID: 8447121214965994629, guid: b4da643a8ffc7a44e8d3e29d6327de08, type: 3}
