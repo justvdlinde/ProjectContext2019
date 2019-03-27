@@ -48,7 +48,7 @@ namespace GoogleARCore.Examples.HelloAR
         /// <summary>
         /// A model to place when a raycast from a user touch hits a plane.
         /// </summary>
-        public GameObject AndyPlanePrefab;
+        public GameObject spawnPrefab;
 
         /// <summary>
         /// A model to place when a raycast from a user touch hits a feature point.
@@ -123,9 +123,9 @@ namespace GoogleARCore.Examples.HelloAR
                     {
                         prefab = AndyPointPrefab;
                     }
-                    else if(portalInstance == null)
+                    else if(portalInstance == null || !portalInstance.gameObject.activeInHierarchy)
                     {
-                        prefab = AndyPlanePrefab;
+                        prefab = spawnPrefab;
                     }
                     else
                     {
