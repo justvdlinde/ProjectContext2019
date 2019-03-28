@@ -11,7 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARController.unity
     guid: e6a6fa04348cb45c9b0221eb19c946da
-  - enabled: 1
-    path: Assets/Scenes/Kitchen_V1.unity
-    guid: 413182f57ed78944c80bfeee65195198
   m_configObjects: {}

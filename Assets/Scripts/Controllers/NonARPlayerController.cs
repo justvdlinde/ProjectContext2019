@@ -9,7 +9,7 @@ public class NonARPlayerController : MonoBehaviour
 
     private void Start() {
         moveSpeed = 5f;
-        rotateSpeed = 20f;
+        rotateSpeed = 50f;
     }
 
     void Update() {
