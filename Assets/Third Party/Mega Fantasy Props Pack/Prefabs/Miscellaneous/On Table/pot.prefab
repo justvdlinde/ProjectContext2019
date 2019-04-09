@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3384082}
   - component: {fileID: 2392672}
   - component: {fileID: 1442155557714640142}
-  - component: {fileID: 7433248574270459715}
   - component: {fileID: 305224906527789274}
   m_Layer: 0
   m_Name: pot
@@ -94,22 +93,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.2, z: 0.33360487}
   m_Center: {x: 0, y: 0.11633316, z: 0}
---- !u!54 &7433248574270459715
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177144}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &305224906527789274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,4 +105,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c8548597304994ea895aa4fd43f726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 7433248574270459715}
