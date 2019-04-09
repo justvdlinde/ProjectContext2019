@@ -1,34 +1,48 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// Manager class for handling input and detecting <see cref="IInteractable"/> objects
+/// </summary>
 public class ScreenInput : MonoBehaviour
 {
-    [SerializeField] private float touchLength = 1;
+    [SerializeField] private float rayDistance;
 
-    private Vector2 touchOrigin;
     private RaycastHit hit;
+    private Ray ray;
+    private Vector2 touchOrigin;
 
-    public Action<ICollectable> InteractedWithObjectEvent;
+    public Action<IInteractable> InteractedWithObjectEvent;
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            OnClick();
+        }
+    }
 
-            if (Physics.Raycast(ray, out hit, touchLength))
+    private void OnClick()
+    {
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, rayDistance))
+        {
+            IInteractable obj = hit.transform.gameObject.GetInterface<IInteractable>();
+            if (obj != null)
             {
-                ICollectable interactable = hit.transform.gameObject.GetInterface<ICollectable>();
-                if (interactable != null)
-                {
-                    InteractableObjectHit(interactable);
-                }
+                InteractableObjectHit(obj);
             }
         }
     }
 
-    private void InteractableObjectHit(ICollectable interactable)
+    private void InteractableObjectHit(IInteractable interactable)
     {
         InteractedWithObjectEvent?.Invoke(interactable);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * rayDistance, Color.red);
     }
 }
