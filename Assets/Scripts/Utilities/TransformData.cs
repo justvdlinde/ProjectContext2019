@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Struct for storing Transform data: position, rotation, scale and parent
+/// </summary>
 public struct TransformData 
 {
     public Vector3 position;
