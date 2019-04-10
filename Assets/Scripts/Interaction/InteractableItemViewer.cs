@@ -92,8 +92,6 @@ public class InteractableItemViewer : MonoBehaviour
         interactableItem = null;
         isViewing = false;
         uiRoot.gameObject.SetActive(false);
-
-        input.SetActive(true);
     }
 
     private IEnumerator LerpItemIntoView(IInteractable item)
@@ -140,5 +138,7 @@ public class InteractableItemViewer : MonoBehaviour
         itemTransform.SetFromData(itemOriginalTransformData);
         itemTransform.gameObject.layer = itemOriginalLayer;
         viewerCamera.gameObject.SetActive(false);
+
+        input.SetActive(true);
     }
 }
