@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class for viewing <see cref="InteractableItem"/>s
@@ -10,10 +11,14 @@ public class InteractableItemViewer : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private ScreenInput input;
 
-    [Header("Item vars")]
-    [SerializeField] private Layer viewedItemLayer;
+    [Header("Object References")]
     [SerializeField] private Camera viewerCamera;
     [SerializeField] private Transform viewedItemParent;
+    [SerializeField] private GameObject uiRoot;
+    [SerializeField] private Button closeButton;
+
+    [Header("Fields")]
+    [SerializeField] private Layer viewedItemLayer;
     [SerializeField] private float lerpTime;
 
     private bool isViewing;
@@ -21,14 +26,21 @@ public class InteractableItemViewer : MonoBehaviour
     private TransformData itemOriginalTransformData;
     private int itemOriginalLayer;
 
+    private void Start()
+    {
+        uiRoot.gameObject.SetActive(false);
+    }
+
     private void OnEnable()
     {
         input.InteractedWithObjectEvent += OnInteracedWithObjectEvent;
+        closeButton.onClick.AddListener(OnCloseButtonPressed);
     }
 
     private void OnDisable()
     {
         input.InteractedWithObjectEvent -= OnInteracedWithObjectEvent;
+        closeButton.onClick.RemoveListener(OnCloseButtonPressed);
     }
 
     private void Update()
@@ -37,6 +49,11 @@ public class InteractableItemViewer : MonoBehaviour
         {
             View();
         }
+    }
+
+    private void OnCloseButtonPressed()
+    {
+        StopViewing();
     }
 
     private void OnInteracedWithObjectEvent(IInteractable interactable)
@@ -49,6 +66,8 @@ public class InteractableItemViewer : MonoBehaviour
 
     private void StartViewing(IInteractable interactableItem)
     {
+        input.SetActive(false);
+
         this.interactableItem = interactableItem;
         interactableItem.OnInteractionStart();
 
@@ -56,16 +75,12 @@ public class InteractableItemViewer : MonoBehaviour
 
         viewerCamera.gameObject.SetActive(true);
         isViewing = true;
+        uiRoot.gameObject.SetActive(true);
     }
 
     private void View()
     {
        // object roteren
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            StopViewing();
-        }
     }
 
     private void StopViewing()
@@ -76,6 +91,9 @@ public class InteractableItemViewer : MonoBehaviour
 
         interactableItem = null;
         isViewing = false;
+        uiRoot.gameObject.SetActive(false);
+
+        input.SetActive(true);
     }
 
     private IEnumerator LerpItemIntoView(IInteractable item)
@@ -90,8 +108,10 @@ public class InteractableItemViewer : MonoBehaviour
 
         while (timeRemaining > 0)
         {
-            itemTransform.rotation = Quaternion.Lerp(origin.rotation, viewedItemParent.rotation, (lerpTime - timeRemaining) / lerpTime);
-            itemTransform.position = Vector3.Lerp(origin.position, viewedItemParent.position, (lerpTime - timeRemaining) / lerpTime);
+            float lerp = (lerpTime - timeRemaining) / lerpTime;
+            itemTransform.rotation = Quaternion.Lerp(origin.rotation, viewedItemParent.rotation, lerp);
+            itemTransform.position = Vector3.Lerp(origin.position, viewedItemParent.position, lerp);
+
             timeRemaining -= Time.deltaTime;
             yield return null;
         }
@@ -109,8 +129,10 @@ public class InteractableItemViewer : MonoBehaviour
 
         while (timeRemaining > 0)
         {
-            itemTransform.rotation = Quaternion.Lerp(start.rotation, itemOriginalTransformData.rotation, (lerpTime - timeRemaining) / lerpTime);
-            itemTransform.position = Vector3.Lerp(start.position, itemOriginalTransformData.position, (lerpTime - timeRemaining) / lerpTime);
+            float lerp = (lerpTime - timeRemaining) / lerpTime;
+            itemTransform.rotation = Quaternion.Lerp(start.rotation, itemOriginalTransformData.rotation, lerp);
+            itemTransform.position = Vector3.Lerp(start.position, itemOriginalTransformData.position, lerp);
+
             timeRemaining -= Time.deltaTime;
             yield return null;
         }

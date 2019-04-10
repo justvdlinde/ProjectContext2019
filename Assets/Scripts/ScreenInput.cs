@@ -22,6 +22,11 @@ public class ScreenInput : MonoBehaviour
         }
     }
 
+    public void SetActive(bool active)
+    {
+        enabled = active;
+    }
+
     private void OnClick()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
