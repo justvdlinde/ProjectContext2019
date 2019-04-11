@@ -342,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6181362828249899367}
   m_Layer: 0
-  m_Name: Viewed_Item_Parent
+  m_Name: Item Container
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -493,12 +493,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 0}
   viewerCamera: {fileID: 8408847104198894566}
-  viewedItemParent: {fileID: 6181362828249899367}
+  itemContainer: {fileID: 6181362828249899367}
   uiRoot: {fileID: 1714047837}
   closeButton: {fileID: 3168348269539768237}
   viewedItemLayer:
     m_LayerIndex: 9
   lerpTime: 0.4
+  rotateStrength: 0
 --- !u!1 &5896965959547447921
 GameObject:
   m_ObjectHideFlags: 0
