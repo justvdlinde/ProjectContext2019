@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,17 +9,19 @@ using UnityEngine.UI;
 public class InteractableItemViewer : MonoBehaviour
 {
     [Header("Dependencies")]
-    [SerializeField] private InteractionHandler input;
+    [SerializeField]
+    private InteractionHandler input;
 
     [Header("Object References")]
     [SerializeField] private Camera viewerCamera;
-    [SerializeField] private Transform viewedItemParent;
+    [SerializeField] private Transform itemContainer;
     [SerializeField] private GameObject uiRoot;
     [SerializeField] private Button closeButton;
 
     [Header("Fields")]
     [SerializeField] private Layer viewedItemLayer;
     [SerializeField] private float lerpTime;
+    [SerializeField] private float rotateSpeed;
 
     private bool isViewing;
     private IInteractable interactableItem;
@@ -29,7 +31,7 @@ public class InteractableItemViewer : MonoBehaviour
     private void Start()
     {
         transform.parent = Camera.main.transform;
-
+        
         uiRoot.gameObject.SetActive(false);
     }
 
@@ -47,7 +49,7 @@ public class InteractableItemViewer : MonoBehaviour
 
     private void Update()
     {
-        if(isViewing)
+        if (isViewing)
         {
             View();
         }
@@ -60,20 +62,20 @@ public class InteractableItemViewer : MonoBehaviour
 
     private void OnInteracedWithObjectEvent(IInteractable interactable)
     {
-        if(interactable is InteractableItem)
+        if (interactable is InteractableItem)
         {
             StartViewing(interactable);
         }
     }
 
-    private void StartViewing(IInteractable interactableItem)
+    private void StartViewing(IInteractable item)
     {
         input.SetActive(false);
 
-        this.interactableItem = interactableItem;
-        interactableItem.OnInteractionStart();
+        interactableItem = item;
+        item.OnInteractionStart();
 
-        StartCoroutine(LerpItemIntoView(interactableItem));
+        StartCoroutine(LerpItemIntoView(item));
 
         viewerCamera.gameObject.SetActive(true);
         isViewing = true;
@@ -82,7 +84,20 @@ public class InteractableItemViewer : MonoBehaviour
 
     private void View()
     {
-       // object roteren
+        // TODO: make it work for mobile
+        if (Input.GetMouseButton(0))
+        {
+            Vector3 relativeUp = Camera.main.transform.TransformDirection(Vector3.up);
+            Vector3 relativeRight = Camera.main.transform.TransformDirection(Vector3.right);
+
+            Vector3 objectRelativeUp = itemContainer.transform.InverseTransformDirection(relativeUp);
+            Vector3 objectRelaviveRight = itemContainer.transform.InverseTransformDirection(relativeRight);
+
+            Quaternion rotateBy = Quaternion.AngleAxis(-Input.GetAxis("Mouse X") / itemContainer.transform.localScale.x * rotateSpeed, objectRelativeUp)
+                                * Quaternion.AngleAxis(Input.GetAxis("Mouse Y") / itemContainer.transform.localScale.x * rotateSpeed, objectRelaviveRight);
+
+            itemContainer.rotation = itemContainer.transform.rotation * rotateBy;
+        }
     }
 
     private void StopViewing()
@@ -90,6 +105,7 @@ public class InteractableItemViewer : MonoBehaviour
         StartCoroutine(LerpItemBackToOrigin(interactableItem));
 
         interactableItem.OnInteractionStop();
+        itemContainer.rotation = Quaternion.identity;
 
         interactableItem = null;
         isViewing = false;
@@ -109,14 +125,14 @@ public class InteractableItemViewer : MonoBehaviour
         while (timeRemaining > 0)
         {
             float lerp = (lerpTime - timeRemaining) / lerpTime;
-            itemTransform.rotation = Quaternion.Lerp(origin.rotation, viewedItemParent.rotation, lerp);
-            itemTransform.position = Vector3.Lerp(origin.position, viewedItemParent.position, lerp);
+            itemTransform.rotation = Quaternion.Lerp(origin.rotation, itemContainer.rotation, lerp);
+            itemTransform.position = Vector3.Lerp(origin.position, itemContainer.position, lerp);
 
             timeRemaining -= Time.deltaTime;
             yield return null;
         }
 
-        itemTransform.SetParent(viewedItemParent);
+        itemTransform.SetParent(itemContainer);
         itemTransform.localPosition = Vector3.zero;
         itemTransform.localRotation = Quaternion.identity;
     }
