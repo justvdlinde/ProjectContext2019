@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// Class for viewing <see cref="InteractableItem"/>s
@@ -15,8 +15,12 @@ public class InteractableItemViewer : MonoBehaviour
     [Header("Object References")]
     [SerializeField] private Camera viewerCamera;
     [SerializeField] private Transform itemContainer;
+
+    [Header("UI")]
     [SerializeField] private GameObject uiRoot;
     [SerializeField] private Button closeButton;
+    [SerializeField] private TextMeshProUGUI itemName;
+    [SerializeField] private TextMeshProUGUI itemDescription;
 
     [Header("Fields")]
     [SerializeField] private Layer viewedItemLayer;

@@ -9,19 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65d1cc6bd2368cd4d90826dd9214c864, type: 3}
-  m_Name: New Settings
+  m_Script: {fileID: 11500000, guid: 6b05b65d78de0ce4a98e21927c78a689, type: 3}
+  m_Name: Items
   m_EditorClassIdentifier: 
   SheetName: Context-DB
-  WorksheetName: Settings
+  WorksheetName: Items
   dataArray:
-  - key: ID_ITEM01
-    text: PlayerXP
-    value0: 0
-    value1: 50
-    value2: 100
-  - key: ID_ITEM02
-    text: PlayerGP
-    value0: 0
-    value1: 75
-    value2: 150
+  - id: 0
+    name: Zwaard
+    description: Dit zwaard werd gebruikt in de jaren 1600
+  - id: 0
+    name: Pot
+    description: Potten waren gemaakt van klei

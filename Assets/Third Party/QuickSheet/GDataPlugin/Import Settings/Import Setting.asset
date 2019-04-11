@@ -13,29 +13,21 @@ MonoBehaviour:
   m_Name: New Import Setting
   m_EditorClassIdentifier: 
   templatePath: Third Party/QuickSheet/GDataPlugin/Templates
-  scriptFilePath: Data/Runtime
-  editorScriptFilePath: Editor/QuickSheet
+  scriptFilePath: Scripts/Database/Runtime
+  editorScriptFilePath: Scripts/Database/Editor
   sheetName: Context-DB
-  workSheetName: Settings
+  workSheetName: Items
   columnHeaderList:
+  - type: 3
+    name: ID
+    isEnable: 0
+    isArray: 0
   - type: 1
-    name: Key
+    name: Name
     isEnable: 0
     isArray: 0
   - type: 1
-    name: Text
-    isEnable: 0
-    isArray: 0
-  - type: 3
-    name: Value0
-    isEnable: 0
-    isArray: 0
-  - type: 3
-    name: Value1
-    isEnable: 0
-    isArray: 0
-  - type: 3
-    name: Value2
+    name: Description
     isEnable: 0
     isArray: 0
   AccessCode: 

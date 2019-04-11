@@ -8,12 +8,12 @@ using UnityQuickSheet;
 /// 
 public partial class GoogleDataAssetUtility
 {
-    [MenuItem("Assets/Create/Google/Settings")]
-    public static void CreateSettingsAssetFile()
+    [MenuItem("Assets/Create/Google/Items")]
+    public static void CreateItemsAssetFile()
     {
-        Settings asset = CustomAssetUtility.CreateAsset<Settings>();
+        Items asset = CustomAssetUtility.CreateAsset<Items>();
         asset.SheetName = "Context-DB";
-        asset.WorksheetName = "Settings";
+        asset.WorksheetName = "Items";
         EditorUtility.SetDirty(asset);        
     }
     

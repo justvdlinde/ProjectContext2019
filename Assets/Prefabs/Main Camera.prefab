@@ -56,7 +56,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 7975942246713338467}
   - component: {fileID: 3168348269539768237}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Close_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -496,10 +496,12 @@ MonoBehaviour:
   itemContainer: {fileID: 6181362828249899367}
   uiRoot: {fileID: 1714047837}
   closeButton: {fileID: 3168348269539768237}
+  itemName: {fileID: 0}
+  itemDescription: {fileID: 0}
   viewedItemLayer:
     m_LayerIndex: 9
   lerpTime: 0.4
-  rotateStrength: 0
+  rotateSpeed: 5
 --- !u!1 &5896965959547447921
 GameObject:
   m_ObjectHideFlags: 0

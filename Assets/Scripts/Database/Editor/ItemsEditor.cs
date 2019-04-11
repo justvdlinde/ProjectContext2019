@@ -12,26 +12,26 @@ using UnityQuickSheet;
 ///
 /// !!! Machine generated code !!!
 ///
-[CustomEditor(typeof(Settings))]
-public class SettingsEditor : BaseGoogleEditor<Settings>
+[CustomEditor(typeof(Items))]
+public class ItemsEditor : BaseGoogleEditor<Items>
 {	    
     public override bool Load()
     {        
-        Settings targetData = target as Settings;
+        Items targetData = target as Items;
         
         var client = new DatabaseClient("", "");
         string error = string.Empty;
         var db = client.GetDatabase(targetData.SheetName, ref error);	
-        var table = db.GetTable<SettingsData>(targetData.WorksheetName) ?? db.CreateTable<SettingsData>(targetData.WorksheetName);
+        var table = db.GetTable<ItemsData>(targetData.WorksheetName) ?? db.CreateTable<ItemsData>(targetData.WorksheetName);
         
-        List<SettingsData> myDataList = new List<SettingsData>();
+        List<ItemsData> myDataList = new List<ItemsData>();
         
         var all = table.FindAll();
         foreach(var elem in all)
         {
-            SettingsData data = new SettingsData();
+            ItemsData data = new ItemsData();
             
-            data = Cloner.DeepCopy<SettingsData>(elem.Element);
+            data = Cloner.DeepCopy<ItemsData>(elem.Element);
             myDataList.Add(data);
         }
                 
