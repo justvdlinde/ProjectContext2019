@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class InteractableItemViewer : MonoBehaviour
 {
     [Header("Dependencies")]
-    [SerializeField] private ScreenInput input;
+    [SerializeField] private InteractionHandler input;
 
     [Header("Object References")]
     [SerializeField] private Camera viewerCamera;
@@ -28,6 +28,8 @@ public class InteractableItemViewer : MonoBehaviour
 
     private void Start()
     {
+        transform.parent = Camera.main.transform;
+
         uiRoot.gameObject.SetActive(false);
     }
 
