@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Manager class for handling input and detecting <see cref="IInteractable"/> objects
 /// </summary>
-public class ScreenInput : MonoBehaviour
+public class InteractionHandler : MonoBehaviour
 {
     [SerializeField] private float rayDistance;
 
@@ -20,6 +20,11 @@ public class ScreenInput : MonoBehaviour
         {
             OnClick();
         }
+    }
+
+    public void SetActive(bool active)
+    {
+        enabled = active;
     }
 
     private void OnClick()
