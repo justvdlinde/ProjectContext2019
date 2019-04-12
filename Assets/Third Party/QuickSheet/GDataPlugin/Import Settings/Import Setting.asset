@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdb4931813a361148a6651be452ff88e, type: 3}
-  m_Name: New Import Setting
+  m_Name: Import Setting
   m_EditorClassIdentifier: 
   templatePath: Third Party/QuickSheet/GDataPlugin/Templates
   scriptFilePath: Scripts/Database/Runtime
@@ -18,7 +18,7 @@ MonoBehaviour:
   sheetName: Context-DB
   workSheetName: Items
   columnHeaderList:
-  - type: 3
+  - type: 1
     name: ID
     isEnable: 0
     isArray: 0

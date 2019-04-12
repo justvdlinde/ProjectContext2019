@@ -13,11 +13,11 @@ public class Layer
         get { return m_LayerIndex; }
     }
 
-    public void Set(int _layerIndex)
+    public void Set(int layerIndex)
     {
-        if (_layerIndex > 0 && _layerIndex < 32)
+        if (layerIndex > 0 && layerIndex < 32)
         {
-            m_LayerIndex = _layerIndex;
+            m_LayerIndex = layerIndex;
         }
     }
 

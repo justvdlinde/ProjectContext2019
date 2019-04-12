@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using ServiceLocator;
 
 /// <summary>
 /// Class for viewing <see cref="InteractableItem"/>s
@@ -32,11 +33,14 @@ public class InteractableItemViewer : MonoBehaviour
     private TransformData itemOriginalTransformData;
     private int itemOriginalLayer;
 
+    private ItemDatabaseService itemDatabase;
+
     private void Start()
     {
         transform.parent = Camera.main.transform;
-        
         uiRoot.gameObject.SetActive(false);
+
+        itemDatabase = (ItemDatabaseService)GlobalServiceLocator.Instance.Get<ItemDatabaseService>();
     }
 
     private void OnEnable()
@@ -68,11 +72,11 @@ public class InteractableItemViewer : MonoBehaviour
     {
         if (interactable is InteractableItem)
         {
-            StartViewing(interactable);
+            StartViewing(interactable as InteractableItem);
         }
     }
 
-    private void StartViewing(IInteractable item)
+    private void StartViewing(InteractableItem item)
     {
         input.SetActive(false);
 
@@ -84,6 +88,14 @@ public class InteractableItemViewer : MonoBehaviour
         viewerCamera.gameObject.SetActive(true);
         isViewing = true;
         uiRoot.gameObject.SetActive(true);
+
+        SetUI(itemDatabase.GetItemData(item.ID));
+    }
+
+    private void SetUI(ItemsData data)
+    {
+        itemName.text = data.Name;
+        // TODO: set description
     }
 
     private void View()

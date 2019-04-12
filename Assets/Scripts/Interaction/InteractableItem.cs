@@ -7,11 +7,14 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class InteractableItem : MonoBehaviour, IInteractable
 {
+    [SerializeField][ItemID] private int id;
+    public int ID => id;
+
     public GameObject GameObject { get { return gObject; } }
     public Collider Collider { get { return collider; } }
 
-    private GameObject gObject;
-    private new Collider collider;
+    [SerializeField, HideInInspector] private GameObject gObject;
+    [SerializeField, HideInInspector] private new Collider collider;
 
     private void OnValidate()
     {

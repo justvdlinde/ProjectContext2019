@@ -15,9 +15,9 @@ MonoBehaviour:
   SheetName: Context-DB
   WorksheetName: Items
   dataArray:
-  - id: 0
+  - id: ID_ITEM_001
     name: Zwaard
     description: Dit zwaard werd gebruikt in de jaren 1600
-  - id: 0
+  - id: ID_ITEM_002
     name: Pot
     description: Potten waren gemaakt van klei
