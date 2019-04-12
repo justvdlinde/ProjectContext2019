@@ -22,6 +22,8 @@ public class InteractableItemViewer : MonoBehaviour
     [SerializeField] private Button closeButton;
     [SerializeField] private TextMeshProUGUI itemName;
     [SerializeField] private TextMeshProUGUI itemDescription;
+    [SerializeField] private GameObject itemDescriptionPopup;
+    [SerializeField] private Button itemDescriptionPopupCloseButton;
 
     [Header("Fields")]
     [SerializeField] private Layer viewedItemLayer;
@@ -95,7 +97,20 @@ public class InteractableItemViewer : MonoBehaviour
     private void SetUI(ItemsData data)
     {
         itemName.text = data.Name;
-        // TODO: set description
+
+        bool hasDescription = data.Description != string.Empty;
+        itemDescriptionPopup.SetActive(hasDescription);
+        if (hasDescription)
+        {
+            itemDescription.text = data.Description;
+            itemDescriptionPopupCloseButton.onClick.AddListener(OnClosePopupButtonPressed);
+        }
+    }
+
+    private void OnClosePopupButtonPressed()
+    {
+        itemDescriptionPopup.SetActive(false);
+        itemDescriptionPopupCloseButton.onClick.RemoveListener(OnClosePopupButtonPressed);
     }
 
     private void View()
@@ -126,6 +141,7 @@ public class InteractableItemViewer : MonoBehaviour
         interactableItem = null;
         isViewing = false;
         uiRoot.gameObject.SetActive(false);
+        itemDescriptionPopupCloseButton.onClick.RemoveListener(OnClosePopupButtonPressed);
     }
 
     private IEnumerator LerpItemIntoView(IInteractable item)
