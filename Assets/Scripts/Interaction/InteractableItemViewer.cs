@@ -29,6 +29,7 @@ public class InteractableItemViewer : MonoBehaviour
     [SerializeField] private Layer viewedItemLayer;
     [SerializeField] private float lerpTime;
     [SerializeField] private float rotateSpeed;
+    [SerializeField] private float rotateSpeedMobile;
 
     private bool isViewing;
     private IInteractable interactableItem;
@@ -39,7 +40,10 @@ public class InteractableItemViewer : MonoBehaviour
 
     private void Start()
     {
-        transform.parent = Camera.main.transform;
+        transform.SetParent(Camera.main.transform);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+
         uiRoot.gameObject.SetActive(false);
 
         itemDatabase = (ItemDatabaseService)GlobalServiceLocator.Instance.Get<ItemDatabaseService>();
@@ -72,6 +76,8 @@ public class InteractableItemViewer : MonoBehaviour
 
     private void OnInteracedWithObjectEvent(IInteractable interactable)
     {
+        if (isViewing) { return; }
+
         if (interactable is InteractableItem)
         {
             StartViewing(interactable as InteractableItem);
@@ -82,13 +88,13 @@ public class InteractableItemViewer : MonoBehaviour
     {
         input.SetActive(false);
 
+        isViewing = true;
         interactableItem = item;
         item.OnInteractionStart();
 
         StartCoroutine(LerpItemIntoView(item));
 
         viewerCamera.gameObject.SetActive(true);
-        isViewing = true;
         uiRoot.gameObject.SetActive(true);
 
         SetUI(itemDatabase.GetItemData(item.ID));
@@ -115,19 +121,40 @@ public class InteractableItemViewer : MonoBehaviour
 
     private void View()
     {
-        // TODO: make it work for mobile
+        if (Input.touchCount > 0)
+        { 
+            Debug.Log(Input.touches[0].deltaPosition);
+        }
+
         if (Input.GetMouseButton(0))
         {
+            float horizontalDelta = 0;
+            float verticalDelta = 0;
+            float rotateSpeed = this.rotateSpeed;
+
+            // TODO: refactor this to be cleaner
+            if (Input.touchCount > 0)
+            {
+                horizontalDelta = Input.touches[0].deltaPosition.x;
+                verticalDelta = Input.touches[0].deltaPosition.y;
+                rotateSpeed = rotateSpeedMobile;
+            } 
+            else
+            {
+                horizontalDelta = Input.GetAxis("Mouse X");
+                verticalDelta = Input.GetAxis("Mouse Y");
+            }
+
             Vector3 relativeUp = Camera.main.transform.TransformDirection(Vector3.up);
             Vector3 relativeRight = Camera.main.transform.TransformDirection(Vector3.right);
 
             Vector3 objectRelativeUp = itemContainer.transform.InverseTransformDirection(relativeUp);
             Vector3 objectRelaviveRight = itemContainer.transform.InverseTransformDirection(relativeRight);
 
-            Quaternion rotateBy = Quaternion.AngleAxis(-Input.GetAxis("Mouse X") / itemContainer.transform.localScale.x * rotateSpeed, objectRelativeUp)
-                                * Quaternion.AngleAxis(Input.GetAxis("Mouse Y") / itemContainer.transform.localScale.x * rotateSpeed, objectRelaviveRight);
+            Quaternion extraRotation = Quaternion.AngleAxis(-horizontalDelta / itemContainer.transform.localScale.x * rotateSpeed, objectRelativeUp)
+                                        * Quaternion.AngleAxis(verticalDelta / itemContainer.transform.localScale.y * rotateSpeed, objectRelaviveRight);
 
-            itemContainer.rotation = itemContainer.transform.rotation * rotateBy;
+            itemContainer.rotation = itemContainer.transform.rotation * extraRotation;
         }
     }
 
@@ -148,17 +175,16 @@ public class InteractableItemViewer : MonoBehaviour
     {
         itemOriginalLayer = item.GameObject.layer;
         item.GameObject.layer = viewedItemLayer.LayerIndex;
-        itemOriginalTransformData = new TransformData(interactableItem.GameObject.transform);
 
         float timeRemaining = lerpTime;
         Transform itemTransform = item.GameObject.transform;
-        TransformData origin = new TransformData(item.GameObject.transform);
+        itemOriginalTransformData = new TransformData(itemTransform);
 
         while (timeRemaining > 0)
         {
             float lerp = (lerpTime - timeRemaining) / lerpTime;
-            itemTransform.rotation = Quaternion.Lerp(origin.rotation, itemContainer.rotation, lerp);
-            itemTransform.position = Vector3.Lerp(origin.position, itemContainer.position, lerp);
+            itemTransform.rotation = Quaternion.Lerp(itemOriginalTransformData.rotation, itemContainer.rotation, lerp);
+            itemTransform.position = Vector3.Lerp(itemOriginalTransformData.position, itemContainer.position, lerp);
 
             timeRemaining -= Time.deltaTime;
             yield return null;

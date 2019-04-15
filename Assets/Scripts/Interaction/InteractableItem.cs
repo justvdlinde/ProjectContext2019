@@ -16,19 +16,35 @@ public class InteractableItem : MonoBehaviour, IInteractable
     [SerializeField, HideInInspector] private GameObject gObject;
     [SerializeField, HideInInspector] private new Collider collider;
 
+    private new Rigidbody rigidbody;
+    private bool colliderWasEnabledBeforeInteraction;
+    private bool rigidbodyWasKinematicBeforeInteraction;
+
     private void OnValidate()
     {
         gObject = gameObject;
         collider = GetComponent<Collider>();
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     public void OnInteractionStart()
     {
+        colliderWasEnabledBeforeInteraction = collider.enabled;
+        collider.enabled = false;
 
+        if(rigidbody != null)
+        {
+            rigidbodyWasKinematicBeforeInteraction = rigidbody.isKinematic;
+            rigidbody.isKinematic = true;
+        }
     }
     
     public void OnInteractionStop()
     {
-
+        collider.enabled = colliderWasEnabledBeforeInteraction;
+        if (rigidbody != null)
+        {
+            rigidbody.isKinematic = rigidbodyWasKinematicBeforeInteraction;
+        }
     }
 }

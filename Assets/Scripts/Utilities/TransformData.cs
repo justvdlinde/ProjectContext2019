@@ -15,16 +15,14 @@ public struct TransformData
         position = transform.position;
         rotation = transform.rotation;
         scale = transform.localScale;
-
         parent = transform.parent;
     }
 
-    public TransformData(Vector3 position, Quaternion rotation, Vector3 scale, Transform parent = null)
+    public TransformData(Vector3 position, Quaternion rotation, Vector3 scale, Transform parent)
     {
         this.position = position;
         this.rotation = rotation;
         this.scale = scale;
-
         this.parent = parent;
     }
 }
