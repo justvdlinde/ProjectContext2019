@@ -10,8 +10,7 @@ using ServiceLocator;
 public class InteractableItemViewer : MonoBehaviour
 {
     [Header("Dependencies")]
-    [SerializeField]
-    private InteractionHandler input;
+    [SerializeField] private InteractionHandler input;
 
     [Header("Object References")]
     [SerializeField] private Camera viewerCamera;
