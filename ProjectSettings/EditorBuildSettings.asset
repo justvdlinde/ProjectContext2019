@@ -6,12 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/ARController.unity
+    path: Assets/Scenes/Dev/ARController.unity
     guid: e6a6fa04348cb45c9b0221eb19c946da
   - enabled: 0
+<<<<<<< HEAD
     path: Assets/Third Party/GoogleARCore/Examples/AugmentedImage/Scenes/AugmentedImage.unity
     guid: be567d47d3ab94b3badc5b211f535a24
   - enabled: 1
     path: Assets/Scenes/ARController_Image.unity
     guid: 7d6859fc75d0fee459f8a6441b3620e0
+=======
+    path: Assets/Scenes/Dev/Item Interaction.unity
+    guid: 3c9e55060b39ab84baba7a05586dcc00
+  - enabled: 1
+    path: Assets/Scenes/Dev/AR Image.unity
+    guid: 5d1023688a5b8e049aa798ee352f8b26
+>>>>>>> 0af480abf894b3a9a8483cbba7304d78b635f27a
   m_configObjects: {}
