@@ -51,7 +51,7 @@ MonoBehaviour:
   FrameLowerRight: {fileID: 1182182374406134}
   FrameUpperLeft: {fileID: 1308591232281908}
   FrameUpperRight: {fileID: 1464705413935860}
-  centerPrefab: {fileID: 7689881954827606125, guid: bd51c82ef6730c848b25653a80da9e7f,
+  centerPrefab: {fileID: 7287293695733695312, guid: 336b5be97db974d4eb008d14342c43af,
     type: 3}
 --- !u!1 &1182182374406134
 GameObject:
