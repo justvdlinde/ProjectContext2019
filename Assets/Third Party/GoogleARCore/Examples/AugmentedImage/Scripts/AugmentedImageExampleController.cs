@@ -41,6 +41,11 @@ namespace GoogleARCore.Examples.AugmentedImage
         /// </summary>
         public GameObject FitToScanOverlay;
 
+        /// <summary>
+        /// Instance of ARCore Background renderer to access render mode
+        /// </summary>
+        [SerializeField] private ARCoreBackgroundRenderer arCoreBackgroundRenderer;
+
         private Dictionary<int, AugmentedImageVisualizer> m_Visualizers
             = new Dictionary<int, AugmentedImageVisualizer>();
 
@@ -79,6 +84,7 @@ namespace GoogleARCore.Examples.AugmentedImage
                     visualizer = (AugmentedImageVisualizer)Instantiate(AugmentedImageVisualizerPrefab, anchor.transform);
                     visualizer.Image = image;
                     m_Visualizers.Add(image.DatabaseIndex, visualizer);
+                    arCoreBackgroundRenderer.Disable();
                 }
                 else if (image.TrackingState == TrackingState.Stopped && visualizer != null)
                 {

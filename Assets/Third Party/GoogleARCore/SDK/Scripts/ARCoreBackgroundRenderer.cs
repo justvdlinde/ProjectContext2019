@@ -96,7 +96,7 @@ namespace GoogleARCore
                 m_Camera.nearClipPlane, m_Camera.farClipPlane);
         }
 
-        private void Disable()
+        public void Disable()
         {
             if (m_BackgroundRenderer != null)
             {
