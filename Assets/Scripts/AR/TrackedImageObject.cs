@@ -1,30 +1,78 @@
 ﻿using GoogleARCore;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrackedImageObject : MonoBehaviour
 {
-    public AugmentedImage Image;
+    [Header("Dependencies")]
+    [SerializeField] private ImageTrackingController trackingController;
 
-    [SerializeField] private GameObject objectPrefab;
+    [Header("Fields")]
+    [SerializeField] private Rooms areaType;
 
-    private GameObject objectInstance;
+    public AugmentedImage Image { get; private set; }
+
+    public bool IsBeingTracked => isBeingTracked;
+    private bool isBeingTracked;
+
+    //private void Start()
+    //{
+    //    Hide(null);
+    //}
+
+    //private void OnEnable()
+    //{
+    //    trackingController.ImageTrackingFoundEvent += OnImageTrackingFoundEvent;
+    //    trackingController.ImageTrackingLostEvent += OnImageTrackingLostEvent;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    trackingController.ImageTrackingFoundEvent -= OnImageTrackingFoundEvent;
+    //    trackingController.ImageTrackingLostEvent -= OnImageTrackingLostEvent;
+    //}
 
     private void Start()
     {
-        objectInstance = Instantiate(objectPrefab);
-        objectInstance.SetActive(false);
+        Hide();
+    }
+
+    public void SetImage(AugmentedImage image)
+    {
+        Image = image;
     }
 
     public void Update()
     {
-        if (Image == null || Image.TrackingState != TrackingState.Tracking)
+        if (Image != null && Image.TrackingState == TrackingState.Tracking)
         {
-            objectInstance.SetActive(false);
-            return;
+            transform.localPosition = Image.CenterPose.position;
         }
+    }
 
-        objectInstance.transform.localPosition = Image.CenterPose.position;
+    //private void OnImageTrackingFoundEvent(TrackedImageObject trackedObject)
+    //{
+    //    // if areaTyoe == this.areaType, do Show of Hide
+    //}
+
+    //private void OnImageTrackingLostEvent(TrackedImageObject trackedObject)
+    //{
+
+    //}
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+        enabled = true;
+        isBeingTracked = true;
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+        enabled = false;
+        isBeingTracked = false;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using GoogleARCore;
 using GoogleARCore.Examples.AugmentedImage;
 using System;
+using ServiceLocator;
 
 /// <summary>
 /// Controller for tracking AR images. Calls <see cref="ImageTrackingFoundEvent"/> and <see cref="ImageTrackingLostEvent"/> when images are being tracked or when lost
@@ -13,15 +14,28 @@ public class ImageTrackingController : MonoBehaviour
     public Action<TrackedImageObject> ImageTrackingFoundEvent;
     public Action<TrackedImageObject> ImageTrackingLostEvent;
 
-    /// <summary>
-    /// A prefab for visualizing an AugmentedImage.
-    /// </summary>
-    [SerializeField] private TrackedImageObject objectPrefab;
+    [SerializeField] private ARCoreBackgroundHandler arBackgroundHandler;
+
+    [SerializeField] private List<TrackedImageObject> trackableObjects;
 
     private Dictionary<int, TrackedImageObject> trackedObjects = new Dictionary<int, TrackedImageObject>();
     private List<AugmentedImage> scannableImages = new List<AugmentedImage>();
 
-    private bool isTrackingImage;
+    private void Start()
+    {
+        for (int i = 0; i < trackableObjects.Count; i++)
+        {
+            trackedObjects.Add(i, trackableObjects[i]);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (arBackgroundHandler == null)
+        {
+           arBackgroundHandler = FindObjectOfType<ARCoreBackgroundHandler>();
+        }
+    }
 
     public void Update()
     {
@@ -34,45 +48,40 @@ public class ImageTrackingController : MonoBehaviour
 
         foreach (var image in scannableImages)
         {
-            TrackedImageObject visualizer = null;
-            trackedObjects.TryGetValue(image.DatabaseIndex, out visualizer);
+            trackedObjects.TryGetValue(image.DatabaseIndex, out TrackedImageObject trackedObject);
 
-            if (image.TrackingState == TrackingState.Tracking && visualizer == null)
+            if (image.TrackingState == TrackingState.Tracking && !trackedObject.IsBeingTracked)
             {
-                if(!isTrackingImage)
-                {
-                    ImageTrackingFoundEvent?.Invoke(visualizer);
-                }
-
-                TrackImage(image, visualizer);
-                isTrackingImage = true;
+                ImageTrackingFound(image, trackedObject);
             }
-            else if (image.TrackingState == TrackingState.Stopped && visualizer != null)
+            else if (image.TrackingState == TrackingState.Stopped && trackedObject.IsBeingTracked)
             {
-                RemoveTrackedImage(image, visualizer);
-
-                if(isTrackingImage)
-                {
-                    ImageTrackingLostEvent?.Invoke(visualizer);
-                }
-
-                isTrackingImage = false;
+                ImageTrackingLost(image, trackedObject);
             }
         }
     }
 
-    private void TrackImage(AugmentedImage image, TrackedImageObject visualizer)
+    private void ImageTrackingFound(AugmentedImage image, TrackedImageObject trackedImage)
     {
+        Debug.Log("OnImageTrackingFound()");
+
         Anchor anchor = image.CreateAnchor(image.CenterPose);
-        visualizer = Instantiate(objectPrefab, anchor.transform);
-        visualizer.Image = image;
-        trackedObjects.Add(image.DatabaseIndex, visualizer);
+
+        trackedImage.SetImage(image);
+        trackedImage.Show();
+
+        ImageTrackingFoundEvent?.Invoke(trackedImage);
+        arBackgroundHandler.ShowBackgroundCamera(false);
     }
 
-    private void RemoveTrackedImage(AugmentedImage image, TrackedImageObject visualizer)
+    private void ImageTrackingLost(AugmentedImage image, TrackedImageObject trackedImage)
     {
-        trackedObjects.Remove(image.DatabaseIndex);
-        Destroy(visualizer.gameObject);
+        Debug.Log("OnImageTrackingLost()");
+
+        ImageTrackingLostEvent?.Invoke(trackedImage);
+        arBackgroundHandler.ShowBackgroundCamera(true);
+
+        trackedImage.Hide();
     }
 }
 

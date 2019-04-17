@@ -18,6 +18,7 @@ public class ImageScanOverlay : MonoBehaviour
     private Action<TrackedImageObject> OnImageTrackingFoundEvent;
     private Action<TrackedImageObject> OnImageTrackingLostEvent;
 
+    // TODO: should be called by a manager class instead of listening to events
     private void Start()
     {
         ShowOverlay();

@@ -45,7 +45,7 @@ public class InteractableItemViewer : MonoBehaviour
 
         uiRoot.gameObject.SetActive(false);
 
-        itemDatabase = (ItemDatabaseService)GlobalServiceLocator.Instance.Get<ItemDatabaseService>();
+        itemDatabase = (ItemDatabaseService)ServiceLocator.ServiceLocator.Instance.Get<ItemDatabaseService>();
     }
 
     private void OnEnable()

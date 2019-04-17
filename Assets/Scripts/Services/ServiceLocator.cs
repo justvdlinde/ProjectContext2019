@@ -3,24 +3,28 @@ using System.Collections.Generic;
 
 namespace ServiceLocator
 {
-    public class GlobalServiceLocator
+    /// <summary>
+    /// Class for keeping track of services, this way singletons aren't needed. 
+    /// Creates a new service when it's needed but hasn't been created yet. 
+    /// </summary>
+    public class ServiceLocator
     {
-        public static GlobalServiceLocator Instance
+        public static ServiceLocator Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new GlobalServiceLocator();
+                    instance = new ServiceLocator();
                 }
                 return instance;
             }
         }
-        private static GlobalServiceLocator instance;
+        private static ServiceLocator instance;
 
         public Dictionary<Type, IService> InstantiatedServices = new Dictionary<Type, IService>();
 
-        public GlobalServiceLocator()
+        public ServiceLocator()
         {
             // use reflection to retrieve all factories
         }

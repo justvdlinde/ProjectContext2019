@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c3f83053ff62142935122c7f9ca3f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  augmentedImageVisualizerPrefab: {fileID: 0}
-  arCoreBackgroundRenderer: {fileID: 0}
+  objectPrefab: {fileID: 0}
+  arBackgroundHandler: {fileID: 0}
