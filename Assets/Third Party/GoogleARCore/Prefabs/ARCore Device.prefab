@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 20155940112608238}
   - component: {fileID: 114963366853050710}
   - component: {fileID: 114876698896786350}
+  - component: {fileID: 1933507540}
   m_Layer: 0
   m_Name: First Person Camera
   m_TagString: MainCamera
@@ -63,7 +64,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -106,6 +107,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BackgroundMaterial: {fileID: 2100000, guid: 03ad0130a037647aeb60218f61aca114, type: 2}
+--- !u!114 &1933507540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637996540812124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244c1d70ca815e4489796c5085317293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundRenderer: {fileID: 114876698896786350}
 --- !u!1 &1772147192650458
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,4 +164,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ca0c6a3af6b4635b7e98c6ea0a0cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SessionConfig: {fileID: 11400000, guid: e3a0819a20dbf48e0b82c8d8d31b9d68, type: 2}
+  DeviceCameraDirection: 0
+  SessionConfig: {fileID: 11400000, guid: 9da3b9901c55b37459ce3798eaddbc1c, type: 2}

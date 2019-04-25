@@ -41,11 +41,6 @@ namespace GoogleARCore.Examples.AugmentedImage
         /// </summary>
         public GameObject FitToScanOverlay;
 
-        /// <summary>
-        /// Instance of ARCore Background renderer to access render mode
-        /// </summary>
-        [SerializeField] private ARCoreBackgroundRenderer arCoreBackgroundRenderer;
-
         private Dictionary<int, AugmentedImageVisualizer> m_Visualizers
             = new Dictionary<int, AugmentedImageVisualizer>();
 
@@ -69,10 +64,11 @@ namespace GoogleARCore.Examples.AugmentedImage
             }
 
             // Get updated augmented images for this frame.
-            Session.GetTrackables<AugmentedImage>(m_TempAugmentedImages, TrackableQueryFilter.Updated);
+            Session.GetTrackables<AugmentedImage>(
+                m_TempAugmentedImages, TrackableQueryFilter.Updated);
 
-            // Create visualizers and anchors for updated augmented images that are tracking and do not previously
-            // have a visualizer. Remove visualizers for stopped images.
+            // Create visualizers and anchors for updated augmented images that are tracking and do
+            // not previously have a visualizer. Remove visualizers for stopped images.
             foreach (var image in m_TempAugmentedImages)
             {
                 AugmentedImageVisualizer visualizer = null;
@@ -84,7 +80,6 @@ namespace GoogleARCore.Examples.AugmentedImage
                     visualizer = (AugmentedImageVisualizer)Instantiate(AugmentedImageVisualizerPrefab, anchor.transform);
                     visualizer.Image = image;
                     m_Visualizers.Add(image.DatabaseIndex, visualizer);
-                    arCoreBackgroundRenderer.Disable();
                 }
                 else if (image.TrackingState == TrackingState.Stopped && visualizer != null)
                 {

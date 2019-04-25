@@ -189,7 +189,8 @@ namespace GoogleARCore
             for (var i = 0; i < nativeTouchCount; ++i)
             {
                 var source = new IntPtr(nativeTouchesPtr.ToInt64() + (i * structSize));
-                var nativeTouch = (NativeTouch)Marshal.PtrToStructure(source, typeof(NativeTouch));
+                NativeTouch nativeTouch =
+                    (NativeTouch)Marshal.PtrToStructure(source, typeof(NativeTouch));
 
                 var newTouch = new Touch()
                 {
@@ -197,9 +198,11 @@ namespace GoogleARCore
                     phase = nativeTouch.Phase,
                     pressure = nativeTouch.Pressure,
 
-                    // NativeTouch values are normalized and must be converted to screen coordinates.
+                    // NativeTouch values are normalized and must be converted to screen
+                    // coordinates.
                     // Note that the Unity's screen coordinate (0, 0) starts from bottom left.
-                    position = new Vector2(Screen.width * nativeTouch.X, Screen.height * (1f - nativeTouch.Y)),
+                    position = new Vector2(
+                        Screen.width * nativeTouch.X, Screen.height * (1f - nativeTouch.Y)),
                 };
 
                 var index = s_TouchList.FindIndex(touch => touch.fingerId == newTouch.fingerId);
@@ -222,11 +225,13 @@ namespace GoogleARCore
 
         private struct NativeTouch
         {
+#pragma warning disable 649
             public TouchPhase Phase;
             public float X;
             public float Y;
             public float Pressure;
             public int Id;
+#pragma warning restore 649
         }
 
         private struct NativeApi
