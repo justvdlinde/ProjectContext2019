@@ -9,9 +9,6 @@ public class TrackedImageObject : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private ImageTrackingController trackingController;
 
-    [Header("Fields")]
-    [SerializeField] private int imageID;
-
     public AugmentedImage Image { get; private set; }
     public bool IsBeingTracked { get; private set; }
 
@@ -32,14 +29,6 @@ public class TrackedImageObject : MonoBehaviour
             {
                 Hide();
             }
-        }
-    }
-
-    private void OnImageTrackingFoundEvent(AugmentedImage image)
-    {
-        if(image.DatabaseIndex == imageID)
-        {
-            Show(image);
         }
     }
 
