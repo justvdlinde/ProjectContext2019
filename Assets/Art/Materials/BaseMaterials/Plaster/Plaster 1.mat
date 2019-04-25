@@ -96,10 +96,15 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Tiling: 1
+    - _TilingAo: 1
+    - _TilingNrml: 1
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
+    - _roughness: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorMultiply: {r: 0.3207547, g: 0.27763435, b: 0.062032744, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RoughnessMultiply: {r: 0, g: 0, b: 0, a: 0}
