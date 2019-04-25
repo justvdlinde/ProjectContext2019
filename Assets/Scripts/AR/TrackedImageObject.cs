@@ -9,70 +9,42 @@ public class TrackedImageObject : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private ImageTrackingController trackingController;
 
-    [Header("Fields")]
-    [SerializeField] private Rooms areaType;
-
     public AugmentedImage Image { get; private set; }
-
-    public bool IsBeingTracked => isBeingTracked;
-    private bool isBeingTracked;
-
-    //private void Start()
-    //{
-    //    Hide(null);
-    //}
-
-    //private void OnEnable()
-    //{
-    //    trackingController.ImageTrackingFoundEvent += OnImageTrackingFoundEvent;
-    //    trackingController.ImageTrackingLostEvent += OnImageTrackingLostEvent;
-    //}
-
-    //private void OnDisable()
-    //{
-    //    trackingController.ImageTrackingFoundEvent -= OnImageTrackingFoundEvent;
-    //    trackingController.ImageTrackingLostEvent -= OnImageTrackingLostEvent;
-    //}
+    public bool IsBeingTracked { get; private set; }
 
     private void Start()
     {
         Hide();
     }
 
-    public void SetImage(AugmentedImage image)
-    {
-        Image = image;
-    }
-
     public void Update()
     {
-        if (Image != null && Image.TrackingState == TrackingState.Tracking)
+        if (Image != null)        
         {
-            transform.localPosition = Image.CenterPose.position;
+            if (Image.TrackingState == TrackingState.Tracking)
+            {
+                transform.localPosition = Image.CenterPose.position;
+            }
+            else
+            {
+                Hide();
+            }
         }
     }
 
-    //private void OnImageTrackingFoundEvent(TrackedImageObject trackedObject)
-    //{
-    //    // if areaTyoe == this.areaType, do Show of Hide
-    //}
-
-    //private void OnImageTrackingLostEvent(TrackedImageObject trackedObject)
-    //{
-
-    //}
-
-    public void Show()
+    public void Show(AugmentedImage image)
     {
+        Image = image;
         gameObject.SetActive(true);
         enabled = true;
-        isBeingTracked = true;
+        IsBeingTracked = true;
     }
 
     public void Hide()
     {
+        Image = null;
         gameObject.SetActive(false);
         enabled = false;
-        isBeingTracked = false;
+        IsBeingTracked = false;
     }
 }
