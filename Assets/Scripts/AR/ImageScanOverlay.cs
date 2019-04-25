@@ -1,8 +1,10 @@
-﻿using GoogleARCore.Examples.AugmentedImage;
+﻿using GoogleARCore;
+using GoogleARCore.Examples.AugmentedImage;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class for handling the showing and hiding of the AR scan overlay, listens to <see cref="ImageTrackingController"/>
@@ -15,37 +17,13 @@ public class ImageScanOverlay : MonoBehaviour
     [Header("Fields")]
     [SerializeField] private GameObject image;
 
-    private Action<TrackedImageObject> OnImageTrackingFoundEvent;
-    private Action<TrackedImageObject> OnImageTrackingLostEvent;
-
-    // TODO: should be called by a manager class instead of listening to events
     private void Start()
     {
-        ShowOverlay();
-
-        OnImageTrackingFoundEvent = (TrackedImageObject v) => ShowOverlay();
-        OnImageTrackingLostEvent = (TrackedImageObject v) => HideOverlay();
+        ToggleOverlay(true);
     }
 
-    private void OnEnable()
+    public void ToggleOverlay(bool show)
     {
-        trackingController.ImageTrackingFoundEvent += OnImageTrackingFoundEvent;
-        trackingController.ImageTrackingLostEvent += OnImageTrackingLostEvent;
-    }
-
-    private void OnDisable()
-    {
-        trackingController.ImageTrackingFoundEvent -= OnImageTrackingFoundEvent;
-        trackingController.ImageTrackingLostEvent -= OnImageTrackingLostEvent;
-    }
-
-    private void ShowOverlay()
-    {
-        image.SetActive(true);
-    }
-
-    private void HideOverlay()
-    {
-        image.SetActive(false);
+        image.SetActive(show);
     }
 }
