@@ -7,26 +7,14 @@ public class UniqueIdentifierAttribute : PropertyAttribute { }
 
 public class POIBehavior : MonoBehaviour
 {
-    [UniqueIdentifier] public string uniqueId;
+    [UniqueIdentifier] public string uniqueId = string.Empty;
 
-    public status currentStatus;
-    public Dictionary<string, POIView> poiContainer;
+    public POIStatus currentStatus;
+    public Dictionary<string, POIView> poiContainer = new Dictionary<string, POIView>();
 
     protected POIView requiredToPlay = null;
 
     private StoryList storyList;
-
-    protected virtual void Start()
-    {
-        
-    }
-
-    public enum status
-    {
-        Undiscovered,
-        Visited,
-        Completed
-    }
 
     public bool CanStartStory ()
     {

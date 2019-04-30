@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class POIView : POIBehavior
 {
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
-        if (!poiContainer.ContainsKey(uniqueId)) poiContainer.Add(uniqueId, this);
+        if (!poiContainer.ContainsKey(uniqueId)) poiContainer.Add(uniqueId != string.Empty ? uniqueId : "", this);
 
-        if (requiredToPlay.currentStatus == status.Completed) {
+        if (requiredToPlay?.currentStatus == POIStatus.Completed) {
 
         }
     }
