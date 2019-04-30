@@ -11,7 +11,8 @@ public class POIBehavior : MonoBehaviour
 
     public status currentStatus;
     public Dictionary<string, POIView> poiContainer;
-    public POIView requiredToPlay = null;
+
+    protected POIView requiredToPlay = null;
 
     private StoryList storyList;
 
