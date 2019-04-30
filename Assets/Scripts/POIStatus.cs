@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public enum POIStatus
+﻿public enum POIStatus
 {
     Undiscovered,
     Visited,
+    InProgress,
     Completed
 }
