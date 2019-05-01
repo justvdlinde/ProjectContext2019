@@ -7,9 +7,6 @@ using System;
 using ServiceLocator;
 using UnityEngine.UI;
 
-/// <summary>
-/// Controller for tracking AR images. Calls <see cref="ImageTrackingFoundEvent"/> and <see cref="ImageTrackingLostEvent"/> when images are being tracked or when lost
-/// </summary>
 public class ImageTrackingController : MonoBehaviour
 {
     [SerializeField] private ARCoreBackgroundHandler arBackgroundHandler;

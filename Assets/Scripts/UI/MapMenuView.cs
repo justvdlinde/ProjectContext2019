@@ -8,7 +8,7 @@ public class MapMenuView : MenuBehavior
 
     [Header("Session")]
     [SerializeField] private GoogleARCore.ARCoreSession session;
-    [SerializeField] private GoogleARCore.Examples.AugmentedImage.AugmentedImageExampleController sessionController;
+    [SerializeField] private ImageTrackingController sessionController;
 
     protected override void Start()
     {
