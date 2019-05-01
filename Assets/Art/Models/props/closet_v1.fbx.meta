@@ -1,525 +1,1559 @@
 fileFormatVersion: 2
 guid: d3ae230064a4f974494e17fc5f91cff6
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: back_cover
-    100002: balls
-    100004: block_behind_lion
-    100006: block_behind_lion1
-    100008: //RootNode
-    100010: decal_big
-    100012: door_short
-    100014: door_short1
-    100016: door_tall
-    100018: door_tall1
-    100020: drawer
-    100022: drawer1
-    100024: drawer_knob
-    100026: drawer_knob1
-    100028: drawer_knob2
-    100030: handle
-    100032: handle1
-    100034: handle_con
-    100036: handle_con1
-    100038: handle_con2
-    100040: handle_con3
-    100042: handle_tiny
-    100044: handle_tiny1
-    100046: handles
-    100048: hzons
-    100050: lion
-    100052: lion1
-    100054: lion2
-    100056: pCube10
-    100058: pCube12
-    100060: pCube14
-    100062: pCube14 1
-    100064: pCube14 2
-    100066: pCube14 3
-    100068: pCube14 4
-    100070: pCube14 5
-    100072: pCube16
-    100074: pCube17
-    100076: pCube18
-    100078: pCube18 1
-    100080: pCube18 2
-    100082: pCube18 3
-    100084: pCube18 4
-    100086: pCube18 5
-    100088: pCube19
-    100090: pCube19 1
-    100092: pCube19 2
-    100094: pCube19 3
-    100096: pCube19 4
-    100098: pCube19 5
-    100100: pCube20
-    100102: pCube20 1
-    100104: pCube20 2
-    100106: pCube20 3
-    100108: pCube20 4
-    100110: pCube20 5
-    100112: pCube3
-    100114: pCube5
-    100116: pCube6
-    100118: pCube8
-    100120: pCylinder3
-    100122: pCylinder3 1
-    100124: pCylinder3 2
-    100126: pCylinder3 3
-    100128: pCylinder3 4
-    100130: pCylinder3 5
-    100132: pCylinder6
-    100134: pCylinder6 1
-    100136: pCylinder6 2
-    100138: pCylinder6 3
-    100140: pCylinder6 4
-    100142: pCylinder6 5
-    100144: polySurface1
-    100146: polySurface1 1
-    100148: polySurface1 2
-    100150: polySurface1 3
-    100152: polySurface1 4
-    100154: polySurface1 5
-    100156: polySurface2
-    100158: polySurface2 1
-    100160: polySurface2 2
-    100162: polySurface2 3
-    100164: polySurface2 4
-    100166: polySurface2 5
-    100168: pSphere1
-    100170: pSphere2
-    100172: pSphere3
-    100174: pSphere4
-    100176: side1
-    100178: side2
-    100180: side_bar_hzon
-    100182: side_bar_hzon1
-    100184: side_bar_hzon2
-    100186: side_bar_hzon3
-    100188: side_bar_hzon4
-    100190: side_bar_hzon5
-    100192: side_bar_hzon_deco
-    100194: side_bar_hzon_deco1
-    100196: side_bar_hzon_deco10
-    100198: side_bar_hzon_deco11
-    100200: side_bar_hzon_deco2
-    100202: side_bar_hzon_deco3
-    100204: side_bar_hzon_deco4
-    100206: side_bar_hzon_deco5
-    100208: side_bar_hzon_deco6
-    100210: side_bar_hzon_deco7
-    100212: side_bar_hzon_deco8
-    100214: side_bar_hzon_deco9
-    100216: side_bar_vert
-    100218: side_bar_vert1
-    100220: side_bar_vert2
-    100222: side_bar_vert3
-    100224: side_bar_vert4
-    100226: side_bar_vert5
-    100228: side_panel
-    100230: side_panel1
-    100232: top1
-    100234: top2
-    100236: top_part
-    100238: transform1
-    100240: vert_beam_deco
-    100242: vert_beam_deco1
-    100244: vert_beam_deco2
-    100246: vert_beam_deco3
-    100248: vert_beam_deco4
-    100250: vert_beam_deco5
-    100252: verts
-    400000: back_cover
-    400002: balls
-    400004: block_behind_lion
-    400006: block_behind_lion1
-    400008: //RootNode
-    400010: decal_big
-    400012: door_short
-    400014: door_short1
-    400016: door_tall
-    400018: door_tall1
-    400020: drawer
-    400022: drawer1
-    400024: drawer_knob
-    400026: drawer_knob1
-    400028: drawer_knob2
-    400030: handle
-    400032: handle1
-    400034: handle_con
-    400036: handle_con1
-    400038: handle_con2
-    400040: handle_con3
-    400042: handle_tiny
-    400044: handle_tiny1
-    400046: handles
-    400048: hzons
-    400050: lion
-    400052: lion1
-    400054: lion2
-    400056: pCube10
-    400058: pCube12
-    400060: pCube14
-    400062: pCube14 1
-    400064: pCube14 2
-    400066: pCube14 3
-    400068: pCube14 4
-    400070: pCube14 5
-    400072: pCube16
-    400074: pCube17
-    400076: pCube18
-    400078: pCube18 1
-    400080: pCube18 2
-    400082: pCube18 3
-    400084: pCube18 4
-    400086: pCube18 5
-    400088: pCube19
-    400090: pCube19 1
-    400092: pCube19 2
-    400094: pCube19 3
-    400096: pCube19 4
-    400098: pCube19 5
-    400100: pCube20
-    400102: pCube20 1
-    400104: pCube20 2
-    400106: pCube20 3
-    400108: pCube20 4
-    400110: pCube20 5
-    400112: pCube3
-    400114: pCube5
-    400116: pCube6
-    400118: pCube8
-    400120: pCylinder3
-    400122: pCylinder3 1
-    400124: pCylinder3 2
-    400126: pCylinder3 3
-    400128: pCylinder3 4
-    400130: pCylinder3 5
-    400132: pCylinder6
-    400134: pCylinder6 1
-    400136: pCylinder6 2
-    400138: pCylinder6 3
-    400140: pCylinder6 4
-    400142: pCylinder6 5
-    400144: polySurface1
-    400146: polySurface1 1
-    400148: polySurface1 2
-    400150: polySurface1 3
-    400152: polySurface1 4
-    400154: polySurface1 5
-    400156: polySurface2
-    400158: polySurface2 1
-    400160: polySurface2 2
-    400162: polySurface2 3
-    400164: polySurface2 4
-    400166: polySurface2 5
-    400168: pSphere1
-    400170: pSphere2
-    400172: pSphere3
-    400174: pSphere4
-    400176: side1
-    400178: side2
-    400180: side_bar_hzon
-    400182: side_bar_hzon1
-    400184: side_bar_hzon2
-    400186: side_bar_hzon3
-    400188: side_bar_hzon4
-    400190: side_bar_hzon5
-    400192: side_bar_hzon_deco
-    400194: side_bar_hzon_deco1
-    400196: side_bar_hzon_deco10
-    400198: side_bar_hzon_deco11
-    400200: side_bar_hzon_deco2
-    400202: side_bar_hzon_deco3
-    400204: side_bar_hzon_deco4
-    400206: side_bar_hzon_deco5
-    400208: side_bar_hzon_deco6
-    400210: side_bar_hzon_deco7
-    400212: side_bar_hzon_deco8
-    400214: side_bar_hzon_deco9
-    400216: side_bar_vert
-    400218: side_bar_vert1
-    400220: side_bar_vert2
-    400222: side_bar_vert3
-    400224: side_bar_vert4
-    400226: side_bar_vert5
-    400228: side_panel
-    400230: side_panel1
-    400232: top1
-    400234: top2
-    400236: top_part
-    400238: transform1
-    400240: vert_beam_deco
-    400242: vert_beam_deco1
-    400244: vert_beam_deco2
-    400246: vert_beam_deco3
-    400248: vert_beam_deco4
-    400250: vert_beam_deco5
-    400252: verts
-    2100000: wood_mat
-    2100002: metal_mat
-    2100004: decal_big_mat
-    2300000: back_cover
-    2300002: block_behind_lion
-    2300004: block_behind_lion1
-    2300006: decal_big
-    2300008: door_short
-    2300010: door_short1
-    2300012: door_tall
-    2300014: door_tall1
-    2300016: drawer
-    2300018: drawer1
-    2300020: drawer_knob1
-    2300022: drawer_knob2
-    2300024: handle
-    2300026: handle1
-    2300028: handle_con
-    2300030: handle_con1
-    2300032: handle_con2
-    2300034: handle_con3
-    2300036: handle_tiny
-    2300038: handle_tiny1
-    2300040: lion
-    2300042: lion1
-    2300044: lion2
-    2300046: pCube10
-    2300048: pCube12
-    2300050: pCube14
-    2300052: pCube14 1
-    2300054: pCube14 2
-    2300056: pCube14 3
-    2300058: pCube14 4
-    2300060: pCube14 5
-    2300062: pCube16
-    2300064: pCube17
-    2300066: pCube18
-    2300068: pCube18 1
-    2300070: pCube18 2
-    2300072: pCube18 3
-    2300074: pCube18 4
-    2300076: pCube18 5
-    2300078: pCube19
-    2300080: pCube19 1
-    2300082: pCube19 2
-    2300084: pCube19 3
-    2300086: pCube19 4
-    2300088: pCube19 5
-    2300090: pCube20
-    2300092: pCube20 1
-    2300094: pCube20 2
-    2300096: pCube20 3
-    2300098: pCube20 4
-    2300100: pCube20 5
-    2300102: pCube3
-    2300104: pCube5
-    2300106: pCube6
-    2300108: pCube8
-    2300110: pCylinder3
-    2300112: pCylinder3 1
-    2300114: pCylinder3 2
-    2300116: pCylinder3 3
-    2300118: pCylinder3 4
-    2300120: pCylinder3 5
-    2300122: pCylinder6
-    2300124: pCylinder6 1
-    2300126: pCylinder6 2
-    2300128: pCylinder6 3
-    2300130: pCylinder6 4
-    2300132: pCylinder6 5
-    2300134: polySurface1
-    2300136: polySurface1 1
-    2300138: polySurface1 2
-    2300140: polySurface1 3
-    2300142: polySurface1 4
-    2300144: polySurface1 5
-    2300146: polySurface2
-    2300148: polySurface2 1
-    2300150: polySurface2 2
-    2300152: polySurface2 3
-    2300154: polySurface2 4
-    2300156: polySurface2 5
-    2300158: pSphere1
-    2300160: pSphere2
-    2300162: pSphere3
-    2300164: pSphere4
-    2300166: side_bar_hzon
-    2300168: side_bar_hzon1
-    2300170: side_bar_hzon2
-    2300172: side_bar_hzon3
-    2300174: side_bar_hzon4
-    2300176: side_bar_hzon5
-    2300178: side_bar_hzon_deco
-    2300180: side_bar_hzon_deco1
-    2300182: side_bar_hzon_deco10
-    2300184: side_bar_hzon_deco11
-    2300186: side_bar_hzon_deco2
-    2300188: side_bar_hzon_deco3
-    2300190: side_bar_hzon_deco4
-    2300192: side_bar_hzon_deco5
-    2300194: side_bar_hzon_deco6
-    2300196: side_bar_hzon_deco7
-    2300198: side_bar_hzon_deco8
-    2300200: side_bar_hzon_deco9
-    2300202: side_bar_vert
-    2300204: side_bar_vert1
-    2300206: side_bar_vert2
-    2300208: side_bar_vert3
-    2300210: side_bar_vert4
-    2300212: side_bar_vert5
-    2300214: side_panel
-    2300216: side_panel1
-    2300218: top1
-    2300220: top2
-    2300222: top_part
-    3300000: back_cover
-    3300002: block_behind_lion
-    3300004: block_behind_lion1
-    3300006: decal_big
-    3300008: door_short
-    3300010: door_short1
-    3300012: door_tall
-    3300014: door_tall1
-    3300016: drawer
-    3300018: drawer1
-    3300020: drawer_knob1
-    3300022: drawer_knob2
-    3300024: handle
-    3300026: handle1
-    3300028: handle_con
-    3300030: handle_con1
-    3300032: handle_con2
-    3300034: handle_con3
-    3300036: handle_tiny
-    3300038: handle_tiny1
-    3300040: lion
-    3300042: lion1
-    3300044: lion2
-    3300046: pCube10
-    3300048: pCube12
-    3300050: pCube14
-    3300052: pCube14 1
-    3300054: pCube14 2
-    3300056: pCube14 3
-    3300058: pCube14 4
-    3300060: pCube14 5
-    3300062: pCube16
-    3300064: pCube17
-    3300066: pCube18
-    3300068: pCube18 1
-    3300070: pCube18 2
-    3300072: pCube18 3
-    3300074: pCube18 4
-    3300076: pCube18 5
-    3300078: pCube19
-    3300080: pCube19 1
-    3300082: pCube19 2
-    3300084: pCube19 3
-    3300086: pCube19 4
-    3300088: pCube19 5
-    3300090: pCube20
-    3300092: pCube20 1
-    3300094: pCube20 2
-    3300096: pCube20 3
-    3300098: pCube20 4
-    3300100: pCube20 5
-    3300102: pCube3
-    3300104: pCube5
-    3300106: pCube6
-    3300108: pCube8
-    3300110: pCylinder3
-    3300112: pCylinder3 1
-    3300114: pCylinder3 2
-    3300116: pCylinder3 3
-    3300118: pCylinder3 4
-    3300120: pCylinder3 5
-    3300122: pCylinder6
-    3300124: pCylinder6 1
-    3300126: pCylinder6 2
-    3300128: pCylinder6 3
-    3300130: pCylinder6 4
-    3300132: pCylinder6 5
-    3300134: polySurface1
-    3300136: polySurface1 1
-    3300138: polySurface1 2
-    3300140: polySurface1 3
-    3300142: polySurface1 4
-    3300144: polySurface1 5
-    3300146: polySurface2
-    3300148: polySurface2 1
-    3300150: polySurface2 2
-    3300152: polySurface2 3
-    3300154: polySurface2 4
-    3300156: polySurface2 5
-    3300158: pSphere1
-    3300160: pSphere2
-    3300162: pSphere3
-    3300164: pSphere4
-    3300166: side_bar_hzon
-    3300168: side_bar_hzon1
-    3300170: side_bar_hzon2
-    3300172: side_bar_hzon3
-    3300174: side_bar_hzon4
-    3300176: side_bar_hzon5
-    3300178: side_bar_hzon_deco
-    3300180: side_bar_hzon_deco1
-    3300182: side_bar_hzon_deco10
-    3300184: side_bar_hzon_deco11
-    3300186: side_bar_hzon_deco2
-    3300188: side_bar_hzon_deco3
-    3300190: side_bar_hzon_deco4
-    3300192: side_bar_hzon_deco5
-    3300194: side_bar_hzon_deco6
-    3300196: side_bar_hzon_deco7
-    3300198: side_bar_hzon_deco8
-    3300200: side_bar_hzon_deco9
-    3300202: side_bar_vert
-    3300204: side_bar_vert1
-    3300206: side_bar_vert2
-    3300208: side_bar_vert3
-    3300210: side_bar_vert4
-    3300212: side_bar_vert5
-    3300214: side_panel
-    3300216: side_panel1
-    3300218: top1
-    3300220: top2
-    3300222: top_part
-    4300000: top1
-    4300002: pCube3
-    4300004: pCube5
-    4300006: pCube8
-    4300008: pCube16
-    4300010: pCube17
-    4300012: top_part
-    4300014: lion
-    4300016: drawer
-    4300018: door_tall
-    4300020: block_behind_lion
-    4300022: block_behind_lion1
-    4300024: side_bar_vert1
-    4300026: side_bar_vert2
-    4300028: side_bar_hzon_deco3
-    4300030: side_bar_hzon
-    4300032: side_panel
-    4300034: side_bar_hzon2
-    4300036: side_bar_hzon4
-    4300038: pCube14
-    4300040: pCylinder3
-    4300042: pCylinder6
-    4300044: polySurface1
-    4300046: polySurface2
-    4300048: pCube18
-    4300050: pCube19
-    4300052: pCube20
-    4300054: drawer_knob1
-    4300056: door_short
-    4300058: handle_con3
-    4300060: handle1
-    4300062: handle_tiny
-    4300064: top2
-    4300066: decal_big
-    4300068: back_cover
-    4300070: pSphere1
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: back_cover
+  - first:
+      1: 100002
+    second: balls
+  - first:
+      1: 100004
+    second: block_behind_lion
+  - first:
+      1: 100006
+    second: block_behind_lion1
+  - first:
+      1: 100008
+    second: //RootNode
+  - first:
+      1: 100010
+    second: decal_big
+  - first:
+      1: 100012
+    second: door_short
+  - first:
+      1: 100014
+    second: door_short1
+  - first:
+      1: 100016
+    second: door_tall
+  - first:
+      1: 100018
+    second: door_tall1
+  - first:
+      1: 100020
+    second: drawer
+  - first:
+      1: 100022
+    second: drawer1
+  - first:
+      1: 100024
+    second: drawer_knob
+  - first:
+      1: 100026
+    second: drawer_knob1
+  - first:
+      1: 100028
+    second: drawer_knob2
+  - first:
+      1: 100030
+    second: handle
+  - first:
+      1: 100032
+    second: handle1
+  - first:
+      1: 100034
+    second: handle_con
+  - first:
+      1: 100036
+    second: handle_con1
+  - first:
+      1: 100038
+    second: handle_con2
+  - first:
+      1: 100040
+    second: handle_con3
+  - first:
+      1: 100042
+    second: handle_tiny
+  - first:
+      1: 100044
+    second: handle_tiny1
+  - first:
+      1: 100046
+    second: handles
+  - first:
+      1: 100048
+    second: hzons
+  - first:
+      1: 100050
+    second: lion
+  - first:
+      1: 100052
+    second: lion1
+  - first:
+      1: 100054
+    second: lion2
+  - first:
+      1: 100056
+    second: pCube10
+  - first:
+      1: 100058
+    second: pCube12
+  - first:
+      1: 100060
+    second: pCube14
+  - first:
+      1: 100062
+    second: pCube14 1
+  - first:
+      1: 100064
+    second: pCube14 2
+  - first:
+      1: 100066
+    second: pCube14 3
+  - first:
+      1: 100068
+    second: pCube14 4
+  - first:
+      1: 100070
+    second: pCube14 5
+  - first:
+      1: 100072
+    second: pCube16
+  - first:
+      1: 100074
+    second: pCube17
+  - first:
+      1: 100076
+    second: pCube18
+  - first:
+      1: 100078
+    second: pCube18 1
+  - first:
+      1: 100080
+    second: pCube18 2
+  - first:
+      1: 100082
+    second: pCube18 3
+  - first:
+      1: 100084
+    second: pCube18 4
+  - first:
+      1: 100086
+    second: pCube18 5
+  - first:
+      1: 100088
+    second: pCube19
+  - first:
+      1: 100090
+    second: pCube19 1
+  - first:
+      1: 100092
+    second: pCube19 2
+  - first:
+      1: 100094
+    second: pCube19 3
+  - first:
+      1: 100096
+    second: pCube19 4
+  - first:
+      1: 100098
+    second: pCube19 5
+  - first:
+      1: 100100
+    second: pCube20
+  - first:
+      1: 100102
+    second: pCube20 1
+  - first:
+      1: 100104
+    second: pCube20 2
+  - first:
+      1: 100106
+    second: pCube20 3
+  - first:
+      1: 100108
+    second: pCube20 4
+  - first:
+      1: 100110
+    second: pCube20 5
+  - first:
+      1: 100112
+    second: pCube3
+  - first:
+      1: 100114
+    second: pCube5
+  - first:
+      1: 100116
+    second: pCube6
+  - first:
+      1: 100118
+    second: pCube8
+  - first:
+      1: 100120
+    second: pCylinder3
+  - first:
+      1: 100122
+    second: pCylinder3 1
+  - first:
+      1: 100124
+    second: pCylinder3 2
+  - first:
+      1: 100126
+    second: pCylinder3 3
+  - first:
+      1: 100128
+    second: pCylinder3 4
+  - first:
+      1: 100130
+    second: pCylinder3 5
+  - first:
+      1: 100132
+    second: pCylinder6
+  - first:
+      1: 100134
+    second: pCylinder6 1
+  - first:
+      1: 100136
+    second: pCylinder6 2
+  - first:
+      1: 100138
+    second: pCylinder6 3
+  - first:
+      1: 100140
+    second: pCylinder6 4
+  - first:
+      1: 100142
+    second: pCylinder6 5
+  - first:
+      1: 100144
+    second: polySurface1
+  - first:
+      1: 100146
+    second: polySurface1 1
+  - first:
+      1: 100148
+    second: polySurface1 2
+  - first:
+      1: 100150
+    second: polySurface1 3
+  - first:
+      1: 100152
+    second: polySurface1 4
+  - first:
+      1: 100154
+    second: polySurface1 5
+  - first:
+      1: 100156
+    second: polySurface2
+  - first:
+      1: 100158
+    second: polySurface2 1
+  - first:
+      1: 100160
+    second: polySurface2 2
+  - first:
+      1: 100162
+    second: polySurface2 3
+  - first:
+      1: 100164
+    second: polySurface2 4
+  - first:
+      1: 100166
+    second: polySurface2 5
+  - first:
+      1: 100168
+    second: pSphere1
+  - first:
+      1: 100170
+    second: pSphere2
+  - first:
+      1: 100172
+    second: pSphere3
+  - first:
+      1: 100174
+    second: pSphere4
+  - first:
+      1: 100176
+    second: side1
+  - first:
+      1: 100178
+    second: side2
+  - first:
+      1: 100180
+    second: side_bar_hzon
+  - first:
+      1: 100182
+    second: side_bar_hzon1
+  - first:
+      1: 100184
+    second: side_bar_hzon2
+  - first:
+      1: 100186
+    second: side_bar_hzon3
+  - first:
+      1: 100188
+    second: side_bar_hzon4
+  - first:
+      1: 100190
+    second: side_bar_hzon5
+  - first:
+      1: 100192
+    second: side_bar_hzon_deco
+  - first:
+      1: 100194
+    second: side_bar_hzon_deco1
+  - first:
+      1: 100196
+    second: side_bar_hzon_deco10
+  - first:
+      1: 100198
+    second: side_bar_hzon_deco11
+  - first:
+      1: 100200
+    second: side_bar_hzon_deco2
+  - first:
+      1: 100202
+    second: side_bar_hzon_deco3
+  - first:
+      1: 100204
+    second: side_bar_hzon_deco4
+  - first:
+      1: 100206
+    second: side_bar_hzon_deco5
+  - first:
+      1: 100208
+    second: side_bar_hzon_deco6
+  - first:
+      1: 100210
+    second: side_bar_hzon_deco7
+  - first:
+      1: 100212
+    second: side_bar_hzon_deco8
+  - first:
+      1: 100214
+    second: side_bar_hzon_deco9
+  - first:
+      1: 100216
+    second: side_bar_vert
+  - first:
+      1: 100218
+    second: side_bar_vert1
+  - first:
+      1: 100220
+    second: side_bar_vert2
+  - first:
+      1: 100222
+    second: side_bar_vert3
+  - first:
+      1: 100224
+    second: side_bar_vert4
+  - first:
+      1: 100226
+    second: side_bar_vert5
+  - first:
+      1: 100228
+    second: side_panel
+  - first:
+      1: 100230
+    second: side_panel1
+  - first:
+      1: 100232
+    second: top1
+  - first:
+      1: 100234
+    second: top2
+  - first:
+      1: 100236
+    second: top_part
+  - first:
+      1: 100238
+    second: transform1
+  - first:
+      1: 100240
+    second: vert_beam_deco
+  - first:
+      1: 100242
+    second: vert_beam_deco1
+  - first:
+      1: 100244
+    second: vert_beam_deco2
+  - first:
+      1: 100246
+    second: vert_beam_deco3
+  - first:
+      1: 100248
+    second: vert_beam_deco4
+  - first:
+      1: 100250
+    second: vert_beam_deco5
+  - first:
+      1: 100252
+    second: verts
+  - first:
+      4: 400000
+    second: back_cover
+  - first:
+      4: 400002
+    second: balls
+  - first:
+      4: 400004
+    second: block_behind_lion
+  - first:
+      4: 400006
+    second: block_behind_lion1
+  - first:
+      4: 400008
+    second: //RootNode
+  - first:
+      4: 400010
+    second: decal_big
+  - first:
+      4: 400012
+    second: door_short
+  - first:
+      4: 400014
+    second: door_short1
+  - first:
+      4: 400016
+    second: door_tall
+  - first:
+      4: 400018
+    second: door_tall1
+  - first:
+      4: 400020
+    second: drawer
+  - first:
+      4: 400022
+    second: drawer1
+  - first:
+      4: 400024
+    second: drawer_knob
+  - first:
+      4: 400026
+    second: drawer_knob1
+  - first:
+      4: 400028
+    second: drawer_knob2
+  - first:
+      4: 400030
+    second: handle
+  - first:
+      4: 400032
+    second: handle1
+  - first:
+      4: 400034
+    second: handle_con
+  - first:
+      4: 400036
+    second: handle_con1
+  - first:
+      4: 400038
+    second: handle_con2
+  - first:
+      4: 400040
+    second: handle_con3
+  - first:
+      4: 400042
+    second: handle_tiny
+  - first:
+      4: 400044
+    second: handle_tiny1
+  - first:
+      4: 400046
+    second: handles
+  - first:
+      4: 400048
+    second: hzons
+  - first:
+      4: 400050
+    second: lion
+  - first:
+      4: 400052
+    second: lion1
+  - first:
+      4: 400054
+    second: lion2
+  - first:
+      4: 400056
+    second: pCube10
+  - first:
+      4: 400058
+    second: pCube12
+  - first:
+      4: 400060
+    second: pCube14
+  - first:
+      4: 400062
+    second: pCube14 1
+  - first:
+      4: 400064
+    second: pCube14 2
+  - first:
+      4: 400066
+    second: pCube14 3
+  - first:
+      4: 400068
+    second: pCube14 4
+  - first:
+      4: 400070
+    second: pCube14 5
+  - first:
+      4: 400072
+    second: pCube16
+  - first:
+      4: 400074
+    second: pCube17
+  - first:
+      4: 400076
+    second: pCube18
+  - first:
+      4: 400078
+    second: pCube18 1
+  - first:
+      4: 400080
+    second: pCube18 2
+  - first:
+      4: 400082
+    second: pCube18 3
+  - first:
+      4: 400084
+    second: pCube18 4
+  - first:
+      4: 400086
+    second: pCube18 5
+  - first:
+      4: 400088
+    second: pCube19
+  - first:
+      4: 400090
+    second: pCube19 1
+  - first:
+      4: 400092
+    second: pCube19 2
+  - first:
+      4: 400094
+    second: pCube19 3
+  - first:
+      4: 400096
+    second: pCube19 4
+  - first:
+      4: 400098
+    second: pCube19 5
+  - first:
+      4: 400100
+    second: pCube20
+  - first:
+      4: 400102
+    second: pCube20 1
+  - first:
+      4: 400104
+    second: pCube20 2
+  - first:
+      4: 400106
+    second: pCube20 3
+  - first:
+      4: 400108
+    second: pCube20 4
+  - first:
+      4: 400110
+    second: pCube20 5
+  - first:
+      4: 400112
+    second: pCube3
+  - first:
+      4: 400114
+    second: pCube5
+  - first:
+      4: 400116
+    second: pCube6
+  - first:
+      4: 400118
+    second: pCube8
+  - first:
+      4: 400120
+    second: pCylinder3
+  - first:
+      4: 400122
+    second: pCylinder3 1
+  - first:
+      4: 400124
+    second: pCylinder3 2
+  - first:
+      4: 400126
+    second: pCylinder3 3
+  - first:
+      4: 400128
+    second: pCylinder3 4
+  - first:
+      4: 400130
+    second: pCylinder3 5
+  - first:
+      4: 400132
+    second: pCylinder6
+  - first:
+      4: 400134
+    second: pCylinder6 1
+  - first:
+      4: 400136
+    second: pCylinder6 2
+  - first:
+      4: 400138
+    second: pCylinder6 3
+  - first:
+      4: 400140
+    second: pCylinder6 4
+  - first:
+      4: 400142
+    second: pCylinder6 5
+  - first:
+      4: 400144
+    second: polySurface1
+  - first:
+      4: 400146
+    second: polySurface1 1
+  - first:
+      4: 400148
+    second: polySurface1 2
+  - first:
+      4: 400150
+    second: polySurface1 3
+  - first:
+      4: 400152
+    second: polySurface1 4
+  - first:
+      4: 400154
+    second: polySurface1 5
+  - first:
+      4: 400156
+    second: polySurface2
+  - first:
+      4: 400158
+    second: polySurface2 1
+  - first:
+      4: 400160
+    second: polySurface2 2
+  - first:
+      4: 400162
+    second: polySurface2 3
+  - first:
+      4: 400164
+    second: polySurface2 4
+  - first:
+      4: 400166
+    second: polySurface2 5
+  - first:
+      4: 400168
+    second: pSphere1
+  - first:
+      4: 400170
+    second: pSphere2
+  - first:
+      4: 400172
+    second: pSphere3
+  - first:
+      4: 400174
+    second: pSphere4
+  - first:
+      4: 400176
+    second: side1
+  - first:
+      4: 400178
+    second: side2
+  - first:
+      4: 400180
+    second: side_bar_hzon
+  - first:
+      4: 400182
+    second: side_bar_hzon1
+  - first:
+      4: 400184
+    second: side_bar_hzon2
+  - first:
+      4: 400186
+    second: side_bar_hzon3
+  - first:
+      4: 400188
+    second: side_bar_hzon4
+  - first:
+      4: 400190
+    second: side_bar_hzon5
+  - first:
+      4: 400192
+    second: side_bar_hzon_deco
+  - first:
+      4: 400194
+    second: side_bar_hzon_deco1
+  - first:
+      4: 400196
+    second: side_bar_hzon_deco10
+  - first:
+      4: 400198
+    second: side_bar_hzon_deco11
+  - first:
+      4: 400200
+    second: side_bar_hzon_deco2
+  - first:
+      4: 400202
+    second: side_bar_hzon_deco3
+  - first:
+      4: 400204
+    second: side_bar_hzon_deco4
+  - first:
+      4: 400206
+    second: side_bar_hzon_deco5
+  - first:
+      4: 400208
+    second: side_bar_hzon_deco6
+  - first:
+      4: 400210
+    second: side_bar_hzon_deco7
+  - first:
+      4: 400212
+    second: side_bar_hzon_deco8
+  - first:
+      4: 400214
+    second: side_bar_hzon_deco9
+  - first:
+      4: 400216
+    second: side_bar_vert
+  - first:
+      4: 400218
+    second: side_bar_vert1
+  - first:
+      4: 400220
+    second: side_bar_vert2
+  - first:
+      4: 400222
+    second: side_bar_vert3
+  - first:
+      4: 400224
+    second: side_bar_vert4
+  - first:
+      4: 400226
+    second: side_bar_vert5
+  - first:
+      4: 400228
+    second: side_panel
+  - first:
+      4: 400230
+    second: side_panel1
+  - first:
+      4: 400232
+    second: top1
+  - first:
+      4: 400234
+    second: top2
+  - first:
+      4: 400236
+    second: top_part
+  - first:
+      4: 400238
+    second: transform1
+  - first:
+      4: 400240
+    second: vert_beam_deco
+  - first:
+      4: 400242
+    second: vert_beam_deco1
+  - first:
+      4: 400244
+    second: vert_beam_deco2
+  - first:
+      4: 400246
+    second: vert_beam_deco3
+  - first:
+      4: 400248
+    second: vert_beam_deco4
+  - first:
+      4: 400250
+    second: vert_beam_deco5
+  - first:
+      4: 400252
+    second: verts
+  - first:
+      21: 2100000
+    second: wood_mat
+  - first:
+      21: 2100002
+    second: metal_mat
+  - first:
+      21: 2100004
+    second: decal_big_mat
+  - first:
+      23: 2300000
+    second: back_cover
+  - first:
+      23: 2300002
+    second: block_behind_lion
+  - first:
+      23: 2300004
+    second: block_behind_lion1
+  - first:
+      23: 2300006
+    second: decal_big
+  - first:
+      23: 2300008
+    second: door_short
+  - first:
+      23: 2300010
+    second: door_short1
+  - first:
+      23: 2300012
+    second: door_tall
+  - first:
+      23: 2300014
+    second: door_tall1
+  - first:
+      23: 2300016
+    second: drawer
+  - first:
+      23: 2300018
+    second: drawer1
+  - first:
+      23: 2300020
+    second: drawer_knob1
+  - first:
+      23: 2300022
+    second: drawer_knob2
+  - first:
+      23: 2300024
+    second: handle
+  - first:
+      23: 2300026
+    second: handle1
+  - first:
+      23: 2300028
+    second: handle_con
+  - first:
+      23: 2300030
+    second: handle_con1
+  - first:
+      23: 2300032
+    second: handle_con2
+  - first:
+      23: 2300034
+    second: handle_con3
+  - first:
+      23: 2300036
+    second: handle_tiny
+  - first:
+      23: 2300038
+    second: handle_tiny1
+  - first:
+      23: 2300040
+    second: lion
+  - first:
+      23: 2300042
+    second: lion1
+  - first:
+      23: 2300044
+    second: lion2
+  - first:
+      23: 2300046
+    second: pCube10
+  - first:
+      23: 2300048
+    second: pCube12
+  - first:
+      23: 2300050
+    second: pCube14
+  - first:
+      23: 2300052
+    second: pCube14 1
+  - first:
+      23: 2300054
+    second: pCube14 2
+  - first:
+      23: 2300056
+    second: pCube14 3
+  - first:
+      23: 2300058
+    second: pCube14 4
+  - first:
+      23: 2300060
+    second: pCube14 5
+  - first:
+      23: 2300062
+    second: pCube16
+  - first:
+      23: 2300064
+    second: pCube17
+  - first:
+      23: 2300066
+    second: pCube18
+  - first:
+      23: 2300068
+    second: pCube18 1
+  - first:
+      23: 2300070
+    second: pCube18 2
+  - first:
+      23: 2300072
+    second: pCube18 3
+  - first:
+      23: 2300074
+    second: pCube18 4
+  - first:
+      23: 2300076
+    second: pCube18 5
+  - first:
+      23: 2300078
+    second: pCube19
+  - first:
+      23: 2300080
+    second: pCube19 1
+  - first:
+      23: 2300082
+    second: pCube19 2
+  - first:
+      23: 2300084
+    second: pCube19 3
+  - first:
+      23: 2300086
+    second: pCube19 4
+  - first:
+      23: 2300088
+    second: pCube19 5
+  - first:
+      23: 2300090
+    second: pCube20
+  - first:
+      23: 2300092
+    second: pCube20 1
+  - first:
+      23: 2300094
+    second: pCube20 2
+  - first:
+      23: 2300096
+    second: pCube20 3
+  - first:
+      23: 2300098
+    second: pCube20 4
+  - first:
+      23: 2300100
+    second: pCube20 5
+  - first:
+      23: 2300102
+    second: pCube3
+  - first:
+      23: 2300104
+    second: pCube5
+  - first:
+      23: 2300106
+    second: pCube6
+  - first:
+      23: 2300108
+    second: pCube8
+  - first:
+      23: 2300110
+    second: pCylinder3
+  - first:
+      23: 2300112
+    second: pCylinder3 1
+  - first:
+      23: 2300114
+    second: pCylinder3 2
+  - first:
+      23: 2300116
+    second: pCylinder3 3
+  - first:
+      23: 2300118
+    second: pCylinder3 4
+  - first:
+      23: 2300120
+    second: pCylinder3 5
+  - first:
+      23: 2300122
+    second: pCylinder6
+  - first:
+      23: 2300124
+    second: pCylinder6 1
+  - first:
+      23: 2300126
+    second: pCylinder6 2
+  - first:
+      23: 2300128
+    second: pCylinder6 3
+  - first:
+      23: 2300130
+    second: pCylinder6 4
+  - first:
+      23: 2300132
+    second: pCylinder6 5
+  - first:
+      23: 2300134
+    second: polySurface1
+  - first:
+      23: 2300136
+    second: polySurface1 1
+  - first:
+      23: 2300138
+    second: polySurface1 2
+  - first:
+      23: 2300140
+    second: polySurface1 3
+  - first:
+      23: 2300142
+    second: polySurface1 4
+  - first:
+      23: 2300144
+    second: polySurface1 5
+  - first:
+      23: 2300146
+    second: polySurface2
+  - first:
+      23: 2300148
+    second: polySurface2 1
+  - first:
+      23: 2300150
+    second: polySurface2 2
+  - first:
+      23: 2300152
+    second: polySurface2 3
+  - first:
+      23: 2300154
+    second: polySurface2 4
+  - first:
+      23: 2300156
+    second: polySurface2 5
+  - first:
+      23: 2300158
+    second: pSphere1
+  - first:
+      23: 2300160
+    second: pSphere2
+  - first:
+      23: 2300162
+    second: pSphere3
+  - first:
+      23: 2300164
+    second: pSphere4
+  - first:
+      23: 2300166
+    second: side_bar_hzon
+  - first:
+      23: 2300168
+    second: side_bar_hzon1
+  - first:
+      23: 2300170
+    second: side_bar_hzon2
+  - first:
+      23: 2300172
+    second: side_bar_hzon3
+  - first:
+      23: 2300174
+    second: side_bar_hzon4
+  - first:
+      23: 2300176
+    second: side_bar_hzon5
+  - first:
+      23: 2300178
+    second: side_bar_hzon_deco
+  - first:
+      23: 2300180
+    second: side_bar_hzon_deco1
+  - first:
+      23: 2300182
+    second: side_bar_hzon_deco10
+  - first:
+      23: 2300184
+    second: side_bar_hzon_deco11
+  - first:
+      23: 2300186
+    second: side_bar_hzon_deco2
+  - first:
+      23: 2300188
+    second: side_bar_hzon_deco3
+  - first:
+      23: 2300190
+    second: side_bar_hzon_deco4
+  - first:
+      23: 2300192
+    second: side_bar_hzon_deco5
+  - first:
+      23: 2300194
+    second: side_bar_hzon_deco6
+  - first:
+      23: 2300196
+    second: side_bar_hzon_deco7
+  - first:
+      23: 2300198
+    second: side_bar_hzon_deco8
+  - first:
+      23: 2300200
+    second: side_bar_hzon_deco9
+  - first:
+      23: 2300202
+    second: side_bar_vert
+  - first:
+      23: 2300204
+    second: side_bar_vert1
+  - first:
+      23: 2300206
+    second: side_bar_vert2
+  - first:
+      23: 2300208
+    second: side_bar_vert3
+  - first:
+      23: 2300210
+    second: side_bar_vert4
+  - first:
+      23: 2300212
+    second: side_bar_vert5
+  - first:
+      23: 2300214
+    second: side_panel
+  - first:
+      23: 2300216
+    second: side_panel1
+  - first:
+      23: 2300218
+    second: top1
+  - first:
+      23: 2300220
+    second: top2
+  - first:
+      23: 2300222
+    second: top_part
+  - first:
+      33: 3300000
+    second: back_cover
+  - first:
+      33: 3300002
+    second: block_behind_lion
+  - first:
+      33: 3300004
+    second: block_behind_lion1
+  - first:
+      33: 3300006
+    second: decal_big
+  - first:
+      33: 3300008
+    second: door_short
+  - first:
+      33: 3300010
+    second: door_short1
+  - first:
+      33: 3300012
+    second: door_tall
+  - first:
+      33: 3300014
+    second: door_tall1
+  - first:
+      33: 3300016
+    second: drawer
+  - first:
+      33: 3300018
+    second: drawer1
+  - first:
+      33: 3300020
+    second: drawer_knob1
+  - first:
+      33: 3300022
+    second: drawer_knob2
+  - first:
+      33: 3300024
+    second: handle
+  - first:
+      33: 3300026
+    second: handle1
+  - first:
+      33: 3300028
+    second: handle_con
+  - first:
+      33: 3300030
+    second: handle_con1
+  - first:
+      33: 3300032
+    second: handle_con2
+  - first:
+      33: 3300034
+    second: handle_con3
+  - first:
+      33: 3300036
+    second: handle_tiny
+  - first:
+      33: 3300038
+    second: handle_tiny1
+  - first:
+      33: 3300040
+    second: lion
+  - first:
+      33: 3300042
+    second: lion1
+  - first:
+      33: 3300044
+    second: lion2
+  - first:
+      33: 3300046
+    second: pCube10
+  - first:
+      33: 3300048
+    second: pCube12
+  - first:
+      33: 3300050
+    second: pCube14
+  - first:
+      33: 3300052
+    second: pCube14 1
+  - first:
+      33: 3300054
+    second: pCube14 2
+  - first:
+      33: 3300056
+    second: pCube14 3
+  - first:
+      33: 3300058
+    second: pCube14 4
+  - first:
+      33: 3300060
+    second: pCube14 5
+  - first:
+      33: 3300062
+    second: pCube16
+  - first:
+      33: 3300064
+    second: pCube17
+  - first:
+      33: 3300066
+    second: pCube18
+  - first:
+      33: 3300068
+    second: pCube18 1
+  - first:
+      33: 3300070
+    second: pCube18 2
+  - first:
+      33: 3300072
+    second: pCube18 3
+  - first:
+      33: 3300074
+    second: pCube18 4
+  - first:
+      33: 3300076
+    second: pCube18 5
+  - first:
+      33: 3300078
+    second: pCube19
+  - first:
+      33: 3300080
+    second: pCube19 1
+  - first:
+      33: 3300082
+    second: pCube19 2
+  - first:
+      33: 3300084
+    second: pCube19 3
+  - first:
+      33: 3300086
+    second: pCube19 4
+  - first:
+      33: 3300088
+    second: pCube19 5
+  - first:
+      33: 3300090
+    second: pCube20
+  - first:
+      33: 3300092
+    second: pCube20 1
+  - first:
+      33: 3300094
+    second: pCube20 2
+  - first:
+      33: 3300096
+    second: pCube20 3
+  - first:
+      33: 3300098
+    second: pCube20 4
+  - first:
+      33: 3300100
+    second: pCube20 5
+  - first:
+      33: 3300102
+    second: pCube3
+  - first:
+      33: 3300104
+    second: pCube5
+  - first:
+      33: 3300106
+    second: pCube6
+  - first:
+      33: 3300108
+    second: pCube8
+  - first:
+      33: 3300110
+    second: pCylinder3
+  - first:
+      33: 3300112
+    second: pCylinder3 1
+  - first:
+      33: 3300114
+    second: pCylinder3 2
+  - first:
+      33: 3300116
+    second: pCylinder3 3
+  - first:
+      33: 3300118
+    second: pCylinder3 4
+  - first:
+      33: 3300120
+    second: pCylinder3 5
+  - first:
+      33: 3300122
+    second: pCylinder6
+  - first:
+      33: 3300124
+    second: pCylinder6 1
+  - first:
+      33: 3300126
+    second: pCylinder6 2
+  - first:
+      33: 3300128
+    second: pCylinder6 3
+  - first:
+      33: 3300130
+    second: pCylinder6 4
+  - first:
+      33: 3300132
+    second: pCylinder6 5
+  - first:
+      33: 3300134
+    second: polySurface1
+  - first:
+      33: 3300136
+    second: polySurface1 1
+  - first:
+      33: 3300138
+    second: polySurface1 2
+  - first:
+      33: 3300140
+    second: polySurface1 3
+  - first:
+      33: 3300142
+    second: polySurface1 4
+  - first:
+      33: 3300144
+    second: polySurface1 5
+  - first:
+      33: 3300146
+    second: polySurface2
+  - first:
+      33: 3300148
+    second: polySurface2 1
+  - first:
+      33: 3300150
+    second: polySurface2 2
+  - first:
+      33: 3300152
+    second: polySurface2 3
+  - first:
+      33: 3300154
+    second: polySurface2 4
+  - first:
+      33: 3300156
+    second: polySurface2 5
+  - first:
+      33: 3300158
+    second: pSphere1
+  - first:
+      33: 3300160
+    second: pSphere2
+  - first:
+      33: 3300162
+    second: pSphere3
+  - first:
+      33: 3300164
+    second: pSphere4
+  - first:
+      33: 3300166
+    second: side_bar_hzon
+  - first:
+      33: 3300168
+    second: side_bar_hzon1
+  - first:
+      33: 3300170
+    second: side_bar_hzon2
+  - first:
+      33: 3300172
+    second: side_bar_hzon3
+  - first:
+      33: 3300174
+    second: side_bar_hzon4
+  - first:
+      33: 3300176
+    second: side_bar_hzon5
+  - first:
+      33: 3300178
+    second: side_bar_hzon_deco
+  - first:
+      33: 3300180
+    second: side_bar_hzon_deco1
+  - first:
+      33: 3300182
+    second: side_bar_hzon_deco10
+  - first:
+      33: 3300184
+    second: side_bar_hzon_deco11
+  - first:
+      33: 3300186
+    second: side_bar_hzon_deco2
+  - first:
+      33: 3300188
+    second: side_bar_hzon_deco3
+  - first:
+      33: 3300190
+    second: side_bar_hzon_deco4
+  - first:
+      33: 3300192
+    second: side_bar_hzon_deco5
+  - first:
+      33: 3300194
+    second: side_bar_hzon_deco6
+  - first:
+      33: 3300196
+    second: side_bar_hzon_deco7
+  - first:
+      33: 3300198
+    second: side_bar_hzon_deco8
+  - first:
+      33: 3300200
+    second: side_bar_hzon_deco9
+  - first:
+      33: 3300202
+    second: side_bar_vert
+  - first:
+      33: 3300204
+    second: side_bar_vert1
+  - first:
+      33: 3300206
+    second: side_bar_vert2
+  - first:
+      33: 3300208
+    second: side_bar_vert3
+  - first:
+      33: 3300210
+    second: side_bar_vert4
+  - first:
+      33: 3300212
+    second: side_bar_vert5
+  - first:
+      33: 3300214
+    second: side_panel
+  - first:
+      33: 3300216
+    second: side_panel1
+  - first:
+      33: 3300218
+    second: top1
+  - first:
+      33: 3300220
+    second: top2
+  - first:
+      33: 3300222
+    second: top_part
+  - first:
+      43: 4300000
+    second: top1
+  - first:
+      43: 4300002
+    second: pCube3
+  - first:
+      43: 4300004
+    second: pCube5
+  - first:
+      43: 4300006
+    second: pCube8
+  - first:
+      43: 4300008
+    second: pCube16
+  - first:
+      43: 4300010
+    second: pCube17
+  - first:
+      43: 4300012
+    second: top_part
+  - first:
+      43: 4300014
+    second: lion
+  - first:
+      43: 4300016
+    second: drawer
+  - first:
+      43: 4300018
+    second: door_tall
+  - first:
+      43: 4300020
+    second: block_behind_lion
+  - first:
+      43: 4300022
+    second: block_behind_lion1
+  - first:
+      43: 4300024
+    second: side_bar_vert1
+  - first:
+      43: 4300026
+    second: side_bar_vert2
+  - first:
+      43: 4300028
+    second: side_bar_hzon_deco3
+  - first:
+      43: 4300030
+    second: side_bar_hzon
+  - first:
+      43: 4300032
+    second: side_panel
+  - first:
+      43: 4300034
+    second: side_bar_hzon2
+  - first:
+      43: 4300036
+    second: side_bar_hzon4
+  - first:
+      43: 4300038
+    second: pCube14
+  - first:
+      43: 4300040
+    second: pCylinder3
+  - first:
+      43: 4300042
+    second: pCylinder6
+  - first:
+      43: 4300044
+    second: polySurface1
+  - first:
+      43: 4300046
+    second: polySurface2
+  - first:
+      43: 4300048
+    second: pCube18
+  - first:
+      43: 4300050
+    second: pCube19
+  - first:
+      43: 4300052
+    second: pCube20
+  - first:
+      43: 4300054
+    second: drawer_knob1
+  - first:
+      43: 4300056
+    second: door_short
+  - first:
+      43: 4300058
+    second: handle_con3
+  - first:
+      43: 4300060
+    second: handle1
+  - first:
+      43: 4300062
+    second: handle_tiny
+  - first:
+      43: 4300064
+    second: top2
+  - first:
+      43: 4300066
+    second: decal_big
+  - first:
+      43: 4300068
+    second: back_cover
+  - first:
+      43: 4300070
+    second: pSphere1
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -567,7 +1601,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 100
-    meshCompression: 3
+    meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     importVisibility: 1
@@ -577,18 +1611,19 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 20
     normalImportMode: 1
@@ -597,10 +1632,11 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 2
+  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -610,6 +1646,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 100
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

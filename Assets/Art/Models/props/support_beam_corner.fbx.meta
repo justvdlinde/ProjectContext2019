@@ -1,42 +1,110 @@
 fileFormatVersion: 2
 guid: f47cc6170b094934da4b1d0d7ca575ad
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: bar_deco
-    100002: bar_top
-    100004: bar_vert
-    100006: nail
-    100008: nail1
-    100010: rounded_wood2
-    100012: //RootNode
-    400000: bar_deco
-    400002: bar_top
-    400004: bar_vert
-    400006: nail
-    400008: nail1
-    400010: rounded_wood2
-    400012: //RootNode
-    2100000: wood_mat
-    2100002: metal_mat
-    2300000: bar_deco
-    2300002: bar_top
-    2300004: bar_vert
-    2300006: nail
-    2300008: nail1
-    2300010: rounded_wood2
-    3300000: bar_deco
-    3300002: bar_top
-    3300004: bar_vert
-    3300006: nail
-    3300008: nail1
-    3300010: rounded_wood2
-    4300000: bar_vert
-    4300002: bar_deco
-    4300004: bar_top
-    4300006: rounded_wood2
-    4300008: nail1
-    4300010: nail
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: bar_deco
+  - first:
+      1: 100002
+    second: bar_top
+  - first:
+      1: 100004
+    second: bar_vert
+  - first:
+      1: 100006
+    second: nail
+  - first:
+      1: 100008
+    second: nail1
+  - first:
+      1: 100010
+    second: rounded_wood2
+  - first:
+      1: 100012
+    second: //RootNode
+  - first:
+      4: 400000
+    second: bar_deco
+  - first:
+      4: 400002
+    second: bar_top
+  - first:
+      4: 400004
+    second: bar_vert
+  - first:
+      4: 400006
+    second: nail
+  - first:
+      4: 400008
+    second: nail1
+  - first:
+      4: 400010
+    second: rounded_wood2
+  - first:
+      4: 400012
+    second: //RootNode
+  - first:
+      21: 2100000
+    second: wood_mat
+  - first:
+      21: 2100002
+    second: metal_mat
+  - first:
+      23: 2300000
+    second: bar_deco
+  - first:
+      23: 2300002
+    second: bar_top
+  - first:
+      23: 2300004
+    second: bar_vert
+  - first:
+      23: 2300006
+    second: nail
+  - first:
+      23: 2300008
+    second: nail1
+  - first:
+      23: 2300010
+    second: rounded_wood2
+  - first:
+      33: 3300000
+    second: bar_deco
+  - first:
+      33: 3300002
+    second: bar_top
+  - first:
+      33: 3300004
+    second: bar_vert
+  - first:
+      33: 3300006
+    second: nail
+  - first:
+      33: 3300008
+    second: nail1
+  - first:
+      33: 3300010
+    second: rounded_wood2
+  - first:
+      43: 4300000
+    second: bar_vert
+  - first:
+      43: 4300002
+    second: bar_deco
+  - first:
+      43: 4300004
+    second: bar_top
+  - first:
+      43: 4300006
+    second: rounded_wood2
+  - first:
+      43: 4300008
+    second: nail1
+  - first:
+      43: 4300010
+    second: nail
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -79,30 +147,32 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-    normalCalculationMode: 4
+    normalCalculationMode: 3
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
+    normalSmoothingSource: 2
+  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -112,6 +182,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

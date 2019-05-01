@@ -1,52 +1,140 @@
 fileFormatVersion: 2
 guid: 106171d1ffbb8a045a13aaeeca8981ec
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Deurpost
-    100002: //RootNode
-    100004: RoofBlock
-    100006: WallBlock_Couch
-    100008: WallBlock_Doorway
-    100010: WallBlock_Window
-    100012: WallBlockBase
-    100014: WindowPlint_1
-    100016: WindowPlint_2
-    400000: Deurpost
-    400002: //RootNode
-    400004: RoofBlock
-    400006: WallBlock_Couch
-    400008: WallBlock_Doorway
-    400010: WallBlock_Window
-    400012: WallBlockBase
-    400014: WindowPlint_1
-    400016: WindowPlint_2
-    2100000: InteriorPlaster_Mat
-    2100002: InteriorWood_Mat
-    2300000: Deurpost
-    2300002: RoofBlock
-    2300004: WallBlock_Couch
-    2300006: WallBlock_Doorway
-    2300008: WallBlock_Window
-    2300010: WallBlockBase
-    2300012: WindowPlint_1
-    2300014: WindowPlint_2
-    3300000: Deurpost
-    3300002: RoofBlock
-    3300004: WallBlock_Couch
-    3300006: WallBlock_Doorway
-    3300008: WallBlock_Window
-    3300010: WallBlockBase
-    3300012: WindowPlint_1
-    3300014: WindowPlint_2
-    4300000: WallBlock_Window
-    4300002: WindowPlint_1
-    4300004: WallBlock_Doorway
-    4300006: Deurpost
-    4300008: WallBlock_Couch
-    4300010: WindowPlint_2
-    4300012: WallBlockBase
-    4300014: RoofBlock
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Deurpost
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      1: 100004
+    second: RoofBlock
+  - first:
+      1: 100006
+    second: WallBlock_Couch
+  - first:
+      1: 100008
+    second: WallBlock_Doorway
+  - first:
+      1: 100010
+    second: WallBlock_Window
+  - first:
+      1: 100012
+    second: WallBlockBase
+  - first:
+      1: 100014
+    second: WindowPlint_1
+  - first:
+      1: 100016
+    second: WindowPlint_2
+  - first:
+      4: 400000
+    second: Deurpost
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
+    second: RoofBlock
+  - first:
+      4: 400006
+    second: WallBlock_Couch
+  - first:
+      4: 400008
+    second: WallBlock_Doorway
+  - first:
+      4: 400010
+    second: WallBlock_Window
+  - first:
+      4: 400012
+    second: WallBlockBase
+  - first:
+      4: 400014
+    second: WindowPlint_1
+  - first:
+      4: 400016
+    second: WindowPlint_2
+  - first:
+      21: 2100000
+    second: InteriorPlaster_Mat
+  - first:
+      21: 2100002
+    second: InteriorWood_Mat
+  - first:
+      23: 2300000
+    second: Deurpost
+  - first:
+      23: 2300002
+    second: RoofBlock
+  - first:
+      23: 2300004
+    second: WallBlock_Couch
+  - first:
+      23: 2300006
+    second: WallBlock_Doorway
+  - first:
+      23: 2300008
+    second: WallBlock_Window
+  - first:
+      23: 2300010
+    second: WallBlockBase
+  - first:
+      23: 2300012
+    second: WindowPlint_1
+  - first:
+      23: 2300014
+    second: WindowPlint_2
+  - first:
+      33: 3300000
+    second: Deurpost
+  - first:
+      33: 3300002
+    second: RoofBlock
+  - first:
+      33: 3300004
+    second: WallBlock_Couch
+  - first:
+      33: 3300006
+    second: WallBlock_Doorway
+  - first:
+      33: 3300008
+    second: WallBlock_Window
+  - first:
+      33: 3300010
+    second: WallBlockBase
+  - first:
+      33: 3300012
+    second: WindowPlint_1
+  - first:
+      33: 3300014
+    second: WindowPlint_2
+  - first:
+      43: 4300000
+    second: WallBlock_Window
+  - first:
+      43: 4300002
+    second: WindowPlint_1
+  - first:
+      43: 4300004
+    second: WallBlock_Doorway
+  - first:
+      43: 4300006
+    second: Deurpost
+  - first:
+      43: 4300008
+    second: WallBlock_Couch
+  - first:
+      43: 4300010
+    second: WindowPlint_2
+  - first:
+      43: 4300012
+    second: WallBlockBase
+  - first:
+      43: 4300014
+    second: RoofBlock
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -79,7 +167,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 3
+    meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     importVisibility: 0
@@ -89,18 +177,19 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -109,10 +198,11 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -122,6 +212,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
