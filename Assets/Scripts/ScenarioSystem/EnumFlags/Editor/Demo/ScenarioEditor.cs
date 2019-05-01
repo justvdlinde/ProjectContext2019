@@ -17,19 +17,19 @@ public class ScenarioEditor : Editor
     {
         base.OnInspectorGUI();
 
-        if (GUILayout.Button("Update Can Start Value"))
-        {
-            scenario.UpdateCanStartValue();
-        }
+        //if (GUILayout.Button("Update Can Start Value"))
+        //{
+        //    scenario.UpdateCanStartValue();
+        //}
 
-        if (GUILayout.Button("Start Scenario"))
-        {
-            scenario.StartScenario();
-        }
+        //if (GUILayout.Button("Start Scenario"))
+        //{
+        //    scenario.StartScenario();
+        //}
 
-        if (GUILayout.Button("Complete Scenario"))
-        {
-            scenario.EndScenario();
-        }
+        //if (GUILayout.Button("Complete Scenario"))
+        //{
+        //    scenario.EndScenario();
+        //}
     }
 }
