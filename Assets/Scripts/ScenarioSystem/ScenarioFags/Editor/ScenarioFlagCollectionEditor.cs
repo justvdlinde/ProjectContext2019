@@ -58,7 +58,14 @@ public class ScenarioFlagCollectionEditor : Editor
         EditorGUI.BeginChangeCheck();
 
         item.isChecked = EditorGUI.Toggle(new Rect(rect.x, rect.y, 20, labelHeight), item.isChecked);
-        item.name = EditorGUI.TextField(new Rect(rect.x + 25, rect.y, rect.width - 25, labelHeight), item.name);
+        string prevName = item.name;
+        item.name = EditorGUI.DelayedTextField(new Rect(rect.x + 25, rect.y, rect.width - 25, labelHeight), item.name);
+        if(item.name != prevName)
+        {
+            int oldHash = item.hash;
+            item.hash = GenerateHash(item.name);
+
+        }
         totalHeight += labelHeight + labelMargin;
 
         if (showDetails)
@@ -81,22 +88,41 @@ public class ScenarioFlagCollectionEditor : Editor
 
     private void AddItem(ReorderableList list)
     {
+        int hash = GenerateHash(newConditionName);
+
+        if(ContainsHash(hash))
+        {
+            Debug.LogWarningFormat("Collection already contains a flag of the same name {0}", newConditionName);
+            return;
+        }
+
         ScenarioFlag flag = CreateNewCondition() as ScenarioFlag;
 
         flag.name = newConditionName;
-        flag.hash = Animator.StringToHash(flag.name);
+        flag.hash = hash;
         flag.description = "No description";
-
-        //TODO: if hash already exists in collection, remove it from collection
 
         Flags.collection.Add(flag);
         EditorUtility.SetDirty(target);
     }
 
+    private bool ContainsHash(int hash)
+    {
+        foreach(ScenarioFlag flag in Flags.collection)
+        {
+            if(flag.hash == hash)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public ScriptableObject CreateNewCondition()
     {
         ScriptableObject instance = ScriptableObject.CreateInstance(typeof(ScenarioFlag));
-        instance.hideFlags = HideFlags.HideInHierarchy;
+        //instance.hideFlags = HideFlags.HideInHierarchy;
         instance.name = newConditionName;
 
         string assetFilePath = AssetDatabase.GetAssetPath(Flags);
@@ -110,5 +136,10 @@ public class ScenarioFlagCollectionEditor : Editor
         Flags.collection.RemoveAt(list.index);
 
         EditorUtility.SetDirty(target);
+    }
+
+    private int GenerateHash(string name)
+    {
+        return Animator.StringToHash(name);
     }
 }

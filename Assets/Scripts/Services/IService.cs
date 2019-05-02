@@ -1,4 +1,4 @@
-﻿namespace ServiceLocator
+﻿namespace ServiceLocatorNamespace
 {
     public interface IService
     {
