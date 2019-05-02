@@ -17,7 +17,7 @@ public class ScenarioItem : MonoBehaviour
         renderer = GetComponent<Renderer>();
         flagsService = (ScenarioFlagsService)ServiceLocator.Instance.Get<ScenarioFlagsService>();
 
-        if(requiredFlag != ScenarioFlag.None && !flagsService.ContainsCheckedFlag(requiredFlag))
+        if(requiredFlag != ScenarioFlag.None && !flagsService.FlagConditionHasBeenMet(requiredFlag))
         {
             renderer.enabled = false;
         }

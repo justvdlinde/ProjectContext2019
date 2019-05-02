@@ -15,18 +15,18 @@ public class ScenarioFlagAttributeDrawer : PropertyDrawer
     {
         ScenarioFlagsService service = (ScenarioFlagsService)ServiceLocator.Instance.Get<ScenarioFlagsService>();
 
-        flagNames = new string[service.flagCollection.collection.Count + 1];
+        flagNames = new string[service.FlagCollection.collection.Count + 1];
         flagNames[0] = "None";
         for (int i = 1; i < flagNames.Length; i++)
         {
-            flagNames[i] = service.flagCollection.collection[i - 1].name + " - " + service.flagCollection.collection[i - 1].description;
+            flagNames[i] = service.FlagCollection.collection[i - 1].name + " - " + service.FlagCollection.collection[i - 1].description;
         }
 
-        flagHashes = new int[service.flagCollection.collection.Count + 1];
+        flagHashes = new int[service.FlagCollection.collection.Count + 1];
         flagHashes[0] = 0;
         for (int i = 1; i < flagHashes.Length; i++)
         {
-            flagHashes[i] = service.flagCollection.collection[i - 1].hash;
+            flagHashes[i] = service.FlagCollection.collection[i - 1].hash;
 
         }
 

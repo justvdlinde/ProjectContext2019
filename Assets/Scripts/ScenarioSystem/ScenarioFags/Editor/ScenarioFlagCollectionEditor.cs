@@ -122,18 +122,24 @@ public class ScenarioFlagCollectionEditor : Editor
     public ScriptableObject CreateNewCondition()
     {
         ScriptableObject instance = ScriptableObject.CreateInstance(typeof(ScenarioFlag));
-        //instance.hideFlags = HideFlags.HideInHierarchy;
+        instance.hideFlags = HideFlags.None;
         instance.name = newConditionName;
 
         string assetFilePath = AssetDatabase.GetAssetPath(Flags);
         AssetDatabase.AddObjectToAsset(instance, assetFilePath);
+        AssetDatabase.ImportAsset(assetFilePath);
 
         return instance;
     }
 
     private void RemoveItem(ReorderableList list)
     {
+        ScenarioFlag flag = Flags.collection[list.index];
         Flags.collection.RemoveAt(list.index);
+
+        string assetFilePath = AssetDatabase.GetAssetPath(Flags);
+        AssetDatabase.RemoveObjectFromAsset(flag);
+        AssetDatabase.ImportAsset(assetFilePath);
 
         EditorUtility.SetDirty(target);
     }

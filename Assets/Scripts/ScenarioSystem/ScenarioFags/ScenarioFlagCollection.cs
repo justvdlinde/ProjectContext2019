@@ -5,5 +5,5 @@ using UnityEngine;
 
 public class ScenarioFlagCollection : ScriptableObject
 {
-    [HideInInspector] public List<ScenarioFlag> collection;
+    [HideInInspector] public List<ScenarioFlag> collection = new List<ScenarioFlag>();
 }
