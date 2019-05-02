@@ -4,7 +4,7 @@ using UnityEngine;
 using GoogleARCore;
 using GoogleARCore.Examples.AugmentedImage;
 using System;
-using ServiceLocator;
+using ServiceLocatorNamespace;
 using UnityEngine.UI;
 
 /// <summary>

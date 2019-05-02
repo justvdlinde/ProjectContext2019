@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ServiceLocator
+namespace ServiceLocatorNamespace
 {
     /// <summary>
     /// Class for keeping track of services, this way singletons aren't needed. 

@@ -42,7 +42,11 @@ The following packages were added:
   com.unity.modules.wind@1.0.0
   com.unity.modules.xr@1.0.0
 
+<<<<<<< HEAD
 === Wed May  1 11:55:25 2019
+=======
+=== Fri Apr 26 15:36:39 2019
+>>>>>>> feature/quest_flow
 
 Packages were changed.
 Update Mode: updateDependencies
