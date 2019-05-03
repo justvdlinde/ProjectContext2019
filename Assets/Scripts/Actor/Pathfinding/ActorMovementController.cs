@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
@@ -11,6 +8,8 @@ public class ActorMovementController : MonoBehaviour
     public Vector3 DestinationPosition { get; private set; }
 
     public GameObject targetObject;
+
+    [SerializeField, AnimatorParameter] private string speedParameter;
 
     [SerializeField] private float turnSmoothing = 15f;
     [SerializeField] private float speedDampTime = 0.1f;
@@ -21,7 +20,6 @@ public class ActorMovementController : MonoBehaviour
     [SerializeField, HideInInspector] private NavMeshAgent agent;
     [SerializeField, HideInInspector] private Animator animator;
 
-    private const string ANIMATOR_SPEED_PARAMETER = "Speed";
     private const float STOP_DISTANCE_PROPOPRTION = 0.1f;
 
     private void OnValidate()
@@ -54,7 +52,7 @@ public class ActorMovementController : MonoBehaviour
             OnMoving();
         }
 
-        animator.SetFloat(ANIMATOR_SPEED_PARAMETER, speed, speedDampTime, Time.deltaTime);
+        animator.SetFloat(speedParameter, speed, speedDampTime, Time.deltaTime);
     }
 
     private void OnAnimatorMove()
