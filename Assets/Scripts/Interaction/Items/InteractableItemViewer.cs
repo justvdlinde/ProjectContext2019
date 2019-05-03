@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using ServiceLocator;
+using ServiceLocatorNamespace;
 
 /// <summary>
 /// Class for viewing <see cref="InteractableItem"/>s
@@ -45,7 +45,7 @@ public class InteractableItemViewer : MonoBehaviour
 
         uiRoot.gameObject.SetActive(false);
 
-        itemDatabase = (ItemDatabaseService)ServiceLocator.ServiceLocator.Instance.Get<ItemDatabaseService>();
+        itemDatabase = (ItemDatabaseService)ServiceLocatorNamespace.ServiceLocator.Instance.Get<ItemDatabaseService>();
     }
 
     private void OnEnable()
