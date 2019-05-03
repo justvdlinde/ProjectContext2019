@@ -1,5 +1,5 @@
 ﻿using UnityEditor;
-using ServiceLocator;
+using ServiceLocatorNamespace;
 using UnityEngine;
 
 [CustomPropertyDrawer(typeof(ItemIDAttribute))]
@@ -11,7 +11,7 @@ public class ItemIDAttributeDrawer : PropertyDrawer
         {
             if (itemsStrings == null)
             {
-                ItemDatabaseService service = (ItemDatabaseService)GlobalServiceLocator.Instance.Get<ItemDatabaseService>();
+                ItemDatabaseService service = (ItemDatabaseService)ServiceLocator.Instance.Get<ItemDatabaseService>();
                 itemsStrings = new string[service.Items.Length];
 
                 for (int i = 0; i < itemsStrings.Length; i++)
