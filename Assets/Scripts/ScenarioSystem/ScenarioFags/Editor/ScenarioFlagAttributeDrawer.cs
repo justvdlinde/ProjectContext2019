@@ -26,7 +26,7 @@ public class ScenarioFlagAttributeDrawer : PropertyDrawer
         flagHashes[0] = 0;
         for (int i = 1; i < flagHashes.Length; i++)
         {
-            flagHashes[i] = service.FlagCollection.collection[i - 1].hash;
+            flagHashes[i] = service.FlagCollection.collection[i - 1].Hash;
 
         }
 

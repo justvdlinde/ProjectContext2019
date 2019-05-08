@@ -27,7 +27,7 @@ public class ScenarioFlagsService : IService
         allFlags = new Dictionary<int, ScenarioFlag>();
         foreach(ScenarioFlag flag in FlagCollection.collection)
         {
-            allFlags.Add(flag.hash, flag);
+            allFlags.Add(flag.Hash, flag);
         }
     }
         
@@ -38,7 +38,7 @@ public class ScenarioFlagsService : IService
 
     public void AddFlag(ScenarioFlag flag)
     {
-        AddFlag(flag.hash);
+        AddFlag(flag.Hash);
     }
 
     public void AddFlag(int hash)
@@ -58,14 +58,14 @@ public class ScenarioFlagsService : IService
 
     public void RemoveFlag(ScenarioFlag flag)
     {
-        if (FlagConditionHasBeenMet(flag.hash))
+        if (FlagConditionHasBeenMet(flag.Hash))
         {
-            checkedFlags.Remove(flag.hash);
+            checkedFlags.Remove(flag.Hash);
             flag.isChecked = false;
         }
         else
         {
-            Debug.LogWarningFormat("Does not contain a key of {0} with hash {1}", flag.name, flag.hash);
+            Debug.LogWarningFormat("Does not contain a key of {0} with hash {1}", flag.name, flag.Hash);
         }
     }
 }

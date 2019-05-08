@@ -32,7 +32,7 @@ public class ScenarioTestItem : MonoBehaviour
 
     private void OnFlagAdded(ScenarioFlag flag)
     {
-        if(flag.hash == requiredFlag)
+        if(flag.Hash == requiredFlag)
         {
             StartScenario();
         }
