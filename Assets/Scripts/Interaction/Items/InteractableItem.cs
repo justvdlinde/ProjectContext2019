@@ -17,6 +17,7 @@ public class InteractableItem : MonoBehaviour, IInteractable
     public Action InteractionStop;
 
     [SerializeField] private bool hideAtStart;
+    [SerializeField] private bool destroyAffterInteraction;
 
     [SerializeField, HideInInspector] private GameObject gObject;
     [SerializeField, HideInInspector] private new Collider collider;
@@ -53,13 +54,19 @@ public class InteractableItem : MonoBehaviour, IInteractable
     
     public void OnInteractionStop()
     {
+        InteractionStop?.Invoke();
+
+        if (destroyAffterInteraction)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         collider.enabled = colliderWasEnabledBeforeInteraction;
         if (rigidbody != null)
         {
             rigidbody.isKinematic = rigidbodyWasKinematicBeforeInteraction;
         }
-
-        InteractionStop?.Invoke();
     }
 
     public void Show(bool show)

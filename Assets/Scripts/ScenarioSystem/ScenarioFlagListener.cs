@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class ScenarioFlagListener : MonoBehaviour
 {
-    [SerializeField, ScenarioFlag] private int requiredFlag;
+    [SerializeField, ScenarioFlag] private int flag;
 
     private ScenarioFlagsService flagService;
 
@@ -25,7 +25,7 @@ public class ScenarioFlagListener : MonoBehaviour
 
     private void OnFlagAdded(ScenarioFlag flag)
     {
-        if(flag.Equals(this.requiredFlag))
+        if(flag.Equals(this.flag))
         {
             onFlagAddedEvent.Invoke();
         }

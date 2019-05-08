@@ -159,9 +159,13 @@ public class InteractableItemViewer : MonoBehaviour
 
     private void StopViewing()
     {
-        StartCoroutine(LerpItemBackToOrigin(interactableItem));
-
         interactableItem.OnInteractionStop();
+
+        if(interactableItem.GameObject != null)
+        { 
+            StartCoroutine(LerpItemBackToOrigin(interactableItem));
+        }
+
         itemContainer.rotation = Quaternion.identity;
 
         interactableItem = null;
