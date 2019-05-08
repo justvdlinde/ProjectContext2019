@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /// <summary>
 /// Component for items that are interactable. Requires a collider
@@ -11,6 +12,9 @@ public class InteractableItem : MonoBehaviour, IInteractable
 
     public GameObject GameObject { get { return gObject; } }
     public Collider Collider { get { return collider; } }
+
+    public Action InteractionStart;
+    public Action InteractionStop;
 
     [SerializeField, HideInInspector] private GameObject gObject;
     [SerializeField, HideInInspector] private new Collider collider;
@@ -36,6 +40,8 @@ public class InteractableItem : MonoBehaviour, IInteractable
             rigidbodyWasKinematicBeforeInteraction = rigidbody.isKinematic;
             rigidbody.isKinematic = true;
         }
+
+        InteractionStart?.Invoke();
     }
     
     public void OnInteractionStop()
@@ -45,5 +51,7 @@ public class InteractableItem : MonoBehaviour, IInteractable
         {
             rigidbody.isKinematic = rigidbodyWasKinematicBeforeInteraction;
         }
+
+        InteractionStop?.Invoke();
     }
 }

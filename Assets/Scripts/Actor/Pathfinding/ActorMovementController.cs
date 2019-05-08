@@ -30,12 +30,15 @@ public class ActorMovementController : MonoBehaviour
 
     private void Start()
     {
-        MoveToDestination(targetObject.transform.position);
+        if (targetObject != null)
+        {
+            MoveToDestination(targetObject.transform.position);
+        }
     }
 
     private void Update()
     {
-        if (agent.pathPending) { return; }
+        if (agent.isStopped || agent.pathPending) { return; }
 
         float speed = agent.desiredVelocity.magnitude;
 

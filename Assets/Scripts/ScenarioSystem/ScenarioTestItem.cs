@@ -1,7 +1,7 @@
 ﻿using ServiceLocatorNamespace;
 using UnityEngine;
 
-public class ScenarioItem : MonoBehaviour
+public class ScenarioTestItem : MonoBehaviour
 {
     public ScenarioStatus Status => status;
     [SerializeField] private ScenarioStatus status;
@@ -32,10 +32,6 @@ public class ScenarioItem : MonoBehaviour
 
     private void OnFlagAdded(ScenarioFlag flag)
     {
-        Debug.Log(gameObject.name);
-        Debug.Log("on flag added " + flag);
-        Debug.Log("requredFlag " + requiredFlag);
-
         if(flag.hash == requiredFlag)
         {
             StartScenario();
@@ -51,11 +47,7 @@ public class ScenarioItem : MonoBehaviour
     public void CompleteScenario()
     {
         status = ScenarioStatus.Completed;
-
-        Debug.Log("Completed scenario, flag hash: " + completedFlag);
-
-        flagsService.AddCheckedFlag(completedFlag);
-
+        flagsService.AddFlag(completedFlag);
         gameObject.SetActive(false);
     }
 }

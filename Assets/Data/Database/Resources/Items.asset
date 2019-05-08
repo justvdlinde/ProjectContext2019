@@ -21,3 +21,6 @@ MonoBehaviour:
   - id: ID_ITEM_002
     name: Pot
     description: Potten waren gemaakt van klei
+  - id: ID_ITEM_003
+    name: Grootboek
+    description: In het grootboek werden de boekhoudingen gedaan zoals het rantsoen

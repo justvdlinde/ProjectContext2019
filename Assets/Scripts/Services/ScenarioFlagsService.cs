@@ -36,7 +36,12 @@ public class ScenarioFlagsService : IService
         return checkedFlags.Contains(hash);
     }
 
-    public void AddCheckedFlag(int hash)
+    public void AddFlag(ScenarioFlag flag)
+    {
+        AddFlag(flag.hash);
+    }
+
+    public void AddFlag(int hash)
     {
         if (hash == ScenarioFlag.None) { return; }
 
@@ -46,12 +51,12 @@ public class ScenarioFlagsService : IService
             ScenarioFlag flag = allFlags[hash];
             flag.isChecked = true;
 
-            Debug.Log("invokr");
+            Debug.Log("Adding flag " + flag.name);
             FlagAdded?.Invoke(flag);
         }
     }
 
-    public void RemoveCheckedFlag(ScenarioFlag flag)
+    public void RemoveFlag(ScenarioFlag flag)
     {
         if (FlagConditionHasBeenMet(flag.hash))
         {
