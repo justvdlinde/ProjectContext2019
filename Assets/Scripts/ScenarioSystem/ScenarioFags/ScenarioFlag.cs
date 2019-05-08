@@ -13,4 +13,20 @@ public class ScenarioFlag : ScriptableObject
     {
         Hash = hash;
     }
+
+    public override bool Equals(object other)
+    {
+        if (other is ScenarioFlag)
+        {
+            return Hash == (other as ScenarioFlag).Hash;
+        }
+        else if(other is int)
+        {
+            return Hash == (int)other;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

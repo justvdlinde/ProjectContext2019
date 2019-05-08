@@ -16,6 +16,8 @@ public class InteractableItem : MonoBehaviour, IInteractable
     public Action InteractionStart;
     public Action InteractionStop;
 
+    [SerializeField] private bool hideAtStart;
+
     [SerializeField, HideInInspector] private GameObject gObject;
     [SerializeField, HideInInspector] private new Collider collider;
 
@@ -28,6 +30,11 @@ public class InteractableItem : MonoBehaviour, IInteractable
         gObject = gameObject;
         collider = GetComponent<Collider>();
         rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        Show(!hideAtStart);
     }
 
     public void OnInteractionStart()
@@ -53,5 +60,10 @@ public class InteractableItem : MonoBehaviour, IInteractable
         }
 
         InteractionStop?.Invoke();
+    }
+
+    public void Show(bool show)
+    {
+        gameObject.SetActive(show);
     }
 }

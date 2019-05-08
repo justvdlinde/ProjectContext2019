@@ -1,22 +1,33 @@
-﻿using System.Collections;
+﻿using ServiceLocatorNamespace;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ScenarioFlagListener : MonoBehaviour
 {
-    [SerializeField] private int flag;
+    [SerializeField, ScenarioFlag] private int requiredFlag;
 
-    private ScenarioFlagsService flagSertice;
+    private ScenarioFlagsService flagService;
 
-    private void OnEnable()
+    [SerializeField] private UnityEvent onFlagAddedEvent;
+
+    private void Start()
     {
-        // subscrive
+        flagService = ServiceLocator.Instance.Get<ScenarioFlagsService>() as ScenarioFlagsService;
+        flagService.FlagAdded += OnFlagAdded;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        //unsubscrive
+        flagService.FlagAdded -= OnFlagAdded;
     }
 
-    // unityEvent
+    private void OnFlagAdded(ScenarioFlag flag)
+    {
+        if(flag.Equals(this.requiredFlag))
+        {
+            onFlagAddedEvent.Invoke();
+        }
+    }
 }
