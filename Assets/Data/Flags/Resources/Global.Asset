@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8924044586408184168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbaa4e01ead325c4ebaa37d05259f090, type: 3}
+  m_Name: Scene_1_Completed
+  m_EditorClassIdentifier: 
+  description: No description
+  isChecked: 0
+  hash: -18282
+--- !u!114 &-7592805495407286583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbaa4e01ead325c4ebaa37d05259f090, type: 3}
+  m_Name: Scene_2_Completed
+  m_EditorClassIdentifier: 
+  description: No description
+  isChecked: 0
+  hash: -21260
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba0510699ac28348afad3031556c65a, type: 3}
+  m_Name: Global
+  m_EditorClassIdentifier: 
+  collection:
+  - {fileID: -8924044586408184168}
+  - {fileID: -7592805495407286583}

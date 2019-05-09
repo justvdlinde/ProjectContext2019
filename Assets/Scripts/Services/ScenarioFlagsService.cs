@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class ScenarioFlagsService : IService
 {
-    private const string FLAG_COLLECTION_FILE_PATH = "ScenarioFlags";
-
-    public readonly ScenarioFlagCollection FlagCollection;
+    public readonly ScenarioFlagCollection[] FlagsCollection;
 
     public Action<ScenarioFlag> FlagAdded;
 
@@ -15,6 +13,7 @@ public class ScenarioFlagsService : IService
     /// Dictionary of all flags, key: hash, value: flag
     /// </summary>
     private Dictionary<int, ScenarioFlag> allFlags = new Dictionary<int, ScenarioFlag>();
+    
     /// <summary>
     /// Hash set for keeping track of the flags that are met
     /// </summary>
@@ -22,12 +21,15 @@ public class ScenarioFlagsService : IService
 
     public ScenarioFlagsService()
     {
-        FlagCollection = Resources.Load<ScenarioFlagCollection>(FLAG_COLLECTION_FILE_PATH);
-
+        FlagsCollection = Resources.LoadAll<ScenarioFlagCollection>("");
         allFlags = new Dictionary<int, ScenarioFlag>();
-        foreach(ScenarioFlag flag in FlagCollection.collection)
+
+        foreach (ScenarioFlagCollection collection in FlagsCollection)
         {
-            allFlags.Add(flag.hash, flag);
+            foreach (ScenarioFlag flag in collection.collection)
+            {
+                allFlags.Add(flag.Hash, flag);
+            }
         }
     }
         
@@ -36,7 +38,12 @@ public class ScenarioFlagsService : IService
         return checkedFlags.Contains(hash);
     }
 
-    public void AddCheckedFlag(int hash)
+    public void AddFlag(ScenarioFlag flag)
+    {
+        AddFlag(flag.Hash);
+    }
+
+    public void AddFlag(int hash)
     {
         if (hash == ScenarioFlag.None) { return; }
 
@@ -45,22 +52,16 @@ public class ScenarioFlagsService : IService
             checkedFlags.Add(hash);
             ScenarioFlag flag = allFlags[hash];
             flag.isChecked = true;
-
-            Debug.Log("invokr");
             FlagAdded?.Invoke(flag);
         }
     }
 
-    public void RemoveCheckedFlag(ScenarioFlag flag)
+    public void RemoveFlag(ScenarioFlag flag)
     {
-        if (FlagConditionHasBeenMet(flag.hash))
+        if (FlagConditionHasBeenMet(flag.Hash))
         {
-            checkedFlags.Remove(flag.hash);
+            checkedFlags.Remove(flag.Hash);
             flag.isChecked = false;
-        }
-        else
-        {
-            Debug.LogWarningFormat("Does not contain a key of {0} with hash {1}", flag.name, flag.hash);
         }
     }
 }

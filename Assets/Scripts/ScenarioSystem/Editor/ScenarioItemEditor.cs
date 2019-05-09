@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(ScenarioItem))]
+[CustomEditor(typeof(ScenarioTestItem))]
 public class ScenarioItemEditor : Editor
 {
-    private ScenarioItem Item { get { return target as ScenarioItem; } }
+    private ScenarioTestItem Item { get { return target as ScenarioTestItem; } }
 
     public override void OnInspectorGUI()
     {
