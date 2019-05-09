@@ -17,7 +17,7 @@ public class InteractableItem : MonoBehaviour, IInteractable
     public Action InteractionStop;
 
     [SerializeField] private bool hideAtStart;
-    [SerializeField] private bool destroyAffterInteraction;
+    [SerializeField] private bool destroyAfterInteraction;
 
     [SerializeField, HideInInspector] private GameObject gObject;
     [SerializeField, HideInInspector] private new Collider collider;
@@ -56,7 +56,7 @@ public class InteractableItem : MonoBehaviour, IInteractable
     {
         InteractionStop?.Invoke();
 
-        if (destroyAffterInteraction)
+        if (destroyAfterInteraction)
         {
             Destroy(gameObject);
             return;
@@ -72,5 +72,10 @@ public class InteractableItem : MonoBehaviour, IInteractable
     public void Show(bool show)
     {
         gameObject.SetActive(show);
+    }
+
+    public void DestroyAfterInteraction(bool destroy)
+    {
+        destroyAfterInteraction = destroy;
     }
 }

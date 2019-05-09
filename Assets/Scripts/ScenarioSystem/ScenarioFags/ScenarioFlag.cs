@@ -4,14 +4,21 @@ public class ScenarioFlag : ScriptableObject
 {
     public const int None = 0;
 
-    public int Hash { get; private set; }
+    public int Hash => hash;
 
     public string description;
     public bool isChecked;
 
+    [SerializeField] private int hash;
+
     public void SetHash(int hash)
     {
-        Hash = hash;
+        this.hash = hash;
+    }
+
+    public override int GetHashCode()
+    {
+        return hash;
     }
 
     public override bool Equals(object other)
