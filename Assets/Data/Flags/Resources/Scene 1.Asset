@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Intro_Complete
   m_EditorClassIdentifier: 
   description: No description
-  isChecked: 0
+  isChecked: 1
   hash: 18080
 --- !u!114 &11400000
 MonoBehaviour:
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: Intro_Started
   m_EditorClassIdentifier: 
   description: No description
-  isChecked: 0
+  isChecked: 1
   hash: 18082
 --- !u!114 &8083110503157907009
 MonoBehaviour:

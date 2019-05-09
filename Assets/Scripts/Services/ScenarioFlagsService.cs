@@ -22,8 +22,6 @@ public class ScenarioFlagsService : IService
     public ScenarioFlagsService()
     {
         FlagsCollection = Resources.LoadAll<ScenarioFlagCollection>("");
-        Debug.Log(FlagsCollection.Length);
-
         allFlags = new Dictionary<int, ScenarioFlag>();
 
         foreach (ScenarioFlagCollection collection in FlagsCollection)

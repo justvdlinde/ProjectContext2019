@@ -287,6 +287,29 @@ MonoBehaviour:
     volume: 1
     stereoPan: 0
     spatialBlend: 0
+--- !u!114 &-5332809189342755955
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82cd92ffc29383742932b27ca414c80f, type: 3}
+  m_Name: Playable Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &-4785865692095151140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,6 +335,7 @@ MonoBehaviour:
     m_Objects:
     - {fileID: -1517074292089886521}
     - {fileID: 2886877180014584908}
+    - {fileID: 2149881716320010315}
 --- !u!114 &-1517074292089886521
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4776a9ffb2fd3458f73514cbf20ad9, type: 3}
   m_Name: Timeline Flag Marker
   m_EditorClassIdentifier: 
-  m_Time: 6.066666666666666
+  m_Time: 5.966666666666667
   scenarioFlag: 18080
 --- !u!114 &-232723296622211403
 MonoBehaviour:
@@ -613,6 +637,20 @@ MonoBehaviour:
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 0
+--- !u!114 &2149881716320010315
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e4776a9ffb2fd3458f73514cbf20ad9, type: 3}
+  m_Name: Timeline Flag Marker
+  m_EditorClassIdentifier: 
+  m_Time: 6.066666666666666
+  scenarioFlag: -18282
 --- !u!114 &2886877180014584908
 MonoBehaviour:
   m_ObjectHideFlags: 1
