@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1811820944821996248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbaa4e01ead325c4ebaa37d05259f090, type: 3}
+  m_Name: Intro_Complete
+  m_EditorClassIdentifier: 
+  description: No description
+  isChecked: 1
+  hash: 18080
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba0510699ac28348afad3031556c65a, type: 3}
+  m_Name: Scene 1
+  m_EditorClassIdentifier: 
+  collection:
+  - {fileID: 6827445475175680854}
+  - {fileID: -1811820944821996248}
+  - {fileID: 1284461385065628282}
+  - {fileID: 8083110503157907009}
+  - {fileID: 9032276973572748261}
+--- !u!114 &1284461385065628282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbaa4e01ead325c4ebaa37d05259f090, type: 3}
+  m_Name: Collected_ledger
+  m_EditorClassIdentifier: 
+  description: No description
+  isChecked: 0
+  hash: 18078
+--- !u!114 &6827445475175680854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbaa4e01ead325c4ebaa37d05259f090, type: 3}
+  m_Name: Intro_Started
+  m_EditorClassIdentifier: 
+  description: No description
+  isChecked: 1
+  hash: 18082
+--- !u!114 &8083110503157907009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbaa4e01ead325c4ebaa37d05259f090, type: 3}
+  m_Name: Outro_Started
+  m_EditorClassIdentifier: 
+  description: No description
+  isChecked: 0
+  hash: 18086
+--- !u!114 &9032276973572748261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbaa4e01ead325c4ebaa37d05259f090, type: 3}
+  m_Name: Outro_Complete
+  m_EditorClassIdentifier: 
+  description: No description
+  isChecked: 0
+  hash: 18084
