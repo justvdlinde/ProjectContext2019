@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class ScenarioFlagsService : IService
 {
-    private const string FLAG_COLLECTION_FILE_PATH = "ScenarioFlags";
-
-    public readonly ScenarioFlagCollection FlagCollection;
+    public readonly ScenarioFlagCollection[] FlagsCollection;
 
     public Action<ScenarioFlag> FlagAdded;
 
@@ -15,6 +13,7 @@ public class ScenarioFlagsService : IService
     /// Dictionary of all flags, key: hash, value: flag
     /// </summary>
     private Dictionary<int, ScenarioFlag> allFlags = new Dictionary<int, ScenarioFlag>();
+    
     /// <summary>
     /// Hash set for keeping track of the flags that are met
     /// </summary>
@@ -22,12 +21,17 @@ public class ScenarioFlagsService : IService
 
     public ScenarioFlagsService()
     {
-        FlagCollection = Resources.Load<ScenarioFlagCollection>(FLAG_COLLECTION_FILE_PATH);
+        FlagsCollection = Resources.LoadAll<ScenarioFlagCollection>("");
+        Debug.Log(FlagsCollection.Length);
 
         allFlags = new Dictionary<int, ScenarioFlag>();
-        foreach(ScenarioFlag flag in FlagCollection.collection)
+
+        foreach (ScenarioFlagCollection collection in FlagsCollection)
         {
-            allFlags.Add(flag.Hash, flag);
+            foreach (ScenarioFlag flag in collection.collection)
+            {
+                allFlags.Add(flag.Hash, flag);
+            }
         }
     }
         
@@ -50,8 +54,6 @@ public class ScenarioFlagsService : IService
             checkedFlags.Add(hash);
             ScenarioFlag flag = allFlags[hash];
             flag.isChecked = true;
-
-            Debug.Log("Adding flag " + flag.name);
             FlagAdded?.Invoke(flag);
         }
     }
@@ -62,10 +64,6 @@ public class ScenarioFlagsService : IService
         {
             checkedFlags.Remove(flag.Hash);
             flag.isChecked = false;
-        }
-        else
-        {
-            Debug.LogWarningFormat("Does not contain a key of {0} with hash {1}", flag.name, flag.Hash);
         }
     }
 }
