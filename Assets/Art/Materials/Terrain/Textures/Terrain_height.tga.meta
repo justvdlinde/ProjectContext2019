@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Third Party/AmplifyShaderEditor/Examples/Assets/Textures/Misc/Skybox_T.tga.meta
-guid: 71b77bd80f4b7b34299667b93f6f17e5
-=======
 guid: c667f0dcc3fa9fe4b81a2c8266ccd3cc
->>>>>>> 658ce20baf2acc46a04ec66b1994d80e2db0e60a:Assets/Art/Materials/Terrain/Textures/Terrain_height.tga.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
