@@ -125,7 +125,7 @@ Material:
     - _BaseLight: 0.35
     - _BlendMode: 0
     - _BlendOp: 0
-    - _BumpScale: 1
+    - _BumpScale: 0.12
     - _CameraFadingEnabled: 0
     - _CameraFarFadeDistance: 2
     - _CameraNearFadeDistance: 1
@@ -139,7 +139,7 @@ Material:
     - _DecalStencilRef: 8
     - _DecalStencilWriteMask: 8
     - _DetailNormalMapScale: 1
-    - _DistortionBlend: 1
+    - _DistortionBlend: 0.702
     - _DistortionBlendMode: 0
     - _DistortionBlurBlendMode: 0
     - _DistortionBlurDstBlend: 1
@@ -219,9 +219,9 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.9575472, b: 0.9575472, a: 1}
     - _ColorAddSubDiff: {r: -1, g: 1, b: 0, a: 0}
-    - _EmissionColor: {r: 0, g: 0.18867922, b: 0.17041996, a: 1}
+    - _EmissionColor: {r: 0.016820932, g: 0.16981131, b: 0.1538748, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorHDR: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
