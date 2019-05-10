@@ -7,10 +7,5 @@ public class POIView : POIBehavior
     protected override void Start()
     {
         base.Start();
-        if (!poiContainer.ContainsKey(uniqueId)) poiContainer.Add(uniqueId, this);
-
-        if (requiredToPlay.currentStatus == status.Completed) {
-
-        }
     }
 }

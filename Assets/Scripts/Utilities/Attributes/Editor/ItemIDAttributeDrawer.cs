@@ -5,10 +5,8 @@ using UnityEngine;
 [CustomPropertyDrawer(typeof(ItemIDAttribute))]
 public class ItemIDAttributeDrawer : PropertyDrawer
 {
-    private string[] ItemStrings
-    {
-        get
-        {
+    private string[] ItemStrings {
+        get {
             if (itemsStrings == null)
             {
                 ItemDatabaseService service = (ItemDatabaseService)ServiceLocator.Instance.Get<ItemDatabaseService>();

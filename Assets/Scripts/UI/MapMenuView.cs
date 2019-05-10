@@ -8,7 +8,8 @@ public class MapMenuView : MenuBehavior
 
     [Header("Session")]
     [SerializeField] private GoogleARCore.ARCoreSession session;
-    [SerializeField] private GoogleARCore.Examples.AugmentedImage.AugmentedImageExampleController sessionController;
+    [SerializeField] private ImageTrackingController sessionController;
+    [SerializeField] private GoogleARCore.ARCoreBackgroundRenderer backgroundRenderer;
 
     protected override void Start()
     {
@@ -31,6 +32,7 @@ public class MapMenuView : MenuBehavior
         sessionController.enabled = true;
         menuBehavior.MapMenuView.SetActive(false);
         menuBehavior.SessionMenuView.SetActive(true);
+        backgroundRenderer.m_BackgroundRenderer.mode = UnityEngine.XR.ARRenderMode.MaterialAsBackground;
     }
 
 }

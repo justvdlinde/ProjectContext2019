@@ -30,9 +30,9 @@ public class InteractionHandler : MonoBehaviour
     private void OnClick()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
+            Debug.Log(hit.transform.gameObject.name);
             IInteractable obj = hit.transform.gameObject.GetInterface<IInteractable>();
             if (obj != null)
             {
