@@ -60,12 +60,6 @@ public class ScenarioFlagCollectionEditor : Editor
         item.isChecked = EditorGUI.Toggle(new Rect(rect.x, rect.y, 20, labelHeight), item.isChecked);
         string prevName = item.name;
         item.name = EditorGUI.DelayedTextField(new Rect(rect.x + 25, rect.y, rect.width - 25, labelHeight), item.name);
-        if(item.name != prevName)
-        {
-            int oldHash = item.hash;
-            item.hash = GenerateHash(item.name);
-
-        }
         totalHeight += labelHeight + labelMargin;
 
         if (showDetails)
@@ -74,7 +68,7 @@ public class ScenarioFlagCollectionEditor : Editor
             item.description = EditorGUI.TextArea(new Rect(rect.x, rect.y + totalHeight, rect.width, labelHeight), item.description);
             totalHeight += labelHeight;
 
-            EditorGUI.LabelField(new Rect(rect.x, rect.y + totalHeight, rect.width, labelHeight), "Hash: " + item.hash.ToString());
+            EditorGUI.LabelField(new Rect(rect.x, rect.y + totalHeight, rect.width, labelHeight), "Hash: " + item.Hash.ToString());
             totalHeight += labelHeight;
         }
 
@@ -88,18 +82,18 @@ public class ScenarioFlagCollectionEditor : Editor
 
     private void AddItem(ReorderableList list)
     {
-        int hash = GenerateHash(newConditionName);
+        ScenarioFlag flag = CreateNewCondition() as ScenarioFlag;
 
-        if(ContainsHash(hash))
+        int hash = GenerateHash(flag);
+
+        if (ContainsHash(hash))
         {
-            Debug.LogWarningFormat("Collection already contains a flag of the same name {0}", newConditionName);
+            Debug.LogWarningFormat("Collection already contains a flag with the that hash! name: {0} hash: {1}", newConditionName, hash);
             return;
         }
 
-        ScenarioFlag flag = CreateNewCondition() as ScenarioFlag;
-
         flag.name = newConditionName;
-        flag.hash = hash;
+        flag.SetHash(hash);
         flag.description = "No description";
 
         Flags.collection.Add(flag);
@@ -110,7 +104,7 @@ public class ScenarioFlagCollectionEditor : Editor
     {
         foreach(ScenarioFlag flag in Flags.collection)
         {
-            if(flag.hash == hash)
+            if(flag.Hash == hash)
             {
                 return true;
             }
@@ -144,8 +138,8 @@ public class ScenarioFlagCollectionEditor : Editor
         EditorUtility.SetDirty(target);
     }
 
-    private int GenerateHash(string name)
+    private int GenerateHash(ScriptableObject scriptableObject)
     {
-        return Animator.StringToHash(name);
+        return scriptableObject.GetInstanceID();
     }
 }

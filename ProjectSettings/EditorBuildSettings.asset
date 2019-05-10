@@ -5,10 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Art/GreatHall/GreatHall_V1.unity
     guid: 7bd022c0eeff82242a44ec7f85e577fd
-  - enabled: 1
-    path: Assets/Scenes/ARController_Image.unity
-    guid: 7d6859fc75d0fee459f8a6441b3620e0
   m_configObjects: {}

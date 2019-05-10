@@ -1,12 +1,16 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Trigger : MonoBehaviour
 {
-    public Action<Collider> TriggerEnterEvent;
+    public Action<Collider> TriggerEnterAction;
+
+    [SerializeField] private UnityEvent triggerEnterEvent;
 
     private void OnTriggerEnter(Collider other)
     {
-        TriggerEnterEvent?.Invoke(other);
+        TriggerEnterAction?.Invoke(other);
+        triggerEnterEvent.Invoke();
     }
 }

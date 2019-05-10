@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using ServiceLocatorNamespace;
 using UnityEngine;
+using System.Collections.Generic;
 
 [CustomPropertyDrawer(typeof(ScenarioFlagAttribute))]
 public class ScenarioFlagAttributeDrawer : PropertyDrawer
@@ -14,21 +15,22 @@ public class ScenarioFlagAttributeDrawer : PropertyDrawer
     private void Init(SerializedProperty property)
     {
         ScenarioFlagsService service = (ScenarioFlagsService)ServiceLocator.Instance.Get<ScenarioFlagsService>();
+        List<string> flagNamesList = new List<string>(); 
+        List<int> flagHashesList = new List<int>(); 
+        flagNamesList.Add("None");
+        flagHashesList.Add(ScenarioFlag.None);
 
-        flagNames = new string[service.FlagCollection.collection.Count + 1];
-        flagNames[0] = "None";
-        for (int i = 1; i < flagNames.Length; i++)
+        foreach(ScenarioFlagCollection collection in service.FlagsCollection)
         {
-            flagNames[i] = service.FlagCollection.collection[i - 1].name + " - " + service.FlagCollection.collection[i - 1].description;
+            foreach(ScenarioFlag flag in collection.collection)
+            {
+                flagNamesList.Add(collection.name + " - " + flag.name);
+                flagHashesList.Add(flag.Hash);
+            }
         }
 
-        flagHashes = new int[service.FlagCollection.collection.Count + 1];
-        flagHashes[0] = 0;
-        for (int i = 1; i < flagHashes.Length; i++)
-        {
-            flagHashes[i] = service.FlagCollection.collection[i - 1].hash;
-
-        }
+        flagNames = flagNamesList.ToArray();
+        flagHashes = flagHashesList.ToArray();
 
         init = true;
     }

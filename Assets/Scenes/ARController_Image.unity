@@ -810,6 +810,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483572782}
   m_CullTransparentMesh: 0
+--- !u!114 &662653905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114876698896786350, guid: c10877f7cd5764de18d46d7b777d1faa,
+    type: 3}
+  m_PrefabInstance: {fileID: 732595306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb172c260d42e4f62945afda50892c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &676633179
 GameObject:
   m_ObjectHideFlags: 0
@@ -3610,7 +3622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1998002203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4145,7 +4157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2135062587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4164,7 +4176,7 @@ MonoBehaviour:
   startButton: {fileID: 1418041215}
   session: {fileID: 1513772275}
   sessionController: {fileID: 2000013468}
-  backgroundRenderer: {fileID: 0}
+  backgroundRenderer: {fileID: 662653905}
 --- !u!114 &2135062588
 MonoBehaviour:
   m_ObjectHideFlags: 0
