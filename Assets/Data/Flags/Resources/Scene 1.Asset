@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: Collected_ledger
   m_EditorClassIdentifier: 
   description: No description
-  isChecked: 0
+  isChecked: 1
   hash: 18078
 --- !u!114 &6827445475175680854
 MonoBehaviour:
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: Outro_Started
   m_EditorClassIdentifier: 
   description: No description
-  isChecked: 0
+  isChecked: 1
   hash: 18086
 --- !u!114 &9032276973572748261
 MonoBehaviour:
@@ -91,5 +91,5 @@ MonoBehaviour:
   m_Name: Outro_Complete
   m_EditorClassIdentifier: 
   description: No description
-  isChecked: 0
+  isChecked: 1
   hash: 18084

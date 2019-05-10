@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6352962478924260785
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e4776a9ffb2fd3458f73514cbf20ad9, type: 3}
+  m_Name: Timeline Flag Marker
+  m_EditorClassIdentifier: 
+  m_Time: 3.383333333333333
+  scenarioFlag: -18282
 --- !u!114 &-3186281286740352491
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -62,6 +76,7 @@ MonoBehaviour:
     m_Objects:
     - {fileID: 3165679299477898630}
     - {fileID: 4952974447876580968}
+    - {fileID: -6352962478924260785}
 --- !u!114 &3165679299477898630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,7 +90,7 @@ MonoBehaviour:
   m_Name: Timeline Flag Marker
   m_EditorClassIdentifier: 
   m_Time: 0
-  scenarioFlag: -80180
+  scenarioFlag: 18086
 --- !u!114 &4952974447876580968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -88,8 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4776a9ffb2fd3458f73514cbf20ad9, type: 3}
   m_Name: Timeline Flag Marker
   m_EditorClassIdentifier: 
-  m_Time: 3.383333333333333
-  scenarioFlag: -32532
+  m_Time: 3.3
+  scenarioFlag: 18084
 --- !u!114 &6556151118737212912
 MonoBehaviour:
   m_ObjectHideFlags: 1

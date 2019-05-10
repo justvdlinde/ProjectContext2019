@@ -16,7 +16,10 @@ public class InteractableItem : MonoBehaviour, IInteractable
     public Action InteractionStart;
     public Action InteractionStop;
 
+    public bool HideAtStart => hideAtStart;
     [SerializeField] private bool hideAtStart;
+
+    bool IInteractable.DestroyAfterInteraction => destroyAfterInteraction;
     [SerializeField] private bool destroyAfterInteraction;
 
     [SerializeField, HideInInspector] private GameObject gObject;

@@ -44,7 +44,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 1.6666667
-        value: {x: -0.0000017285347, y: 0, z: 0.2800007}
+        value: {x: -0.0000017285347, y: -1.489582, z: 0.2800007}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -53,7 +53,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 3.3833334
-        value: {x: -0.000056281686, y: 0, z: 9.08}
+        value: {x: -0.57005614, y: -1.49, z: 9.079987}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -117,7 +117,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 3.3833334
-        value: -0.000056281686
+        value: -0.57005614
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -136,7 +136,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 1.6666667
-        value: 0
+        value: -1.489582
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -145,7 +145,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 3.3833334
-        value: 0
+        value: -1.49
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -173,7 +173,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 3.3833334
-        value: 9.08
+        value: 9.079987
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -335,7 +335,6 @@ MonoBehaviour:
     m_Objects:
     - {fileID: -1517074292089886521}
     - {fileID: 2886877180014584908}
-    - {fileID: 2149881716320010315}
 --- !u!114 &-1517074292089886521
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4776a9ffb2fd3458f73514cbf20ad9, type: 3}
   m_Name: Timeline Flag Marker
   m_EditorClassIdentifier: 
-  m_Time: 5.966666666666667
+  m_Time: 6.066666666666666
   scenarioFlag: 18080
 --- !u!114 &-232723296622211403
 MonoBehaviour:
@@ -637,20 +636,6 @@ MonoBehaviour:
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 0
---- !u!114 &2149881716320010315
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e4776a9ffb2fd3458f73514cbf20ad9, type: 3}
-  m_Name: Timeline Flag Marker
-  m_EditorClassIdentifier: 
-  m_Time: 6.066666666666666
-  scenarioFlag: -18282
 --- !u!114 &2886877180014584908
 MonoBehaviour:
   m_ObjectHideFlags: 1

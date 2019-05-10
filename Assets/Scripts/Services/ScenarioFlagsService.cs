@@ -53,6 +53,7 @@ public class ScenarioFlagsService : IService
             ScenarioFlag flag = allFlags[hash];
             flag.isChecked = true;
             FlagAdded?.Invoke(flag);
+            Debug.Log("Flag has been checked: " + flag.name);
         }
     }
 

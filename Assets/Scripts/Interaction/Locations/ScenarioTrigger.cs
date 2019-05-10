@@ -5,6 +5,12 @@ public class ScenarioTrigger : MonoBehaviour, IInteractable
     public GameObject GameObject { get { return gObject; } }
     public Collider Collider { get { return collider; } }
 
+    public bool HideAtStart => hideAtStart;
+    [SerializeField] private bool hideAtStart;
+
+    public bool DestroyAfterInteraction => destroyAfterInteraction;
+    [SerializeField] private bool destroyAfterInteraction;
+
     [SerializeField, HideInInspector] private GameObject gObject;
     [SerializeField, HideInInspector] private new Collider collider;
 
