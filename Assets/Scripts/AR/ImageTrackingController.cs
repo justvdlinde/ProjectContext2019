@@ -13,8 +13,8 @@ using UnityEngine.UI;
 public class ImageTrackingController : MonoBehaviour
 {
     [SerializeField] private ARCoreBackgroundHandler arBackgroundHandler;
-
     [SerializeField] private List<TrackedImageObject> trackableObjects;
+    [SerializeField] private GameObject scanOverlay;
 
     private Dictionary<int, TrackedImageObject> trackedObjects = new Dictionary<int, TrackedImageObject>();
     private List<AugmentedImage> scannableImages = new List<AugmentedImage>();

@@ -7,7 +7,7 @@ public class SessionMenuView : MenuBehavior
 {
     [Header("Session")]
     [SerializeField] private GoogleARCore.ARCoreSession session;
-    [SerializeField] private GoogleARCore.Examples.AugmentedImage.AugmentedImageExampleController sessionController;
+    [SerializeField] private ImageTrackingController sessionController;
 
     [Header("Buttons")]
     [SerializeField] private Button endGameButton;
