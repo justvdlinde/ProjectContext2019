@@ -35,6 +35,8 @@ public class ScenarioFlagsService : IService
         
     public bool FlagConditionHasBeenMet(int hash)
     {
+        if(hash == ScenarioFlag.None) { return true; }
+
         return checkedFlags.Contains(hash);
     }
 
