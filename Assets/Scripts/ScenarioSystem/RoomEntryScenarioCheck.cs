@@ -6,20 +6,22 @@ public class RoomEntryScenarioCheck : MonoBehaviour
 {
     [SerializeField, ScenarioFlag] private int[] trueConditions;
     [SerializeField, ScenarioFlag] private int[] falseConditions;
-    [SerializeField] private GameObject content;
-    [SerializeField] private UnityEvent onConditionsMet;
+    [SerializeField] private UnityEvent onConditionsTrue;
+    [SerializeField] private UnityEvent onConditionsFalse;
 
     private ScenarioFlagsService flagService;
-
+    
     private void Awake()
     {
         flagService = ServiceLocator.Instance.Get<ScenarioFlagsService>() as ScenarioFlagsService;
 
-        bool condition = ConditionsAreMet();
-        content.gameObject.SetActive(condition);
-        if(condition)
+        if (ConditionsAreMet())
         {
-            onConditionsMet.Invoke();
+            onConditionsTrue.Invoke();
+        }
+        else
+        {
+            onConditionsFalse.Invoke();
         }
     }
 
