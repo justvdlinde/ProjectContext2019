@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6197875527241433537}
   - component: {fileID: 5181041288072560211}
+  - component: {fileID: 7819702661875711883}
   m_Layer: 0
   m_Name: Scenario 1 Manager
   m_TagString: Untagged
@@ -46,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trueConditions: 00000000
   falseConditions: 96b8ffff
-  onConditionsMet:
+  onConditionsTrue:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7767101357090231147}
@@ -62,6 +63,35 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  onConditionsFalse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7767101357090231147}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &7819702661875711883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3320407609213447207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ae6176f1479994d91bba8ef26ebd35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playableDirector: {fileID: 7725471577737668171}
 --- !u!1 &7725471576637685937
 GameObject:
   m_ObjectHideFlags: 0
