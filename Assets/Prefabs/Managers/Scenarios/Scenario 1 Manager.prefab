@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6197875527241433537}
   - component: {fileID: 5181041288072560211}
-  - component: {fileID: 7819702661875711883}
   m_Layer: 0
   m_Name: Scenario 1 Manager
   m_TagString: Untagged
@@ -79,19 +78,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7819702661875711883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3320407609213447207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ae6176f1479994d91bba8ef26ebd35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playableDirector: {fileID: 7725471577737668171}
 --- !u!1 &7725471576637685937
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +369,7 @@ GameObject:
   - component: {fileID: 7725471577737668168}
   - component: {fileID: 7725471577737668171}
   - component: {fileID: 7725471577737668170}
+  - component: {fileID: 2966052799415358261}
   m_Layer: 0
   m_Name: Timeline Handler
   m_TagString: Untagged
@@ -446,6 +433,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae833d68aea72c48957911aaa73be93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2966052799415358261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725471577737668169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c2c8da589128d428b6425ecb182ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playableDirector: {fileID: 7725471577737668171}
 --- !u!1 &7767101357090231147
 GameObject:
   m_ObjectHideFlags: 0

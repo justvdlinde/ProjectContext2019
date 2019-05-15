@@ -16,6 +16,7 @@ public static class GameTimeManager
     {
         CurrentTimeState = TimeState.Paused;
         Time.timeScale = (int)CurrentTimeState;
+        
         GameTimeStateChanged?.Invoke(CurrentTimeState);
     }
 
@@ -23,6 +24,7 @@ public static class GameTimeManager
     {
         CurrentTimeState = TimeState.Normal;
         Time.timeScale = (int)CurrentTimeState;
+
         GameTimeStateChanged?.Invoke(CurrentTimeState);
     }
 }

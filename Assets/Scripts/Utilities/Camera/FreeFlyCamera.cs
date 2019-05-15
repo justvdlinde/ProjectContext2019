@@ -75,12 +75,6 @@ public class FreeFlyCamera : MonoBehaviour
         _initRotation = transform.eulerAngles;
     }
 
-    //private void OnEnable()
-    //{
-    //    if (_active)
-    //        _wantedMode = CursorLockMode.Locked;
-    //}
-
     // Apply requested cursor state
     private void SetCursorState()
     {
@@ -116,62 +110,63 @@ public class FreeFlyCamera : MonoBehaviour
 
     private void Update()
     {
-        if (!_active)
-            return;
-
-        SetCursorState();
-
-        if (Cursor.visible)
-            return;
-
-        // Translation
-        if (_enableTranslation)
+        if(Input.GetMouseButton(1))
         {
-            transform.Translate(Vector3.forward * Input.mouseScrollDelta.y * Time.deltaTime * _translationSpeed);
+            Cursor.visible = false;
+
+            // Translation
+            if (_enableTranslation)
+            {
+                transform.Translate(Vector3.forward * Input.mouseScrollDelta.y * Time.deltaTime * _translationSpeed);
+            }
+
+            // Movement
+            if (_enableMovement)
+            {
+                Vector3 deltaPosition = Vector3.zero;
+                float currentSpeed = _movementSpeed;
+
+                if (Input.GetKey(KeyCode.LeftShift))
+                    currentSpeed = _boostedSpeed;
+
+                if (Input.GetKey(KeyCode.W))
+                    deltaPosition += transform.forward;
+
+                if (Input.GetKey(KeyCode.S))
+                    deltaPosition -= transform.forward;
+
+                if (Input.GetKey(KeyCode.A))
+                    deltaPosition -= transform.right;
+
+                if (Input.GetKey(KeyCode.D))
+                    deltaPosition += transform.right;
+
+                // Calc acceleration
+                CalculateCurrentIncrease(deltaPosition != Vector3.zero);
+
+                transform.position += deltaPosition * currentSpeed * _currentIncrease;
+            }
+
+            // Rotation
+            if (_enableRotation)
+            {
+                // Pitch
+                transform.rotation *= Quaternion.AngleAxis(
+                    -Input.GetAxis("Mouse Y") * _mouseSense,
+                    Vector3.right
+                );
+
+                // Paw
+                transform.rotation = Quaternion.Euler(
+                    transform.eulerAngles.x,
+                    transform.eulerAngles.y + Input.GetAxis("Mouse X") * _mouseSense,
+                    transform.eulerAngles.z
+                );
+            }
         }
-
-        // Movement
-        if (_enableMovement)
+        else
         {
-            Vector3 deltaPosition = Vector3.zero;
-            float currentSpeed = _movementSpeed;
-
-            if (Input.GetKey(KeyCode.LeftShift))
-                currentSpeed = _boostedSpeed;
-
-            if (Input.GetKey(KeyCode.W))
-                deltaPosition += transform.forward;
-
-            if (Input.GetKey(KeyCode.S))
-                deltaPosition -= transform.forward;
-
-            if (Input.GetKey(KeyCode.A))
-                deltaPosition -= transform.right;
-
-            if (Input.GetKey(KeyCode.D))
-                deltaPosition += transform.right;
-
-            // Calc acceleration
-            CalculateCurrentIncrease(deltaPosition != Vector3.zero);
-
-            transform.position += deltaPosition * currentSpeed * _currentIncrease;
-        }
-
-        // Rotation
-        if (_enableRotation)
-        {
-            // Pitch
-            transform.rotation *= Quaternion.AngleAxis(
-                -Input.GetAxis("Mouse Y") * _mouseSense,
-                Vector3.right
-            );
-
-            // Paw
-            transform.rotation = Quaternion.Euler(
-                transform.eulerAngles.x,
-                transform.eulerAngles.y + Input.GetAxis("Mouse X") * _mouseSense,
-                transform.eulerAngles.z
-            );
+            Cursor.visible = true;
         }
 
         // Return to init position

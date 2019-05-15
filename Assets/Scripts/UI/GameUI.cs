@@ -6,51 +6,68 @@ public class GameUI : MonoBehaviour
     [Header("Game UI")]
     [SerializeField] private GameObject gameUIRoot;
     [SerializeField] private Button menuButton;
-    [SerializeField] private Button pauseButton;
+    [SerializeField] private Toggle pauseToggle;
 
     [Header("Menu UI")]
     [SerializeField] private GameObject pauseUIRoot;
-    [SerializeField] private GameObject resumeButton;
-    [SerializeField] private GameObject mainMenuButton;
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button quitButton;
 
     public bool IsPaused { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         pauseUIRoot.SetActive(false);
+        pauseToggle.isOn = false;
     }
 
     private void OnEnable()
     {
         menuButton.onClick.AddListener(OnMenuButtonPressed);
-        menuButton.onClick.AddListener(OnPauseButtonPressed);
+        pauseToggle.onValueChanged.AddListener(OnPauseTogglePressed);
+
+        resumeButton.onClick.AddListener(OnResumeButtonClicked);
+        quitButton.onClick.AddListener(OnQuitButtonClicked);
     }
 
     private void OnDisable()
     {
         menuButton.onClick.RemoveListener(OnMenuButtonPressed);
-        menuButton.onClick.RemoveListener(OnPauseButtonPressed);
+        pauseToggle.onValueChanged.RemoveListener(OnPauseTogglePressed);
+
+        resumeButton.onClick.RemoveListener(OnResumeButtonClicked);
+        quitButton.onClick.RemoveListener(OnQuitButtonClicked);
     }
 
     private void OnMenuButtonPressed()
     {
-        IsPaused = !IsPaused;
-        pauseUIRoot.SetActive(!IsPaused);
-        gameUIRoot.SetActive(IsPaused);
+        IsPaused = true;
+        pauseUIRoot.SetActive(IsPaused);
+        gameUIRoot.SetActive(!IsPaused);
 
-        if (IsPaused)
-        {
-            GameTimeManager.ResumeGame();
-        }
-        else
-        { 
-            GameTimeManager.PauseGame();
-        }
+        GameTimeManager.PauseGame();
     }
 
-    private void OnPauseButtonPressed()
+    private void OnResumeButtonClicked()
     {
-        if (GameTimeManager.CurrentTimeState == GameTimeManager.TimeState.Normal)
+        pauseUIRoot.SetActive(false);
+        gameUIRoot.SetActive(true);
+
+        GameTimeManager.ResumeGame();
+    }
+
+    private void OnQuitButtonClicked()
+    {
+        IsPaused = false;
+        pauseUIRoot.SetActive(false);
+        GameTimeManager.ResumeGame();
+
+        //TODO: quit game, show main menu UI
+    }
+
+    private void OnPauseTogglePressed(bool toggle)
+    {
+        if (toggle)
         {
             GameTimeManager.PauseGame();
         }

@@ -1,9 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.Playables;
 
-public class ScenarioManager : MonoBehaviour
+[RequireComponent(typeof(PlayableDirector))]
+public class TimelineTimeStateHandler : MonoBehaviour
 {
-    [SerializeField] private PlayableDirector playableDirector;
+    [SerializeField, HideInInspector] private PlayableDirector playableDirector;
+
+    private void OnValidate()
+    {
+        playableDirector = GetComponent<PlayableDirector>();
+    }
 
     private void OnEnable()
     {
@@ -19,11 +25,11 @@ public class ScenarioManager : MonoBehaviour
     {
         if(timeState == GameTimeManager.TimeState.Normal)
         {
-            PauseTimeline();
+            ResumeTimeline();
         }
         else
         {
-            ResumeTimeline();
+            PauseTimeline();
         }
     }
 
