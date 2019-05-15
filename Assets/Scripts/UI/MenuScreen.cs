@@ -1,47 +1,44 @@
-﻿using GoogleARCore;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuScreen : MonoBehaviour
 {
+    [Header("Dependencies")]
+    [SerializeField] private ARManager arManager;
+
     [Header("UI")]
     [SerializeField] private Button openScanButton;
     [SerializeField] private Button cancelScanButton;
     [SerializeField] private GameObject menuUI;
     [SerializeField] private GameObject scanOverlayImage;
 
-    [Header("AR")]
-    [SerializeField] private ARCoreSession session;
-    [SerializeField] private ImageTrackingController sessionController;
-    [SerializeField] private ARCoreBackgroundRenderer backgroundRenderer;
-
     private void OnEnable()
     {
-        openScanButton.onClick.AddListener(() => EnableAR(true));
-        cancelScanButton.onClick.AddListener(() => EnableAR(false));
+        openScanButton.onClick.AddListener(OnScanButtonPressed);
+        cancelScanButton.onClick.AddListener(OnCancelButtonPressed);
     }
 
     private void OnDisable()
     {
-        openScanButton.onClick.RemoveListener(() => EnableAR(true));
-        cancelScanButton.onClick.RemoveListener(() => EnableAR(false));
+        openScanButton.onClick.RemoveListener(OnScanButtonPressed);
+        cancelScanButton.onClick.RemoveListener(OnCancelButtonPressed);
     }
 
-    private void EnableAR(bool enable)
+    private void OnScanButtonPressed()
     {
-        Debug.Log("show scanner " + enable);
+        ShowMenu(false);
+        arManager.EnableAR(true);
+    }
 
-        session.enabled = enable;
-        sessionController.enabled = enable;
-
-        if (enable)
-        {
-            backgroundRenderer.m_BackgroundRenderer.mode = UnityEngine.XR.ARRenderMode.MaterialAsBackground;
-        }
-
-        menuUI.SetActive(!enable);
-        scanOverlayImage.SetActive(enable);
+    private void OnCancelButtonPressed()
+    {
+        ShowMenu(true);
+        arManager.EnableAR(false);
+    }
+    
+    public void ShowMenu(bool show)
+    {
+        menuUI.SetActive(!show);
+        scanOverlayImage.SetActive(show);
     }
 }
