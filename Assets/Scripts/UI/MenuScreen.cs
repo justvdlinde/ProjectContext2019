@@ -43,7 +43,7 @@ public class MenuScreen : MonoBehaviour
     
     public void ShowMenu(bool show)
     {
-        menuUI.SetActive(!show);
-        scanOverlayImage.SetActive(show);
+        menuUI.SetActive(show);
+        scanOverlayImage.SetActive(!show);
     }
 }
