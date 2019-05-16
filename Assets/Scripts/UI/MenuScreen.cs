@@ -1,16 +1,21 @@
-﻿using UnityEngine;
+﻿using ServiceLocatorNamespace;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuScreen : MonoBehaviour
 {
-    [Header("Dependencies")]
-    [SerializeField] private ARManager arManager;
-
     [Header("UI")]
     [SerializeField] private Button openScanButton;
     [SerializeField] private Button cancelScanButton;
     [SerializeField] private GameObject menuUI;
     [SerializeField] private GameObject scanOverlayImage;
+
+    private ARManager arManager;
+
+    private void Start()
+    {
+        arManager = ServiceLocator.Instance.Get<ARManager>() as ARManager;
+    }
 
     private void OnEnable()
     {

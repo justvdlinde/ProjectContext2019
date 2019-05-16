@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
+using ServiceLocatorNamespace;
 
 public class RoomExitTrigger : MonoBehaviour
 {
     [Header("Dependencies")]
-    [SerializeField] private ARManager arManager;
     [SerializeField] private MenuScreen menuScreen;
 
     public void OnTriggerEnter(Collider other)
     {
         menuScreen.ShowMenu(true);
-        arManager.EnableAR(false);
+        (ServiceLocator.Instance.Get<ARManager>() as ARManager).EnableAR(false);
     }
 }
