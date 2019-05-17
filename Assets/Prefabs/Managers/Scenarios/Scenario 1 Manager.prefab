@@ -410,7 +410,7 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 1925649468155856336, guid: 83809caa3673c454e8212d855e51394e, type: 2}
-    value: {fileID: 7464226412174158107}
+    value: {fileID: 0}
   - key: {fileID: 2120297608270311940, guid: 83809caa3673c454e8212d855e51394e, type: 2}
     value: {fileID: 7725471576637685939}
   - key: {fileID: -6913247147538520831, guid: 83809caa3673c454e8212d855e51394e, type: 2}
