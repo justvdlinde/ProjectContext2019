@@ -7,28 +7,12 @@ public class TrackedImageObject : MonoBehaviour
     public AugmentedImage Image { get; private set; }
     public bool IsBeingTracked { get; private set; }
 
-    private ARManagerService arManager;
-
     private void Start()
     {
         Hide();
     }
 
-    private void OnEnable()
-    {
-        if (!arManager)
-        {
-            arManager = ServiceLocator.Instance.Get<ARManagerService>() as ARManagerService;
-        }
-        arManager.NewImageTrackedEvent += OnNewImageTrackedEvent;
-    }
-
-    private void OnDisable()
-    {
-        arManager.NewImageTrackedEvent -= OnNewImageTrackedEvent;
-    }
-
-    public void Update()
+    public virtual void Update()
     {
         if (Image != null)        
         {
@@ -43,7 +27,7 @@ public class TrackedImageObject : MonoBehaviour
         }
     }
 
-    public void Show(AugmentedImage image)
+    public virtual void Show(AugmentedImage image)
     {
         Image = image;
         gameObject.SetActive(true);
@@ -51,19 +35,11 @@ public class TrackedImageObject : MonoBehaviour
         IsBeingTracked = true;
     }
 
-    public void Hide()
+    public virtual void Hide()
     {
         Image = null;
         gameObject.SetActive(false);
         enabled = false;
         IsBeingTracked = false;
-    }
-
-    private void OnNewImageTrackedEvent(TrackedImageObject o)
-    {
-        if(o.Image != Image)
-        {
-            Hide();
-        }
     }
 }

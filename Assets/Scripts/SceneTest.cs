@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneTest : MonoBehaviour
 {
-    [SerializeField, Scene] private string scene;
+    [SerializeField, ScenePathAttribute] private string scene;
     [SerializeField] private GameObject menuObject;
     [SerializeField] private GameObject greatHallObject;
 

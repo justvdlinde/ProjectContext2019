@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class InGameUI : MonoBehaviour
 {
+    [SerializeField, ScenePath] string menuScene;
+
     [SerializeField] private GameObject sidebarRoot;
     [SerializeField] private GameObject itemViewerRoot;
     [SerializeField] private Button stopItemViewingButton;
-
     [SerializeField] private TextMeshProUGUI location;
     [SerializeField] private TextMeshProUGUI date;
     [SerializeField] private Button homeButton;
@@ -66,6 +67,7 @@ public class InGameUI : MonoBehaviour
     private void OnHomeButtonPressedEvent()
     {
         sidebar.Close();
+        StartCoroutine(SceneManagerUtility.LoadScene(menuScene));
 
         // TODO: return to main scene
     }

@@ -1441,6 +1441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad985e1e7acdd854db745bfdc4312a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuScene: Assets/Scenes/Main New.unity
   sidebarRoot: {fileID: 5091657076661625061}
   itemViewerRoot: {fileID: 4637770360150796990}
   stopItemViewingButton: {fileID: 6931130531790419273}
