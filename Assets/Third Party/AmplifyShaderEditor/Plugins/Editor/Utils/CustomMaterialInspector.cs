@@ -58,6 +58,22 @@ internal class ASEMaterialInspector : ShaderGUI
 	private FieldInfo m_selectedField = null;
 	private FieldInfo m_infoField = null;
 
+#if UNITY_2018_2_OR_NEWER
+	public override void OnClosed( Material material )
+	{
+		base.OnClosed( material );
+		CleanUp();
+	}
+#endif
+	
+	void CleanUp()
+	{
+		if( m_previewRenderUtility != null )
+		{
+			m_previewRenderUtility.Cleanup();
+			m_previewRenderUtility = null;
+		}
+	}
 
 	void UndoRedoPerformed()
 	{
@@ -67,6 +83,7 @@ internal class ASEMaterialInspector : ShaderGUI
 	~ASEMaterialInspector()
 	{
 		Undo.undoRedoPerformed -= UndoRedoPerformed;
+		CleanUp();
 	}
 	public override void OnGUI( MaterialEditor materialEditor, MaterialProperty[] properties )
 	{
@@ -110,6 +127,8 @@ internal class ASEMaterialInspector : ShaderGUI
 				{
 					if( GUILayout.Button( CopyButtonStr ) )
 					{
+						System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+
 						Shader shader = mat.shader;
 						int propertyCount = UnityEditor.ShaderUtil.GetPropertyCount( shader );
 						string allProperties = string.Empty;
@@ -172,10 +191,12 @@ internal class ASEMaterialInspector : ShaderGUI
 							}
 						}
 						EditorPrefs.SetString( IOUtils.MAT_CLIPBOARD_ID, allProperties );
+						System.Threading.Thread.CurrentThread.CurrentCulture = System.Threading.Thread.CurrentThread.CurrentUICulture;
 					}
 
 					if( GUILayout.Button( PasteButtonStr ) )
 					{
+						System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 						string propertiesStr = EditorPrefs.GetString( IOUtils.MAT_CLIPBOARD_ID, string.Empty );
 						if( !string.IsNullOrEmpty( propertiesStr ) )
 						{
@@ -281,6 +302,7 @@ internal class ASEMaterialInspector : ShaderGUI
 								EditorPrefs.SetString( IOUtils.MAT_CLIPBOARD_ID, string.Empty );
 							}
 						}
+						System.Threading.Thread.CurrentThread.CurrentCulture = System.Threading.Thread.CurrentThread.CurrentUICulture;
 					}
 				}
 				GUILayout.EndHorizontal();

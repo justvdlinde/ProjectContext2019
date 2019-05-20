@@ -43,7 +43,6 @@ namespace AmplifyShaderEditor
 
 		protected const string ShaderNameStr = "Shader Name";
 		protected GUIContent m_shaderNameContent;
-		private const string DefaultShaderName = "New AmplifyShader";
 
 		private const string IndentationHelper = "\t\t{0}\n";
 		private const string ShaderLODFormat = "\t\tLOD {0}\n";
@@ -76,10 +75,10 @@ namespace AmplifyShaderEditor
 		private Rect m_masterNodeIconCoords;
 
 		[SerializeField]
-		protected string m_shaderName = "New AmplifyShader";
+		protected string m_shaderName = Constants.DefaultShaderName;
 
 		[SerializeField]
-		protected string m_croppedShaderName = "New AmplifyShader";
+		protected string m_croppedShaderName = Constants.DefaultShaderName;
 
 		[SerializeField]
 		protected string m_customInspectorName = Constants.DefaultCustomInspector;
@@ -174,6 +173,16 @@ namespace AmplifyShaderEditor
 					ParentNode node = m_inputPorts[ i ].GetOutputNode();
 					node.PropagateNodeData( nodeData, ref m_currentDataCollector );
 				}
+				else if( m_inputPorts[ i ].HasExternalLink )
+				{
+					InputPort linkedPort = m_inputPorts[ i ].ExternalLink;
+					if( linkedPort != null && linkedPort.IsConnected )
+					{
+						NodeData nodeData = new NodeData( linkedPort.Category );
+						ParentNode node = linkedPort.GetOutputNode();
+						node.PropagateNodeData( nodeData, ref m_currentDataCollector );
+					}
+				}
 			}
 		}
 
@@ -236,7 +245,7 @@ namespace AmplifyShaderEditor
 				}
 				else
 				{
-					newShaderName = DefaultShaderName;
+					newShaderName = Constants.DefaultShaderName;
 				}
 				ShaderName = newShaderName;
 				ContainerGraph.ParentWindow.UpdateTabTitle( ShaderName, true );
@@ -443,13 +452,17 @@ namespace AmplifyShaderEditor
 		{
 			List<CustomExpressionNode> nodes = m_containerGraph.CustomExpressionOnFunctionMode.NodesList;
 			int count = nodes.Count;
-			bool iAmTemplate = this is TemplateMultiPassMasterNode;
+			Dictionary<int, CustomExpressionNode> examinedNodes = new Dictionary<int, CustomExpressionNode>();
 			for( int i = 0; i < count; i++ )
 			{
-				if( nodes[ i ].ConnStatus == NodeConnectionStatus.Not_Connected )
-					m_currentDataCollector.AddFunction( nodes[ i ].OutputId, nodes[ i ].EncapsulatedCode( iAmTemplate ) );
+				if( nodes[ i ].AutoRegisterMode )
+				{
+					nodes[ i ].CheckDependencies( ref m_currentDataCollector, ref examinedNodes);
+				}
 			}
-		}
+			examinedNodes.Clear();
+			examinedNodes = null;
+		} 
 
 		// What operation this node does
 		public virtual void Execute( Shader selectedShader )
@@ -512,25 +525,29 @@ namespace AmplifyShaderEditor
 				AssetDatabase.Refresh( ImportAssetOptions.ForceUpdate );
 				CurrentShader = Shader.Find( ShaderName );
 			}
-			else
-			{
-				// need to always get asset datapath because a user can change and asset location from the project window 
-				AssetDatabase.ImportAsset( AssetDatabase.GetAssetPath( m_currentShader ) );
-				//ShaderUtil.UpdateShaderAsset( m_currentShader, ShaderBody );
-			}
+			//else
+			//{
+			//	// need to always get asset datapath because a user can change and asset location from the project window 
+			//	AssetDatabase.ImportAsset( AssetDatabase.GetAssetPath( m_currentShader ) );
+			//	//ShaderUtil.UpdateShaderAsset( m_currentShader, ShaderBody );
+			//	//ShaderImporter importer = (ShaderImporter)ShaderImporter.GetAtPath( AssetDatabase.GetAssetPath( CurrentShader ) );
+			//	//importer.SaveAndReimport();
+			//}
 
 			if( m_currentShader != null )
 			{
+				m_currentDataCollector.UpdateShaderImporter( ref m_currentShader );
 				if( m_currentMaterial != null )
 				{
-					m_currentMaterial.shader = m_currentShader;
+					if( m_currentMaterial.shader != m_currentShader )
+						m_currentMaterial.shader = m_currentShader;
+
 					m_currentDataCollector.UpdateMaterialOnPropertyNodes( m_currentMaterial );
 					FireMaterialChangedEvt();
 					// need to always get asset datapath because a user can change and asset location from the project window
-					AssetDatabase.ImportAsset( AssetDatabase.GetAssetPath( m_currentMaterial ) );
+					//AssetDatabase.ImportAsset( AssetDatabase.GetAssetPath( m_currentMaterial ) );
 				}
 
-				m_currentDataCollector.UpdateShaderOnPropertyNodes( ref m_currentShader );
 			}
 
 			m_currentDataCollector.Destroy();
@@ -733,7 +750,7 @@ namespace AmplifyShaderEditor
 			}
 			get { return m_currentShader; }
 		}
-
+		public virtual void OnRefreshLinkedPortsComplete() { }
 		public virtual void ReleaseResources() { }
 		public override void Destroy()
 		{
@@ -854,5 +871,6 @@ namespace AmplifyShaderEditor
 		public List<PropertyNode> PropertyNodesVisibleList { get { return m_propertyNodesVisibleList; } }
 		public ReorderableList PropertyReordableList { get { return m_propertyReordableList; } }
 		public int ReordableListLastCount { get { return m_lastCount; } }
+		public MasterNodeCategoriesData CurrentCategoriesData { get { return m_availableCategories[ m_masterNodeCategory ]; } }
 	}
 }

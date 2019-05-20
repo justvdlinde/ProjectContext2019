@@ -131,6 +131,7 @@ namespace AmplifyShaderEditor
 		private string m_pragmas = string.Empty;
 		private string m_defines = string.Empty;
 		private string m_vertexData = string.Empty;
+		private string m_grabPasses = string.Empty;
 		private Dictionary<string, string> m_localFunctions;
 
 		//private OutlineMode m_customMode = OutlineMode.VertexOffset;
@@ -275,6 +276,9 @@ namespace AmplifyShaderEditor
 		{
 			List<string> body = new List<string>();
 			body.Add( ModeTags[ dataCollector.CustomOutlineSelectedAlpha ] );
+			if( !string.IsNullOrEmpty( m_grabPasses ))
+				body.Add( m_grabPasses.Replace( "\t\t",string.Empty ));	
+
 			if( m_zWriteMode != 0 )
 				body.Add( "ZWrite " + ZBufferOpHelper.ZWriteModeValues[ m_zWriteMode ] );
 			if( m_zTestMode != 0 )
@@ -494,6 +498,7 @@ namespace AmplifyShaderEditor
 		public string Pragmas { get { return m_pragmas; } set { m_pragmas = value; } }
 		public string Defines { get { return m_defines; } set { m_defines = value; } }
 		public string VertexData { get { return m_vertexData; } set { m_vertexData = value; } }
+		public string GrabPasses { get { return m_grabPasses; } set { m_grabPasses = value; } }
 		public List<PropertyDataCollector> InputList { get { return m_inputList; } set { m_inputList = value; } }
 		public List<PropertyDataCollector> UniformList { get { return m_uniformList; } set { m_uniformList = value; } }
 		public Dictionary<string, string> LocalFunctions { get { return m_localFunctions; } set { m_localFunctions = value; } }
