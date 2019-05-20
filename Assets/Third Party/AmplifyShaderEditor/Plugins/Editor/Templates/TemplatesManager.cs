@@ -82,20 +82,31 @@ namespace AmplifyShaderEditor
 			{
 				if( searchIndentation )
 				{
-					int indentationIndex = -1;
-					for( int i = propertyIndex; i > 0; i-- )
+					int identationIndex = -1;
+					for( int i = propertyIndex; i >= 0; i-- )
 					{
 						if( body[ i ] == TemplatesManager.TemplateNewLine )
 						{
-							indentationIndex = i + 1;
+							identationIndex = i + 1;
 							break;
 						}
+
+						if( i == 0 )
+						{
+							identationIndex = 0;
+						}
 					}
-					if( indentationIndex > -1 )
+					if( identationIndex > -1 )
 					{
-						int length = propertyIndex - indentationIndex;
-						string indentation = ( length > 0 ) ? body.Substring( indentationIndex, length ) : string.Empty;
+						int length = propertyIndex - identationIndex;
+						string indentation = ( length > 0 ) ? body.Substring( identationIndex, length ) : string.Empty;
 						TemplateProperty templateProperty = new TemplateProperty( ID, indentation, false );
+						m_propertyList.Add( templateProperty );
+						m_propertyDict.Add( templateProperty.Id, templateProperty );
+					}
+					else
+					{
+						TemplateProperty templateProperty = new TemplateProperty( ID, string.Empty, false );
 						m_propertyList.Add( templateProperty );
 						m_propertyDict.Add( templateProperty.Id, templateProperty );
 					}
@@ -117,35 +128,36 @@ namespace AmplifyShaderEditor
 
 		public void AddId( string body, string ID, int propertyIndex, bool searchIndentation, string customIndentation )
 		{
+			if( body == null || string.IsNullOrEmpty( body ) )
+				return;
+
 			BuildInfo();
-			if( propertyIndex > -1 )
+			if( searchIndentation && propertyIndex > -1 && propertyIndex < body.Length )
 			{
-				if( searchIndentation )
+				int indentationIndex = -1;
+				for( int i = propertyIndex; i > 0; i-- )
 				{
-					int indentationIndex = -1;
-					for( int i = propertyIndex; i > 0; i-- )
+					if( body[ i ] == TemplatesManager.TemplateNewLine )
 					{
-						if( body[ i ] == TemplatesManager.TemplateNewLine )
-						{
-							indentationIndex = i + 1;
-							break;
-						}
-					}
-					if( indentationIndex > -1 )
-					{
-						int length = propertyIndex - indentationIndex;
-						string indentation = ( length > 0 ) ? body.Substring( indentationIndex, length ) : string.Empty;
-						TemplateProperty templateProperty = new TemplateProperty( ID, indentation, false );
-						m_propertyList.Add( templateProperty );
-						m_propertyDict.Add( templateProperty.Id, templateProperty );
+						indentationIndex = i + 1;
+						break;
 					}
 				}
-				else
+
+				if( indentationIndex > -1 )
 				{
-					TemplateProperty templateProperty = new TemplateProperty( ID, customIndentation, true );
+					int length = propertyIndex - indentationIndex;
+					string indentation = ( length > 0 ) ? body.Substring( indentationIndex, length ) : string.Empty;
+					TemplateProperty templateProperty = new TemplateProperty( ID, indentation, false );
 					m_propertyList.Add( templateProperty );
 					m_propertyDict.Add( templateProperty.Id, templateProperty );
 				}
+			}
+			else
+			{
+				TemplateProperty templateProperty = new TemplateProperty( ID, customIndentation, true );
+				m_propertyList.Add( templateProperty );
+				m_propertyDict.Add( templateProperty.Id, templateProperty );
 			}
 
 		}
@@ -324,25 +336,29 @@ namespace AmplifyShaderEditor
 	public class TemplatesManager : ScriptableObject
 	{
 		public static int MPShaderVersion = 14503;
+		
 		public static readonly string TemplateShaderNameBeginTag = "/*ase_name*/";
 		public static readonly string TemplateStencilTag = "/*ase_stencil*/\n";
 		public static readonly string TemplateAllModulesTag = "/*ase_all_modules*/\n";
-		//public static readonly string TemplateLocalVarTag = "/*ase_local_var*/";
 		public static readonly string TemplateMPSubShaderTag = "\\bSubShader\\b\\s*{";
+		//public static readonly string TemplateMPPassTag = "^\\s*Pass\b\\s*{";//"\\bPass\\b\\s*{";
 		public static readonly string TemplateMPPassTag = "\\bPass\\b\\s*{";
 		public static readonly string TemplateLocalVarTag = "/*ase_local_var*/";
 		public static readonly string TemplateDependenciesListTag = "/*ase_dependencies_list*/";
 		public static readonly string TemplatePragmaTag = "/*ase_pragma*/";
 		public static readonly string TemplatePassTag = "/*ase_pass*/";
+		public static readonly string TemplatePassesEndTag = "/*ase_pass_end*/";
+		//public static readonly string TemplatePassTagPattern = @"\s\/\*ase_pass\*\/";
+		public static readonly string TemplatePassTagPattern = @"\s\/\*ase_pass[:\*]+";
 		public static readonly string TemplatePropertyTag = "/*ase_props*/\n";
 		public static readonly string TemplateGlobalsTag = "/*ase_globals*/\n";
 		public static readonly string TemplateInterpolatorBeginTag = "/*ase_interp(";
 		public static readonly string TemplateVertexDataTag = "/*ase_vdata:";
 
-		public static readonly string TemplateExcludeFromGraphTag = "/*ase_hide_pass*/";
+		//public static readonly string TemplateExcludeFromGraphTag = "/*ase_hide_pass*/";
 		public static readonly string TemplateMainPassTag = "/*ase_main_pass*/";
 
-		public static readonly string TemplateFunctionsTag = "/*ase_functions*/\n";
+		public static readonly string TemplateFunctionsTag = "/*ase_funcs*/\n";
 		//public static readonly string TemplateTagsTag = "/*ase_tags*/";
 
 		//public static readonly string TemplateCullModeTag = "/*ase_cull_mode*/";
@@ -393,16 +409,24 @@ namespace AmplifyShaderEditor
 		public static Dictionary<string, string> OfficialTemplates = new Dictionary<string, string>()
 		{
 			{ "0770190933193b94aaa3065e307002fa","Unlit"},
+			{ "32139be9c1eb75640a847f011acf3bcf","Post-Processing Stack"},
+			{ "6ce779933eb99f049b78d6163735e06f","Custom RT Init"},
+			{ "32120270d1b3a8746af2aca8bc749736","Custom RT Update"},
 			{ "1976390536c6c564abb90fe41f6ee334","Lightweight PBR"},
 			{ "e2514bdcf5e5399499a9eb24d175b9db","Lightweight Unlit"},
+			{ "091c43ba8bd92c9459798d59b089ce4e","HD Lit"},
+			{ "bb308bce79762c34e823049efce65141","HD PBR"},
+			{ "dfe2f27ac20b08c469b2f95c236be0c3","HD Unlit"},
 			{ "c71b220b631b6344493ea3cf87110c93","Legacy/Post Process" },
 			{ "6e114a916ca3e4b4bb51972669d463bf","Legacy/Default Unlit" },
 			{ "5056123faa0c79b47ab6ad7e8bf059a4","Legacy/Default UI" },
+			{ "899e609c083c74c4ca567477c39edef0","Legacy/Unlit Lightmap" },
 			{ "0f8ba0101102bb14ebf021ddadce9b49","Legacy/Default Sprites" },
 			{ "0b6a9f8b4f707c74ca64c0be8e590de0","Legacy/Particles Alpha Blended" },
 			{ "e1de45c0d41f68c41b2cc20c8b9c05ef","Legacy/Multi Pass Unlit" }
 		};
 
+		public static readonly string TemplateMenuItemsFileGUID = "da0b931bd234a1e43b65f684d4b59bfb";
 
 		private Dictionary<string, TemplateDataParent> m_availableTemplates = new Dictionary<string, TemplateDataParent>();
 
@@ -415,9 +439,11 @@ namespace AmplifyShaderEditor
 		[SerializeField]
 		public bool Initialized = false;
 
+		private Dictionary<string, bool> m_optionsInitialSetup = new Dictionary<string, bool>();
+
 		public static string CurrTemplateGUIDLoaded = string.Empty;
 
-		public static bool IsTestTemplate { get { return CurrTemplateGUIDLoaded.Equals( "834460efe370abf4687f27dfa49b7f9c" ); } }
+		public static bool IsTestTemplate { get { return CurrTemplateGUIDLoaded.Equals( "a95a019bbc760714bb8228af04c291d1" ); } }
 		public static bool ShowDebugMessages = false;
 		public void RefreshAvailableTemplates()
 		{
@@ -438,16 +464,22 @@ namespace AmplifyShaderEditor
 			{
 				if( ShowDebugMessages )
 					Debug.Log( "Initialize" );
+
+				string templateMenuItems = IOUtils.LoadTextFileFromDisk( AssetDatabase.GUIDToAssetPath( TemplateMenuItemsFileGUID ) );
+				bool refreshTemplateMenuItems = false;
+
 				foreach( KeyValuePair<string, string> kvp in OfficialTemplates )
 				{
 					if( !string.IsNullOrEmpty( AssetDatabase.GUIDToAssetPath( kvp.Key ) ) )
 					{
 						TemplateMultiPass template = ScriptableObject.CreateInstance<TemplateMultiPass>();
-						template.Init( kvp.Value, kvp.Key );
+						template.Init( kvp.Value, kvp.Key, false );
 						AddTemplate( template );
+						if( !refreshTemplateMenuItems && templateMenuItems.IndexOf( kvp.Value ) < 0 )
+							refreshTemplateMenuItems = true;
 					}
 				}
-				
+
 				// Search for other possible templates on the project
 				string[] allShaders = AssetDatabase.FindAssets( "t:shader" );
 				for( int i = 0; i < allShaders.Length; i++ )
@@ -466,6 +498,10 @@ namespace AmplifyShaderEditor
 					m_sortedTemplates[ i ].OrderId = i;
 					AvailableTemplateNames[ i + 1 ] = m_sortedTemplates[ i ].Name;
 				}
+
+				if( refreshTemplateMenuItems )
+					CreateTemplateMenuItems();
+
 				Initialized = true;
 			}
 		}
@@ -487,7 +523,7 @@ namespace AmplifyShaderEditor
 			int fixedPriority = 85;
 			for( int i = 0; i < m_sortedTemplates.Count; i++ )
 			{
-				fileContents.AppendFormat( "\t\t[ MenuItem( \"Assets/Create/Amplify Shader/{0}\", false, {1} )]\n", m_sortedTemplates[ i ].Name, fixedPriority );
+				fileContents.AppendFormat( "\t\t[MenuItem( \"Assets/Create/Amplify Shader/{0}\", false, {1} )]\n", m_sortedTemplates[ i ].Name, fixedPriority );
 				fileContents.AppendFormat( "\t\tpublic static void ApplyTemplate{0}()\n", i );
 				fileContents.Append( "\t\t{\n" );
 				fileContents.AppendFormat( "\t\t\tAmplifyShaderEditorWindow.CreateNewTemplateShader( \"{0}\" );\n", m_sortedTemplates[ i ].GUID );
@@ -495,7 +531,7 @@ namespace AmplifyShaderEditor
 			}
 			fileContents.Append( "\t}\n" );
 			fileContents.Append( "}\n" );
-			string filePath = AssetDatabase.GUIDToAssetPath( "da0b931bd234a1e43b65f684d4b59bfb" );
+			string filePath = AssetDatabase.GUIDToAssetPath( TemplateMenuItemsFileGUID );
 			IOUtils.SaveTextfileToDisk( fileContents.ToString(), filePath, false );
 			AssetDatabase.ImportAsset( filePath );
 		}
@@ -512,7 +548,7 @@ namespace AmplifyShaderEditor
 			}
 			return -1;
 		}
-		
+
 
 
 		public void AddTemplate( TemplateDataParent templateData )
@@ -546,7 +582,7 @@ namespace AmplifyShaderEditor
 			m_sortedTemplates.Remove( templateData );
 			templateData.Destroy();
 		}
-		
+
 		public void Destroy()
 		{
 			if( TemplatesManager.ShowDebugMessages )
@@ -622,7 +658,7 @@ namespace AmplifyShaderEditor
 			}
 			return null;
 		}
-		
+
 		public TemplateDataParent CheckAndLoadTemplate( string guid )
 		{
 			TemplateDataParent templateData = GetTemplate( guid );
@@ -634,7 +670,7 @@ namespace AmplifyShaderEditor
 				if( body.IndexOf( TemplatesManager.TemplateShaderNameBeginTag ) > -1 )
 				{
 					templateData = ScriptableObject.CreateInstance<TemplateMultiPass>();
-					templateData.Init( string.Empty, guid );	
+					templateData.Init( string.Empty, guid, true );
 					if( templateData.IsValid )
 					{
 						AddTemplate( templateData );
@@ -658,7 +694,27 @@ namespace AmplifyShaderEditor
 			}
 			hideFlags = HideFlags.HideAndDontSave;
 			if( ShowDebugMessages )
-				Debug.Log( "On Enable Manager: " + this.GetInstanceID() );	
+				Debug.Log( "On Enable Manager: " + this.GetInstanceID() );
+		}
+
+		public void ResetOptionsSetupData()
+		{
+			if( ShowDebugMessages )
+			Debug.Log( "Reseting options setup data" );
+			m_optionsInitialSetup.Clear();
+		}
+
+		public bool SetOptionsValue( string optionId, bool value )
+		{
+			if( m_optionsInitialSetup.ContainsKey( optionId ) )
+			{
+				m_optionsInitialSetup[ optionId ] = m_optionsInitialSetup[ optionId ] || value;
+			}
+			else
+			{
+				m_optionsInitialSetup.Add( optionId, value );
+			}
+			return m_optionsInitialSetup[ optionId ];
 		}
 
 		public int TemplateCount { get { return m_sortedTemplates.Count; } }
