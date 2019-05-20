@@ -18,6 +18,8 @@ public class ImageTrackingController : MonoBehaviour
 
     private Dictionary<int, TrackedImageObject> trackedObjects = new Dictionary<int, TrackedImageObject>();
     private List<AugmentedImage> scannableImages = new List<AugmentedImage>();
+    private Location[] locations;
+    private ScenarioFlagsService flagsService;
 
     private void OnValidate()
     {
@@ -25,6 +27,8 @@ public class ImageTrackingController : MonoBehaviour
         {
            arBackgroundHandler = FindObjectOfType<ARCoreBackgroundHandler>();
         }
+
+        locations = FindObjectsOfType<Location>();
     }
 
     public void Update()
