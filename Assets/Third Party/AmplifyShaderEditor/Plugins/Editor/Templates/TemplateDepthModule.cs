@@ -40,12 +40,16 @@ namespace AmplifyShaderEditor
 
 		public TemplateDepthModule() : base( "Depth" ) { }
 
-		public void CopyFrom( TemplateDepthModule other )
+		public void CopyFrom( TemplateDepthModule other , bool allData )
 		{
-			m_independentModule = other.IndependentModule;
-			m_validZTest = other.ValidZTest;
-			m_validZWrite = other.ValidZWrite;
-			m_validOffset = other.ValidOffset;
+			if( allData )
+			{
+				m_independentModule = other.IndependentModule;
+				m_validZTest = other.ValidZTest;
+				m_validZWrite = other.ValidZWrite;
+				m_validOffset = other.ValidOffset;
+			}
+
 			m_zTestMode.CopyFrom( other.ZTestMode );
 			m_zWriteMode.CopyFrom( other.ZWriteMode );
 			m_offsetFactor.CopyFrom( other.OffsetFactor );
@@ -68,6 +72,8 @@ namespace AmplifyShaderEditor
 					m_zTestMode.SetInlineByName( depthData.ZTestInlineValue );
 				}
 			}
+
+
 
 			if( depthData.ValidZWrite && m_validZWrite != depthData.ValidZWrite )
 			{
@@ -103,11 +109,11 @@ namespace AmplifyShaderEditor
 				{
 					m_offsetUnits.SetInlineByName( depthData.OffsetUnitsInlineValue );
 				}
+				m_offsetEnabled = depthData.ValidOffset;
 			}
 
 			m_validZTest = depthData.ValidZTest;
 			m_validZWrite = depthData.ValidZWrite;
-			m_offsetEnabled = depthData.ValidOffset;
 			m_validOffset = depthData.ValidOffset;
 			m_validData = m_validZTest || m_validZWrite || m_validOffset;
 		}
@@ -329,5 +335,41 @@ namespace AmplifyShaderEditor
 		public InlineProperty OffsetUnits { get { return m_offsetUnits; } }
 		public bool OffsetEnabled { get { return m_offsetEnabled; } }
 
+
+		public ZTestMode ZTestModeValue
+		{
+			set
+			{
+				m_zTestMode.IntValue = ZBufferOpHelper.ZTestModeDict[ value ];
+				m_zTestMode.Active = false;
+			}
+		}
+		public ZWriteMode ZWriteModeValue
+		{
+			set
+			{
+				m_zWriteMode.IntValue = ZBufferOpHelper.ZWriteModeDict[ value ];
+				m_zWriteMode.Active = false;
+			}
+		}
+		public float OffsetFactorValue
+		{
+			set
+			{
+				m_offsetEnabled = true;
+				m_offsetFactor.FloatValue = value;
+				m_offsetFactor.Active = false;
+			}
+		}
+
+		public float OffsetUnitsValue
+		{
+			set
+			{
+				m_offsetEnabled = true;
+				m_offsetUnits.FloatValue = value;
+				m_offsetUnits.Active = false;
+			}
+		}
 	}
 }

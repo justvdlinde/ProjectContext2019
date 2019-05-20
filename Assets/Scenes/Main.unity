@@ -91474,6 +91474,9 @@ MonoBehaviour:
   id: 2
   gObject: {fileID: 2756299072646438093}
   collider: {fileID: 0}
+  requiredFlag: -21260
+  startedFlag: 0
+  completedFlag: 0
 --- !u!224 &2756299072646438092
 RectTransform:
   m_ObjectHideFlags: 0
@@ -92208,6 +92211,9 @@ MonoBehaviour:
   id: 1
   gObject: {fileID: 2756299072902575123}
   collider: {fileID: 0}
+  requiredFlag: -18282
+  startedFlag: -17448
+  completedFlag: -21260
 --- !u!224 &2756299072902575122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -93003,6 +93009,9 @@ MonoBehaviour:
   id: 0
   gObject: {fileID: 2756299073519233722}
   collider: {fileID: 0}
+  requiredFlag: 0
+  startedFlag: 18082
+  completedFlag: -18282
 --- !u!224 &2756299073519233721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -93035,6 +93044,8 @@ GameObject:
   - component: {fileID: 2756299073519233718}
   - component: {fileID: 2756299073519233720}
   - component: {fileID: 2756299073519233719}
+  - component: {fileID: 2756299073519233724}
+  - component: {fileID: 2756299073519233723}
   m_Layer: 0
   m_Name: Location_1
   m_TagString: Untagged
@@ -93042,6 +93053,64 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2756299073519233723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756299073519233722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48eb5c12284285f47aef47d7aebf18c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 18082
+  onFlagAddedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2756299073519233720}
+        m_MethodName: StartScenario
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2756299073519233724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756299073519233722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48eb5c12284285f47aef47d7aebf18c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: -18282
+  onFlagAddedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2756299073519233720}
+        m_MethodName: CompleteScenario
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!224 &2756299073600703759
 RectTransform:
   m_ObjectHideFlags: 0

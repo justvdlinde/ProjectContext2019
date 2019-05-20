@@ -76,6 +76,8 @@ namespace AmplifyShaderEditor
 
 		public string[] ReadOptionsHelper = new string[] { };
 
+		private bool m_lateRefresh = false;
+
 		string LastLine( string text )
 		{
 			string[] lines = text.Replace( "\r", "" ).Split( '\n' );
@@ -89,7 +91,7 @@ namespace AmplifyShaderEditor
 			if( function == null )
 				return;
 
-			m_refreshIdsRequired = m_containerGraph.IsLoading && ( UIUtils.CurrentShaderVersion() < 14004 );
+			m_refreshIdsRequired = UIUtils.IsLoading && ( UIUtils.CurrentShaderVersion() < 14004 );
 
 			m_function = function;
 
@@ -101,7 +103,7 @@ namespace AmplifyShaderEditor
 				for( int i = 1; i < Function.FunctionName.Length; i++ )
 				{
 					bool currIsUpper = Char.IsUpper( Function.FunctionName, i );
-					if( currIsUpper && !lastIsUpper && Function.FunctionName[ i - 1 ] != ' ' )
+					if( currIsUpper && !lastIsUpper && Char.IsLetter( Function.FunctionName[ i - 1 ] ))
 					{
 						title.Append( " " );
 					}
@@ -162,7 +164,7 @@ namespace AmplifyShaderEditor
 					AddInputPort( m_allFunctionInputs[ i ].SelectedInputType, false, m_allFunctionInputs[ i ].InputName, -1, MasterNodePortCategory.Fragment, m_allFunctionInputs[ i ].UniqueId );
 				}
 				InputPortSwitchRestriction( m_inputPorts[ i ] );
-				
+
 				if( !m_allFunctionInputs[ i ].InputPorts[ 0 ].IsConnected )
 				{
 					m_inputPorts[ i ].AutoDrawInternalData = true;
@@ -233,7 +235,7 @@ namespace AmplifyShaderEditor
 		public override void SetPreviewInputs()
 		{
 			base.SetPreviewInputs();
-			if( !m_initialized || m_inputPorts == null)
+			if( !m_initialized || m_inputPorts == null )
 				return;
 
 			int count = m_inputPorts.Count;
@@ -307,9 +309,14 @@ namespace AmplifyShaderEditor
 			if( Function == null )
 				return;
 
+			//Debug.Log( "RefreshExternalReferences " + m_function.FunctionName + " " + UIUtils.CurrentWindow.IsShaderFunctionWindow );
+
 			Function.UpdateDirectivesList();
 
-			if( ContainerGraph.ParentWindow.OutsideGraph.CurrentStandardSurface != null )
+			MasterNode masterNode = UIUtils.CurrentWindow.OutsideGraph.CurrentMasterNode;
+			StandardSurfaceOutputNode surface = masterNode as StandardSurfaceOutputNode;
+
+			if( surface != null )
 			{
 				//for( int i = 0; i < Function.AdditionalIncludes.IncludeList.Count; i++ )
 				//{
@@ -324,9 +331,36 @@ namespace AmplifyShaderEditor
 				//	ContainerGraph.ParentWindow.OutsideGraph.CurrentStandardSurface.AdditionalDirectives.AddShaderFunctionItem(AdditionalLineType.Pragma, Function.AdditionalPragmas.PragmaList[ i ] );
 				//	m_pragmas.Add( Function.AdditionalPragmas.PragmaList[ i ] );
 				//}
-				ContainerGraph.ParentWindow.OutsideGraph.CurrentStandardSurface.AdditionalDirectives.AddShaderFunctionItems( Function.AdditionalDirectives.DirectivesList );
-				m_directives.AddRange( Function.AdditionalDirectives.DirectivesList );
+				surface.AdditionalDirectives.AddShaderFunctionItems( Function.AdditionalDirectives.DirectivesList );
 			}
+			else
+			{
+				if( ContainerGraph.ParentWindow.OutsideGraph.MultiPassMasterNodes.Count > 0 )
+				{
+					List<TemplateMultiPassMasterNode> nodes = ContainerGraph.ParentWindow.OutsideGraph.MultiPassMasterNodes.NodesList;
+					int count = nodes.Count;
+					for( int i = 0; i < count; i++ )
+					{
+						nodes[ i ].PassModule.AdditionalDirectives.AddShaderFunctionItems( Function.AdditionalDirectives.DirectivesList );
+					}
+				}
+				else
+				{
+					// Assuring that we're not editing a Shader Function, as directives setup is not needed there
+					if( !UIUtils.CurrentWindow.IsShaderFunctionWindow )
+					{
+						// This function is nested inside a shader function itself and this method
+						// was called before the main output node was created. 
+						// This is possible since all nodes RefreshExternalReferences(...) are called at the end 
+						// of a LoadFromMeta
+						// Need to delay this setup to after all nodes are loaded to then setup the directives
+						m_lateRefresh = true;
+						return;
+					}
+				}
+
+			}
+			m_directives.AddRange( Function.AdditionalDirectives.DirectivesList );
 
 			if( m_refreshIdsRequired )
 			{
@@ -535,16 +569,16 @@ namespace AmplifyShaderEditor
 			}
 
 			if( drawInternalDataUI )
-			NodeUtils.DrawPropertyGroup( ref m_internalDataFoldout, Constants.InternalDataLabelStr, () =>
-			{
-				for( int i = 0; i < m_inputPorts.Count; i++ )
+				NodeUtils.DrawPropertyGroup( ref m_internalDataFoldout, Constants.InternalDataLabelStr, () =>
 				{
-					if( m_inputPorts[ i ].ValidInternalData && !m_inputPorts[ i ].IsConnected && m_inputPorts[ i ].Visible && m_inputPorts[ i ].AutoDrawInternalData )
+					for( int i = 0; i < m_inputPorts.Count; i++ )
 					{
-						m_inputPorts[ i ].ShowInternalData( this );
+						if( m_inputPorts[ i ].ValidInternalData && !m_inputPorts[ i ].IsConnected && m_inputPorts[ i ].Visible && m_inputPorts[ i ].AutoDrawInternalData )
+						{
+							m_inputPorts[ i ].ShowInternalData( this );
+						}
 					}
-				}
-			} );
+				} );
 		}
 
 		private void DrawDescription()
@@ -597,9 +631,25 @@ namespace AmplifyShaderEditor
 				//	ContainerGraph.ParentWindow.OutsideGraph.CurrentStandardSurface.AdditionalDirectives.RemoveShaderFunctionItem( AdditionalLineType.Pragma, m_pragmas[ i ] );
 				//}
 				ContainerGraph.ParentWindow.OutsideGraph.CurrentStandardSurface.AdditionalDirectives.RemoveShaderFunctionItems( m_directives );
-				m_directives.Clear();
-				m_directives = null;
 			}
+			else
+			{
+				if( ContainerGraph.ParentWindow.OutsideGraph.MultiPassMasterNodes.Count > 0 )
+				{
+					List<TemplateMultiPassMasterNode> nodes = ContainerGraph.ParentWindow.OutsideGraph.MultiPassMasterNodes.NodesList;
+					int count = nodes.Count;
+					for( int i = 0; i < count; i++ )
+					{
+						nodes[ i ].PassModule.AdditionalDirectives.RemoveShaderFunctionItems( m_directives );
+					}
+				}
+			}
+
+			// Cannot GameObject.Destroy(m_directives[i]) since we would be removing them from 
+			// the shader function asset itself
+
+			m_directives.Clear();
+			m_directives = null;
 
 			if( m_reordenator != null )
 			{
@@ -645,6 +695,12 @@ namespace AmplifyShaderEditor
 
 		public override void OnNodeLogicUpdate( DrawInfo drawInfo )
 		{
+			if( m_lateRefresh )
+			{
+				m_lateRefresh = false;
+				RefreshExternalReferences();
+			}
+
 			CheckForChangesRecursively();
 
 			base.OnNodeLogicUpdate( drawInfo );
@@ -751,8 +807,10 @@ namespace AmplifyShaderEditor
 
 			ParentGraph cachedGraph = ContainerGraph.ParentWindow.CustomGraph;
 			ContainerGraph.ParentWindow.CustomGraph = null;
-			if( ContainerGraph.ParentWindow.CurrentGraph.CurrentStandardSurface != null )
-				ContainerGraph.ParentWindow.CurrentGraph.CurrentStandardSurface.InvalidateMaterialPropertyCount();
+			MasterNode masterNode = ContainerGraph.ParentWindow.CurrentGraph.CurrentMasterNode;
+			if( masterNode != null )
+				masterNode.InvalidateMaterialPropertyCount();
+
 			ContainerGraph.ParentWindow.CustomGraph = cachedGraph;
 
 			ParentNode newNode = ContainerGraph.CreateNode( m_function, false, Vec2Position );
@@ -908,8 +966,9 @@ namespace AmplifyShaderEditor
 			IOUtils.AddFieldValueToString( ref nodeInfo, m_functionGraphId );
 			IOUtils.AddFieldValueToString( ref nodeInfo, m_functionGUID );
 
-			string allOptions = m_allFunctionSwitches.Count.ToString();
-			for( int i = 0; i < m_allFunctionSwitches.Count; i++ )
+			int functionSwitchCount = m_allFunctionSwitches != null ? m_allFunctionSwitches.Count : 0;
+			string allOptions = functionSwitchCount.ToString();
+			for( int i = 0; i < functionSwitchCount; i++ )
 			{
 				allOptions += "," + m_allFunctionSwitches[ i ].UniqueId + "," + m_allFunctionSwitches[ i ].GetCurrentSelectedInput();
 			}
@@ -956,7 +1015,7 @@ namespace AmplifyShaderEditor
 						}
 					}
 					loaded = AssetDatabase.LoadAssetAtPath<AmplifyShaderFunction>( AssetDatabase.GUIDToAssetPath( sfGuid ) );
-					
+
 					if( loaded != null )
 					{
 						CommonInit( loaded, UniqueId );
@@ -964,11 +1023,13 @@ namespace AmplifyShaderEditor
 					else
 					{
 						SetTitleText( "ERROR" );
+						UIUtils.ShowMessage( string.Format( "Error loading {0} shader function from project folder", m_filename ), MessageSeverity.Error );
 					}
 				}
 				else
 				{
 					SetTitleText( "Missing Function" );
+					UIUtils.ShowMessage( string.Format( "Missing {0} shader function on project folder", m_filename ), MessageSeverity.Error );
 				}
 			}
 			if( UIUtils.CurrentShaderVersion() > 14203 )
@@ -1044,15 +1105,8 @@ namespace AmplifyShaderEditor
 
 		public ParentGraph FunctionGraph
 		{
-			get
-			{
-				return m_functionGraph;
-			}
-
-			set
-			{
-				m_functionGraph = value;
-			}
+			get { return m_functionGraph; }
+			set { m_functionGraph = value; }
 		}
 
 		public AmplifyShaderFunction Function
@@ -1085,6 +1139,29 @@ namespace AmplifyShaderEditor
 			for( int i = 0; i < m_functionGraph.AllNodes.Count; i++ )
 			{
 				m_functionGraph.AllNodes[ i ].SetContainerGraph( m_functionGraph );
+			}
+		}
+		public override void OnMasterNodeReplaced( MasterNode newMasterNode )
+		{
+			base.OnMasterNodeReplaced( newMasterNode );
+			m_functionGraph.FireMasterNodeReplacedEvent( newMasterNode );
+
+			StandardSurfaceOutputNode surface = newMasterNode as StandardSurfaceOutputNode;
+			if( surface != null )
+			{
+				surface.AdditionalDirectives.AddShaderFunctionItems( Function.AdditionalDirectives.DirectivesList );
+			}
+			else
+			{
+				if( ContainerGraph.ParentWindow.OutsideGraph.MultiPassMasterNodes.Count > 0 )
+				{
+					List<TemplateMultiPassMasterNode> nodes = ContainerGraph.ParentWindow.OutsideGraph.MultiPassMasterNodes.NodesList;
+					int count = nodes.Count;
+					for( int i = 0; i < count; i++ )
+					{
+						nodes[ i ].PassModule.AdditionalDirectives.AddShaderFunctionItems( Function.AdditionalDirectives.DirectivesList );
+					}
+				}
 			}
 		}
 	}
