@@ -1,20 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Location : MonoBehaviour
+public class Location : MonoBehaviour, IInteractable
 {
     [SerializeField] [LocationID] private int id;
     public int ID => id;
-    public GameObject GameObject { get { return gObject; } }
-    public Collider Collider { get { return collider; } }
 
-    [SerializeField, HideInInspector] private GameObject gObject;
-    [SerializeField, HideInInspector] private new Collider collider;
+    public GameObject GameObject => gameObject;
+    public Collider Collider => GetComponent<Collider>();
+    public bool HideAtStart => false;
+    public bool DestroyAfterInteraction => false;
 
-    private void OnValidate()
+    public void OnInteractionStart()
     {
-        gObject = gameObject;
-        collider = GetComponent<Collider>();
+        OnSelectChange(true);
+    }
+
+    public void OnInteractionStop()
+    {
+        OnSelectChange(false);
+    }
+
+    private void OnSelectChange(bool selected)
+    {
+        // set outline color
     }
 }

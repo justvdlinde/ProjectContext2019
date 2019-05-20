@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: c4e8d59f98e352c46af6fb61d5216040
+    path: Assets/Scenes/Main New.unity
+    guid: 4be2c27140f93ae4a9ee6e599605fc71
+  - enabled: 1
+    path: Assets/Scenes/Art/GreatHall/GreatHall_V1.unity
+    guid: 7bd022c0eeff82242a44ec7f85e577fd
   m_configObjects: {}

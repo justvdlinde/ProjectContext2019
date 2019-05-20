@@ -1,6 +1,4 @@
 ﻿using ServiceLocatorNamespace;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LocationDatabaseService : IService
@@ -15,7 +13,7 @@ public class LocationDatabaseService : IService
         locationDatabase = Resources.Load<Locations>(DATABASE_FILE_PATH);
     }
 
-    public LocationsData GetItemData(int locationID)
+    public LocationsData GetLocationData(int locationID)
     {
         return locationDatabase.dataArray[locationID];
     }

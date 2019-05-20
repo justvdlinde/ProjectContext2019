@@ -1,20 +1,31 @@
 ﻿using GoogleARCore;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using ServiceLocatorNamespace;
 using UnityEngine;
 
 public class TrackedImageObject : MonoBehaviour
 {
-    [Header("Dependencies")]
-    [SerializeField] private ImageTrackingController trackingController;
-
     public AugmentedImage Image { get; private set; }
     public bool IsBeingTracked { get; private set; }
+
+    private ARManagerService arManager;
 
     private void Start()
     {
         Hide();
+    }
+
+    private void OnEnable()
+    {
+        if (!arManager)
+        {
+            arManager = ServiceLocator.Instance.Get<ARManagerService>() as ARManagerService;
+        }
+        arManager.NewImageTrackedEvent += OnNewImageTrackedEvent;
+    }
+
+    private void OnDisable()
+    {
+        arManager.NewImageTrackedEvent -= OnNewImageTrackedEvent;
     }
 
     public void Update()
@@ -46,5 +57,13 @@ public class TrackedImageObject : MonoBehaviour
         gameObject.SetActive(false);
         enabled = false;
         IsBeingTracked = false;
+    }
+
+    private void OnNewImageTrackedEvent(TrackedImageObject o)
+    {
+        if(o.Image != Image)
+        {
+            Hide();
+        }
     }
 }

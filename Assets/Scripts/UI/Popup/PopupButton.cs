@@ -43,7 +43,7 @@ public class PopupButton : MonoBehaviour
 
     private void OnClickEvent()
     {
-        clickEvent.Invoke();
+        clickEvent?.Invoke();
 
         if(closeOnClick)
         {

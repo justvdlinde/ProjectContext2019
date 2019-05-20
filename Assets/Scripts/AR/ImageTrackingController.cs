@@ -1,30 +1,28 @@
-﻿using System.Collections;
+﻿using GoogleARCore;
 using System.Collections.Generic;
 using UnityEngine;
-using GoogleARCore;
-using GoogleARCore.Examples.AugmentedImage;
-using System;
-using ServiceLocatorNamespace;
-using UnityEngine.UI;
 
 /// <summary>
-/// Controller for tracking AR images. Calls <see cref="ImageTrackingFoundEvent"/> and <see cref="ImageTrackingLostEvent"/> when images are being tracked or when lost
+/// Controller for tracking AR images.
 /// </summary>
 public class ImageTrackingController : MonoBehaviour
 {
     [SerializeField] private ARCoreBackgroundHandler arBackgroundHandler;
     [SerializeField] private List<TrackedImageObject> trackableObjects;
-    [SerializeField] private GameObject scanOverlay;
+
+    private ARManagerService arManager;
 
     private Dictionary<int, TrackedImageObject> trackedObjects = new Dictionary<int, TrackedImageObject>();
     private List<AugmentedImage> scannableImages = new List<AugmentedImage>();
 
     private void OnValidate()
     {
-        if (arBackgroundHandler == null)
-        {
-           arBackgroundHandler = FindObjectOfType<ARCoreBackgroundHandler>();
-        }
+        arBackgroundHandler = FindObjectOfType<ARCoreBackgroundHandler>();
+    }
+
+    private void Start()
+    {
+        arManager = ServiceLocatorNamespace.ServiceLocator.Instance.Get<ARManagerService>() as ARManagerService;
     }
 
     public void Update()
@@ -67,6 +65,8 @@ public class ImageTrackingController : MonoBehaviour
         Anchor anchor = image.CreateAnchor(image.CenterPose);
         trackedImage.Show(image);
         arBackgroundHandler.ShowBackgroundCamera(false);
+
+        arManager.NewImageTrackedEvent?.Invoke(trackedImage);
     }
 
     private void ImageTrackingLost(AugmentedImage image, TrackedImageObject trackedImage)
