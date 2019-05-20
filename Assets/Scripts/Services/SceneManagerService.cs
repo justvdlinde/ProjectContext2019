@@ -1,8 +1,9 @@
 ﻿using ServiceLocatorNamespace;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadingScreenService : MonoBehaviour, MonoService
+public class SceneManagerService : MonoBehaviour, MonoService
 {
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject root;
@@ -12,20 +13,25 @@ public class LoadingScreenService : MonoBehaviour, MonoService
         DontDestroyOnLoad(this);
         ServiceLocator.Instance.AddService(this);
 
-        Show(false);
+        ShowLoadingbar(false);
     }
 
     public void Update()
     {
-        slider.value = Mathf.Lerp(0, SceneManagerUtility.Progress, Time.deltaTime * 2);
+        slider.value = SceneManagerUtility.Progress;
     }
 
-    public void Show(bool show)
+    public void LoadScene(string scene, Action onDone = null)
     {
-        Debug.Log("show " + show);
+        ShowLoadingbar(true);
+        onDone += () => ShowLoadingbar(false);
+        StartCoroutine(SceneManagerUtility.LoadScene(scene, onDone));
+    }
 
-        root.SetActive(show);
+    public void ShowLoadingbar(bool show)
+    {
         enabled = show;
+        root.SetActive(show);
     }
 
     private void OnDestroy()

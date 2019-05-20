@@ -9,11 +9,17 @@ public class TrackedImageScene : TrackedImageObject
     public string Scene => scene;
 
     private ARSceneAnchor sceneAnchor;
+    private SceneManagerService sceneManager;
+
+    private void Start()
+    {
+        sceneManager = ServiceLocatorNamespace.ServiceLocator.Instance.Get<SceneManagerService>() as SceneManagerService;
+    }
 
     public override void Show(AugmentedImage image)
     {
         base.Show(image);
-        StartCoroutine(SceneManagerUtility.LoadScene(scene, OnDoneLoadingEvent));
+        sceneManager.LoadScene(scene, OnDoneLoadingEvent);
     }
 
     private void OnDoneLoadingEvent()

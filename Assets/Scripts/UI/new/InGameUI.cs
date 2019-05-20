@@ -23,6 +23,7 @@ public class InGameUI : MonoBehaviour
     [SerializeField, HideInInspector] private ItemInformationPanel itemUI;
 
     private PopupService popupService;
+    private SceneManagerService sceneManager;
 
     private void OnValidate()
     {
@@ -33,6 +34,7 @@ public class InGameUI : MonoBehaviour
     private void Start()
     {
         popupService = ServiceLocatorNamespace.ServiceLocator.Instance.Get<PopupService>() as PopupService;
+        sceneManager = ServiceLocatorNamespace.ServiceLocator.Instance.Get<SceneManagerService>() as SceneManagerService;
     }
 
     private void OnEnable()
@@ -67,7 +69,7 @@ public class InGameUI : MonoBehaviour
     private void OnHomeButtonPressedEvent()
     {
         sidebar.Close();
-        StartCoroutine(SceneManagerUtility.LoadScene(menuScene));
+        sceneManager.LoadScene(menuScene);
 
         // TODO: return to main scene
     }

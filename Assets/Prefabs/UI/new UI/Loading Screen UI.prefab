@@ -577,7 +577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1514963416970386881}
-  - component: {fileID: 8509530849499519288}
+  - component: {fileID: 324794509885129884}
   m_Layer: 5
   m_Name: Loading Screen UI
   m_TagString: Untagged
@@ -601,7 +601,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8509530849499519288
+--- !u!114 &324794509885129884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -610,7 +610,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8475131489128246276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bdc232400819224cb2e80f5da473722, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cf82bf384a8ea646a6767d187c2172f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1539109681617657579}
