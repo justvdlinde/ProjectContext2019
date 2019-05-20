@@ -161,9 +161,15 @@ public class InteractableItemViewer : MonoBehaviour
     {
         interactableItem.OnInteractionStop();
 
-        if(interactableItem.GameObject != null)
+        // TODO: refactor
+        if(!interactableItem.DestroyAfterInteraction)
         { 
             StartCoroutine(LerpItemBackToOrigin(interactableItem));
+        }
+        else
+        {
+            viewerCamera.gameObject.SetActive(false);
+            input.SetActive(true);
         }
 
         itemContainer.rotation = Quaternion.identity;

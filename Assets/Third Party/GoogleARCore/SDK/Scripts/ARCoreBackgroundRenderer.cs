@@ -42,13 +42,13 @@ namespace GoogleARCore
         [Tooltip("A material used to render the AR background image.")]
         public Material BackgroundMaterial;
 
+        public ARBackgroundRenderer m_BackgroundRenderer;
+
         private static readonly float k_BlackScreenDuration = 0.5f;
 
         private static readonly float k_FadingInDuration = 0.5f;
 
         private Camera m_Camera;
-
-        private ARBackgroundRenderer m_BackgroundRenderer;
 
         private Texture m_TransitionImageTexture;
 

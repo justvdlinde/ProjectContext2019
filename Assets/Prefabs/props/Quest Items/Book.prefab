@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &794434477651226576
 Transform:
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   hideAtStart: 0
-  destroyAffterInteraction: 0
+  destroyAfterInteraction: 0
   gObject: {fileID: 794434477651588080}
   collider: {fileID: 2097315778331718325}
 --- !u!114 &7360205853653042673
