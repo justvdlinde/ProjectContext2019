@@ -14,7 +14,6 @@ public static class SceneManagerUtility
         while (!asyncOperation.isDone)
         {
             Progress = asyncOperation.progress;
-            Debug.Log(asyncOperation.progress);
             yield return asyncOperation;
         }
 

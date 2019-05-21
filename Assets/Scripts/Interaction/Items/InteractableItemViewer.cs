@@ -11,18 +11,11 @@ public class InteractableItemViewer : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] private InteractionHandler input;
+    [SerializeField] private ItemViewerUI itemUI;
 
     [Header("Object References")]
-    [SerializeField] private Camera viewerCamera;
+    [SerializeField] private new Camera camera;
     [SerializeField] private Transform itemContainer;
-
-    [Header("UI")]
-    [SerializeField] private GameObject uiRoot;
-    [SerializeField] private Button closeButton;
-    [SerializeField] private TextMeshProUGUI itemName;
-    [SerializeField] private TextMeshProUGUI itemDescription;
-    [SerializeField] private GameObject itemDescriptionPopup;
-    [SerializeField] private Button itemDescriptionPopupCloseButton;
 
     [Header("Fields")]
     [SerializeField] private Layer viewedItemLayer;
@@ -43,21 +36,17 @@ public class InteractableItemViewer : MonoBehaviour
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
 
-        uiRoot.gameObject.SetActive(false);
-
-        itemDatabase = (ItemDatabaseService)ServiceLocatorNamespace.ServiceLocator.Instance.Get<ItemDatabaseService>();
+        itemDatabase = (ItemDatabaseService)ServiceLocator.Instance.Get<ItemDatabaseService>();
     }
 
     private void OnEnable()
     {
         input.InteractedWithObjectEvent += OnInteracedWithObjectEvent;
-        closeButton.onClick.AddListener(OnCloseButtonPressed);
     }
 
     private void OnDisable()
     {
         input.InteractedWithObjectEvent -= OnInteracedWithObjectEvent;
-        closeButton.onClick.RemoveListener(OnCloseButtonPressed);
     }
 
     private void Update()
@@ -93,33 +82,22 @@ public class InteractableItemViewer : MonoBehaviour
 
         StartCoroutine(LerpItemIntoView(item));
 
-        viewerCamera.gameObject.SetActive(true);
-        uiRoot.gameObject.SetActive(true);
+        camera.gameObject.SetActive(true);
 
         SetUI(itemDatabase.GetItemData(item.ID));
+
+        itemUI.StopViewingItemButtonPressedEvent += OnCloseButtonPressed;
     }
 
     private void SetUI(ItemsData data)
     {
-        itemName.text = data.Name;
-
-        bool hasDescription = data.Description != string.Empty;
-        itemDescriptionPopup.SetActive(hasDescription);
-        if (hasDescription)
-        {
-            itemDescription.text = data.Description;
-            itemDescriptionPopupCloseButton.onClick.AddListener(OnClosePopupButtonPressed);
-        }
-    }
-
-    private void OnClosePopupButtonPressed()
-    {
-        itemDescriptionPopup.SetActive(false);
-        itemDescriptionPopupCloseButton.onClick.RemoveListener(OnClosePopupButtonPressed);
+        itemUI.ShowItemInfoUI(data);
     }
 
     private void View()
     {
+        // TODO: refactor to be more multiplatform
+
         if (Input.touchCount > 0)
         { 
             Debug.Log(Input.touches[0].deltaPosition);
@@ -161,23 +139,20 @@ public class InteractableItemViewer : MonoBehaviour
     {
         interactableItem.OnInteractionStop();
 
-        // TODO: refactor
         if(!interactableItem.DestroyAfterInteraction)
         { 
             StartCoroutine(LerpItemBackToOrigin(interactableItem));
         }
         else
         {
-            viewerCamera.gameObject.SetActive(false);
+            camera.gameObject.SetActive(false);
             input.SetActive(true);
         }
 
         itemContainer.rotation = Quaternion.identity;
-
         interactableItem = null;
         isViewing = false;
-        uiRoot.gameObject.SetActive(false);
-        itemDescriptionPopupCloseButton.onClick.RemoveListener(OnClosePopupButtonPressed);
+        itemUI.StopViewingItemButtonPressedEvent -= OnCloseButtonPressed;
     }
 
     private IEnumerator LerpItemIntoView(IInteractable item)
@@ -222,7 +197,7 @@ public class InteractableItemViewer : MonoBehaviour
 
         itemTransform.SetFromData(itemOriginalTransformData);
         itemTransform.gameObject.layer = itemOriginalLayer;
-        viewerCamera.gameObject.SetActive(false);
+        camera.gameObject.SetActive(false);
 
         input.SetActive(true);
     }

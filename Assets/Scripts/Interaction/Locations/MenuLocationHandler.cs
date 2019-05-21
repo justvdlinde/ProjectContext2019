@@ -33,8 +33,14 @@ public class MenuLocationHandler : MonoBehaviour
             IInteractable obj = hit.transform.gameObject.GetInterface<IInteractable>();
             Location location = null;
 
-            if (obj != null) { location = obj as Location; }
-            else { return; }
+            if (obj == null)
+            {
+                return;
+            }
+            else
+            {
+                location = obj as Location;
+            }
 
             if (location != null)
             {
