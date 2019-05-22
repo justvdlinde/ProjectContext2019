@@ -34,6 +34,7 @@ public class InteractionHandler : MonoBehaviour
         if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out hit, rayDistance))
         {
             IInteractable obj = hit.transform.gameObject.GetInterface<IInteractable>();
+            Debug.Log(obj);
             if (obj != null)
             {
                 InteractableObjectHit(obj);

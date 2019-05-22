@@ -19,15 +19,17 @@ public class ARManagerService : MonoBehaviour, MonoService
 
     public void EnableAR(bool enable)
     {
+#if !UNITY_EDITOR
         root.gameObject.SetActive(enable);
 
         session.enabled = enable;
         sessionController.enabled = enable;
-        
+
         if (enable)
         {
             backgroundRenderer.m_BackgroundRenderer.mode = UnityEngine.XR.ARRenderMode.MaterialAsBackground;
         }
+#endif
     }
 
     private void Awake()

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SceneManagerService : MonoBehaviour, MonoService
 {
-    [SerializeField] private Slider slider;
     [SerializeField] private GameObject root;
 
     private void Awake()
@@ -14,11 +13,6 @@ public class SceneManagerService : MonoBehaviour, MonoService
         ServiceLocator.Instance.AddService(this);
 
         ShowLoadingbar(false);
-    }
-
-    public void Update()
-    {
-        slider.value = SceneManagerUtility.Progress;
     }
 
     public void LoadScene(string scene, Action onDone = null)
