@@ -1,14 +1,9 @@
 ﻿using GoogleARCore;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using ServiceLocatorNamespace;
 using UnityEngine;
 
 public class TrackedImageObject : MonoBehaviour
 {
-    [Header("Dependencies")]
-    [SerializeField] private ImageTrackingController trackingController;
-
     public AugmentedImage Image { get; private set; }
     public bool IsBeingTracked { get; private set; }
 
@@ -17,7 +12,7 @@ public class TrackedImageObject : MonoBehaviour
         Hide();
     }
 
-    public void Update()
+    public virtual void Update()
     {
         if (Image != null)        
         {
@@ -32,7 +27,7 @@ public class TrackedImageObject : MonoBehaviour
         }
     }
 
-    public void Show(AugmentedImage image)
+    public virtual void Show(AugmentedImage image)
     {
         Image = image;
         gameObject.SetActive(true);
@@ -40,7 +35,7 @@ public class TrackedImageObject : MonoBehaviour
         IsBeingTracked = true;
     }
 
-    public void Hide()
+    public virtual void Hide()
     {
         Image = null;
         gameObject.SetActive(false);

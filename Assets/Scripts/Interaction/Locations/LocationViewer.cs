@@ -42,7 +42,7 @@ public class LocationViewer : MonoBehaviour
     {
         isViewing = true;
         uiRoot.gameObject.SetActive(true);
-        SetUI(itemDatabase.GetItemData(location.ID));
+        SetUI(itemDatabase.GetLocationData(location.ID));
     }
 
     private void StopViewing()

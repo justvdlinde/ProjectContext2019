@@ -10,11 +10,11 @@ public class MenuScreen : MonoBehaviour
     [SerializeField] private GameObject menuUI;
     [SerializeField] private GameObject scanOverlayImage;
 
-    private ARManager arManager;
+    private ARManagerService arManager;
 
     private void Start()
     {
-        arManager = ServiceLocator.Instance.Get<ARManager>() as ARManager;
+        arManager = ServiceLocator.Instance.Get<ARManagerService>() as ARManagerService;
     }
 
     private void OnEnable()

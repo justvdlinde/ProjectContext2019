@@ -1,86 +1,27 @@
-﻿using ServiceLocatorNamespace;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-public class Location : MonoBehaviour
+public class Location : MonoBehaviour, IInteractable
 {
     [SerializeField] [LocationID] private int id;
     public int ID => id;
-    public GameObject GameObject { get { return gObject; } }
-    public Collider Collider { get { return collider; } }
 
-    [SerializeField, HideInInspector] private GameObject gObject;
-    [SerializeField, HideInInspector] private new Collider collider;
-    [SerializeField, ScenarioFlag] private int requiredFlag;
-    [SerializeField, ScenarioFlag] private int startedFlag;
-    [SerializeField, ScenarioFlag] private int completedFlag;
+    public GameObject GameObject => gameObject;
+    public Collider Collider => GetComponent<Collider>();
+    public bool HideAtStart => false;
+    public bool DestroyAfterInteraction => false;
 
-    private ScenarioStatus status;
-    private Sprite[] statusImages;
-    private ScenarioFlagsService flagsService;
-    private Image statusImage;
-
-    private void Update()
+    public void OnInteractionStart()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            flagsService.AddFlag(startedFlag);
-        }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            flagsService.AddFlag(completedFlag);
-        }
+        OnSelectChange(true);
     }
 
-    private void OnEnable()
+    public void OnInteractionStop()
     {
-        if (status == ScenarioStatus.NotStarted)
-        {
-            statusImage.sprite = statusImages[0];
-        }
-
-        flagsService = (ScenarioFlagsService)ServiceLocator.Instance.Get<ScenarioFlagsService>();
-        flagsService.FlagAdded += OnFlagAdded;
+        OnSelectChange(false);
     }
 
-    private void OnDisable()
+    private void OnSelectChange(bool selected)
     {
-        flagsService.FlagAdded -= OnFlagAdded;
-    }
-
-    private void OnFlagAdded(ScenarioFlag flag)
-    {
-        if (flag.Hash == requiredFlag)
-        {
-            StartScenario();
-        }
-        Debug.Log("Started Scenario");
-    }
-
-    public void StartScenario()
-    {
-        status = ScenarioStatus.InProgress;
-        flagsService.AddFlag(startedFlag);
-        statusImage.sprite = statusImages[1];
-    }
-
-    public void CompleteScenario()
-    {
-        status = ScenarioStatus.Completed;
-        flagsService.AddFlag(completedFlag);
-        statusImage.sprite = statusImages[2];
-    }
-
-    private void OnValidate()
-    {
-        if (gObject == null) gObject = gameObject;
-        if (collider == null) collider = GetComponent<Collider>();
-        if (statusImage == null) statusImage = GetComponent<Image>();
-
-        statusImages = Resources.LoadAll("StatusImages", typeof(Sprite)).Cast<Sprite>().ToArray();
+        // set outline color
     }
 }

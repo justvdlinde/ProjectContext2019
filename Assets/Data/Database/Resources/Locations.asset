@@ -16,14 +16,16 @@ MonoBehaviour:
   WorksheetName: Locations
   dataArray:
   - id: ID_LOCATION_001
-    name: Voortuin
-    description: Dit is de voortuin
+    name: De Grote Zaal
+    description: De grote zaal is waar belangrijke gesprekken werden gehouden
     story: Dit is het verhaal wat is afgespeeld in de voortuin
   - id: ID_LOCATION_002
-    name: Achtertuin
-    description: Dit is de achtertuin
+    name: De Witte Toren
+    description: De witte toren werd gebouwd in 1300. De witte bakstenen maken het
+      uniek voor de rest van het kasteel
     story: Dit is het verhaal wat is afgespeeld in de achtertuin
   - id: ID_LOCATION_003
-    name: Middenhof
-    description: Dit is het middenhof
+    name: De Grote Poort
+    description: De grote poort diende als voordeur van het kasteel. Hier kwamen de
+      meeste gasten, handelaren binnen
     story: Dit is het verhaal wat is afgespeeld op het middenhof

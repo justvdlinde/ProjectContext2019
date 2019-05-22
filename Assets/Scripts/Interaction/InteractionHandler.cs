@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Manager class for handling input and detecting <see cref="IInteractable"/> objects
@@ -30,7 +31,7 @@ public class InteractionHandler : MonoBehaviour
     private void OnClick()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, rayDistance))
+        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out hit, rayDistance))
         {
             IInteractable obj = hit.transform.gameObject.GetInterface<IInteractable>();
             if (obj != null)

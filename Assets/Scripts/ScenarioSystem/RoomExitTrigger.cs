@@ -9,6 +9,6 @@ public class RoomExitTrigger : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         menuScreen.ShowMenu(true);
-        (ServiceLocator.Instance.Get<ARManager>() as ARManager).EnableAR(false);
+        (ServiceLocator.Instance.Get<ARManagerService>() as ARManagerService).EnableAR(false);
     }
 }
