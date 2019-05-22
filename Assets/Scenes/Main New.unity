@@ -428,50 +428,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 124457079}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &258485301
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 258485302}
-  - component: {fileID: 258485303}
-  m_Layer: 0
-  m_Name: TrackedSceneObject 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &258485302
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 258485301}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.296166, y: 4.1821017, z: 0.5729914}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1867515707}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &258485303
+--- !u!114 &258485303 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 258485303, guid: 993ef60ca35f8124b938986c080fe93a,
+    type: 3}
+  m_PrefabInstance: {fileID: 674077992}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 258485301}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57eabe987586b5041b452f49b2992496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Assets/Scenes/Art/TowerScene/TowerScene_V1.unity
 --- !u!1 &466319974
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,22 +702,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AR Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 1083836406648120748, guid: 993ef60ca35f8124b938986c080fe93a,
-        type: 3}
-      propertyPath: scene.sceneAsset
-      value: 
-      objectReference: {fileID: 102900000, guid: 7bd022c0eeff82242a44ec7f85e577fd,
-        type: 3}
-    - target: {fileID: 1083836406648120748, guid: 993ef60ca35f8124b938986c080fe93a,
-        type: 3}
-      propertyPath: trackableObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 848587264}
-    - target: {fileID: 1083836406648120748, guid: 993ef60ca35f8124b938986c080fe93a,
-        type: 3}
-      propertyPath: trackableObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 258485303}
     - target: {fileID: 3695590231710937186, guid: 993ef60ca35f8124b938986c080fe93a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -976,50 +928,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d47a82e380f7c43b607a7de45b6003, type: 3}
---- !u!1 &848587262
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 848587263}
-  - component: {fileID: 848587264}
-  m_Layer: 0
-  m_Name: TrackedSceneObject 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &848587263
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848587262}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.296166, y: 4.1821017, z: 0.5729914}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1867515707}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &848587264
+--- !u!114 &848587264 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 848587264, guid: 993ef60ca35f8124b938986c080fe93a,
+    type: 3}
+  m_PrefabInstance: {fileID: 674077992}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848587262}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57eabe987586b5041b452f49b2992496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Assets/Scenes/Art/GreatHall/GreatHall_V1.unity
 --- !u!114 &1006058214 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8979838947788467206, guid: e63b7207c2d72164b94a219b7780e56e,
@@ -1428,12 +1348,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c7d03c35e8f3654fa52180601deaa7b, type: 3}
---- !u!4 &1867515707 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3695590231710937186, guid: 993ef60ca35f8124b938986c080fe93a,
-    type: 3}
-  m_PrefabInstance: {fileID: 674077992}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1880828804
 GameObject:
   m_ObjectHideFlags: 0
